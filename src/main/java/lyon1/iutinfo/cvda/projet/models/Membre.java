@@ -20,6 +20,14 @@ public class Membre {
     protected String website;
     protected HashMap<String, ArrayList<Projet>> lstProjets;
     
+    public Membre() {
+        id=0;
+        nom="";
+        email="";
+        website="";
+        lstProjets=new HashMap<>();
+    }
+    
     public Membre(int i, String n, String e, String w) {
         id=i;
         nom=n;

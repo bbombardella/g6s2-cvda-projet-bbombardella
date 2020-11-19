@@ -21,6 +21,15 @@ public class Projet {
     protected int nbCommits;
     protected HashMap<String, ArrayList<Membre>> lstMembres;
     
+    public Projet() {
+        id=0;
+        nom="";
+        webURL="";
+        sshURL="";
+        nbCommits=0;
+        lstMembres=new HashMap<>();        
+    }
+    
     public Projet(int i, String n, String wURL, String sURL, int nCommits) {
         id=i;
         nom=n;

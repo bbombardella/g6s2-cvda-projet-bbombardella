@@ -5,6 +5,8 @@
  */
 package lyon1.iutinfo.cvda.projet;
 
+import lyon1.iutinfo.cvda.projet.models.*;
+
 /**
  *
  * @author Bastien BOMBARDELLA
@@ -15,7 +17,10 @@ public class CVDAProjetMain {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        // TODO code application logic here
+        Membre mb1 = new Membre();
+        Membre mb2 = new Membre();
+        Projet prj1 = new Projet();
+        Projet prj2 = new Projet();
     }
     
 }
