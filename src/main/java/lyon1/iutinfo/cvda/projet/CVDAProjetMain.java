@@ -76,6 +76,10 @@ public class CVDAProjetMain {
         prj2.getLstMembres().put("Maintainer", maintainer_projet2);
         prj2.getLstMembres().put("Reporter", reporter_projet2);
         
+        //Création de la liste des projets de chacun des membres
+        ArrayList<Projet> projetMb1 = new ArrayList<Projet>();
+        ArrayList<Projet> projetMb2 = new ArrayList<Projet>();
+                
     }
     
 }
