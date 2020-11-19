@@ -5,6 +5,7 @@
  */
 package lyon1.iutinfo.cvda.projet;
 
+import java.util.ArrayList;
 import lyon1.iutinfo.cvda.projet.models.*;
 
 /**
@@ -50,6 +51,16 @@ public class CVDAProjetMain {
         prj2.setWebURL("https://forge.univ-lyon1.fr/jeandupont/projet-test-2");
         prj2.setSshURL("git@forge.univ-lyon1.fr:jeandupont/projet-test-2.git");
         
+        //Création des ArrayList et ajout des membres
+        ArrayList<Membre> maintainer_projet1 = new ArrayList();
+        maintainer_projet1.add(mb1);
+        maintainer_projet1.add(mb2);
+        
+        ArrayList<Membre> maintainer_projet2 = new ArrayList();
+        maintainer_projet2.add(mb1);
+        
+        ArrayList<Membre> reporter_projet2 = new ArrayList();
+        reporter_projet2.add(mb2);
         
     }
     
