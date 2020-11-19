@@ -79,7 +79,18 @@ public class CVDAProjetMain {
         //Création de la liste des projets de chacun des membres
         ArrayList<Projet> projetMb1 = new ArrayList<Projet>();
         ArrayList<Projet> projetMb2 = new ArrayList<Projet>();
-                
+        
+        //Ajout des projets
+        projetMb1.add(prj1);
+        projetMb1.add(prj2);
+        projetMb2.add(prj1);
+        projetMb2.add(prj2);
+        
+        mb1.setLstProjets(new HashMap<String, ArrayList<Projet>>());
+        mb1.getLstProjets().put("Projet 1", projetMb1);
+        
+        mb2.setLstProjets(new HashMap<String, ArrayList<Projet>>());
+        mb2.getLstProjets().put("Projet 2", projetMb2);
     }
     
 }
