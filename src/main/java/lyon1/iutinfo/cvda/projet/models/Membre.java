@@ -20,4 +20,52 @@ public class Membre {
     protected String website;
     protected HashMap<String, ArrayList<Projet>> lstProjets;
     
+    public Membre(int i, String n, String e, String w) {
+        id=i;
+        nom=n;
+        email=e;
+        website=w;
+        lstProjets=new HashMap<>();
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    public String getNom() {
+        return nom;
+    }
+
+    public void setNom(String nom) {
+        this.nom = nom;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
+    public String getWebsite() {
+        return website;
+    }
+
+    public void setWebsite(String website) {
+        this.website = website;
+    }
+
+    public HashMap<String, ArrayList<Projet>> getLstProjets() {
+        return lstProjets;
+    }
+
+    public void setLstProjets(HashMap<String, ArrayList<Projet>> lstProjets) {
+        this.lstProjets = lstProjets;
+    }
+    
 }

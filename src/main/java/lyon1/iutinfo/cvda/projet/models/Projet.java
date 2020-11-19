@@ -21,4 +21,61 @@ public class Projet {
     protected int nbCommits;
     protected HashMap<String, ArrayList<Membre>> lstMembres;
     
+    public Projet(int i, String n, String wURL, String sURL, int nCommits) {
+        id=i;
+        nom=n;
+        webURL=wURL;
+        sshURL=sURL;
+        nbCommits=nCommits;
+        lstMembres=new HashMap<>();
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    public String getNom() {
+        return nom;
+    }
+
+    public void setNom(String nom) {
+        this.nom = nom;
+    }
+
+    public String getWebURL() {
+        return webURL;
+    }
+
+    public void setWebURL(String webURL) {
+        this.webURL = webURL;
+    }
+
+    public String getSshURL() {
+        return sshURL;
+    }
+
+    public void setSshURL(String sshURL) {
+        this.sshURL = sshURL;
+    }
+
+    public int getNbCommits() {
+        return nbCommits;
+    }
+
+    public void setNbCommits(int nbCommits) {
+        this.nbCommits = nbCommits;
+    }
+
+    public HashMap<String, ArrayList<Membre>> getLstMembres() {
+        return lstMembres;
+    }
+
+    public void setLstMembres(HashMap<String, ArrayList<Membre>> lstMembres) {
+        this.lstMembres = lstMembres;
+    }
+    
 }
