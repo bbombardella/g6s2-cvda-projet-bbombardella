@@ -9,7 +9,8 @@
 
 ![Diagramme d'activité UML](https://yuml.me/bastienbc/969ee675.png)
 
-```(start)->(Je me connecte a la forge)-><a>[J'ai reussi a me connecter]->(Je telecharge mes projets)-><b>[Il y a des projets existants]->(Je choisis le format)-><c>[PDF]->(Exportation en PDF)->|a|
+```
+(start)->(Je me connecte a la forge)-><a>[J'ai reussi a me connecter]->(Je telecharge mes projets)-><b>[Il y a des projets existants]->(Je choisis le format)-><c>[PDF]->(Exportation en PDF)->|a|
 <c>[XML]->(Exportation en XML)->|a|
 <c>[JSON]->(Exportation en JSON)->|a|
 <c>[HTML]->(Exportation en HTML)->|a|
