@@ -72,6 +72,10 @@ public class CVDAProjetMain {
         //Création de la HashMap du second projet
         prj2.setLstMembres(new HashMap<String, ArrayList<Membre>>());
         
+        //Ajout des deux ArrayList à la HashMap
+        prj2.getLstMembres().put("Maintainer", maintainer_projet2);
+        prj2.getLstMembres().put("Reporter", reporter_projet2);
+        
     }
     
 }
