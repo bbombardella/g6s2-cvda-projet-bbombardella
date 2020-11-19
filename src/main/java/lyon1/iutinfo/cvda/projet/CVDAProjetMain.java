@@ -6,6 +6,7 @@
 package lyon1.iutinfo.cvda.projet;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import lyon1.iutinfo.cvda.projet.models.*;
 
 /**
@@ -61,6 +62,9 @@ public class CVDAProjetMain {
         
         ArrayList<Membre> reporter_projet2 = new ArrayList();
         reporter_projet2.add(mb2);
+        
+        //Création de la Hashmap du premier projet
+        prj1.setLstMembres(new HashMap<String, ArrayList<Membre>>());
         
     }
     

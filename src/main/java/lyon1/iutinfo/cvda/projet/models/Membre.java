@@ -25,7 +25,7 @@ public class Membre {
         nom="";
         email="";
         website="";
-        lstProjets=new HashMap<>();
+        lstProjets=null;
     }
     
     public Membre(int i, String n, String e, String w) {

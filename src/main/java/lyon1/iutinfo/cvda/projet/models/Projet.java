@@ -27,7 +27,7 @@ public class Projet {
         webURL="";
         sshURL="";
         nbCommits=0;
-        lstMembres=new HashMap<>();        
+        lstMembres=null;        
     }
     
     public Projet(int i, String n, String wURL, String sURL, int nCommits) {
