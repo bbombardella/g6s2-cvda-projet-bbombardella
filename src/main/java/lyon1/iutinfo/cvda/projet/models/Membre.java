@@ -5,10 +5,19 @@
  */
 package lyon1.iutinfo.cvda.projet.models;
 
+import java.util.HashMap;
+import java.util.ArrayList;
+
 /**
  *
  * @author Bastien BOMBARDELLA
  */
 public class Membre {
+    
+    protected int id;
+    protected String nom;
+    protected String email;
+    protected String website;
+    protected HashMap<String, ArrayList<Projet>> lstProjets;
     
 }
