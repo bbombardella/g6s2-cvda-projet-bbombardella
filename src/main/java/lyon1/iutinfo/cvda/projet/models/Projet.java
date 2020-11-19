@@ -29,6 +29,25 @@ public class Projet {
         nbCommits=nCommits;
         lstMembres=new HashMap<>();
     }
+    
+    public String toString() {
+        int nbMembre=0;
+        String membreInfo = "";
+        for(ArrayList<Membre> list : lstMembres.values()) {
+            nbMembre+=list.size();
+            for(Membre m : list) {
+                membreInfo+="-\t#"+m.getId()+": "+m.getNom()+" ("+m.getNbProjets()+" projets)\n";
+            }
+        }
+        String info = "Projet id #"+id
+                + "\nNom : \""+nom+"\""
+                + "\nsshURL : \""+sshURL+"\""
+                + "\nwebURL : \""+webURL+"\""
+                + "\nCommits : "+nbCommits
+                + "\nMembres ("+nbMembre+")"
+                + "\n"+membreInfo;
+        return(info);
+    }
 
     public int getId() {
         return id;

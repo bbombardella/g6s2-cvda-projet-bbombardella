@@ -68,4 +68,12 @@ public class Membre {
         this.lstProjets = lstProjets;
     }
     
+    public int getNbProjets() {
+        int nbProjets=0;
+        for(ArrayList<Projet> projetList : lstProjets.values()) {
+            nbProjets+=projetList.size();
+        }
+        return nbProjets;
+    }
+    
 }
