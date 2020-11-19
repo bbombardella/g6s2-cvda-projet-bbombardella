@@ -27,6 +27,21 @@ public class Membre {
         website=w;
         lstProjets=new HashMap<>();
     }
+    
+    public String toString() {
+        String projets="";
+        for(ArrayList<Projet> listProjet : lstProjets.values()) {
+            for(Projet p : listProjet) {
+                projets+="-\t#"+p.getId()+": "+p.getNom()+" ("+p.getNbMembres()+")\n";
+            }
+        }
+        String info="#"+id+": "+nom
+                + "\nEmail: \""+email+"\""
+                + "\nWebsite : \""+website+"\""
+                + "\nProjets ("+this.getNbProjets()+")"
+                + "\n"+projets;
+        return info;
+    }
 
     public int getId() {
         return id;

@@ -97,4 +97,12 @@ public class Projet {
         this.lstMembres = lstMembres;
     }
     
+    public int getNbMembres() {
+        int nbMembres=0;
+        for(ArrayList<Membre> listMembre : lstMembres.values()) {
+            nbMembres+=listMembre.size();
+        }
+        return nbMembres;
+    }
+    
 }
