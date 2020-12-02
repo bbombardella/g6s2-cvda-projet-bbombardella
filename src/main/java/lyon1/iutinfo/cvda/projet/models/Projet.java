@@ -57,6 +57,10 @@ public class Projet {
                 + "\n"+membreInfo;
         return(info);
     }
+    
+    public String toXML() {
+        return "";
+    }
 
     public int getId() {
         return id;
