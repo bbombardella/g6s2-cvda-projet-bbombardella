@@ -6,6 +6,10 @@
 - https://g6s2-2020-iut-lyon1.framaboard.org/kanboard/?controller=BoardViewController&action=show&project_id=3&search=status%3Aopen
 - https://docs.kanboard.org/fr/latest/index.html
 - [Edition du diagramme d'activité](http://yuml.me/bastienbc/edit/969ee675) : http://yuml.me/bastienbc/edit/969ee675
+- Coordonnées du binôme :
+    - DAUBIGIE Marina
+    - marina.daubigie@etu.univ-lyon1.fr
+    - https://forge.univ-lyon1.fr/p1617728/g6s2-cvda-projet-mdaubigie
 
 ![Diagramme d'activité UML](https://yuml.me/bastienbc/969ee675.png)
 
