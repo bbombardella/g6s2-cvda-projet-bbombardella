@@ -32,7 +32,7 @@ public class ProjetTest {
     }
     
     @BeforeEach
-    public void setUp() {
+    public void setUp() { 
     }
     
     @AfterEach
@@ -45,12 +45,10 @@ public class ProjetTest {
     @Test
     public void testToString() {
         System.out.println("toString");
-        Projet instance = new Projet();
-        String expResult = "";
-        String result = instance.toString();
+        Projet proj=new Projet(4,"Projet Test", "https://www.test.com", "test@test.com", 5);
+        String expResult = "Projet id #4\nNom : \"Projet Test\"\nsshURL : \"test@test.com\"\nwebURL : \"https://www.test.com\"\nCommits : 5\nMembres (0)\n";
+        String result = proj.toString();
         assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
     }
 
     /**
@@ -73,12 +71,10 @@ public class ProjetTest {
     @Test
     public void testGetId() {
         System.out.println("getId");
-        Projet instance = new Projet();
-        int expResult = 0;
-        int result = instance.getId();
+        Projet proj=new Projet(4,"Projet Test", "https://www.test.com", "test@test.com", 5);
+        int expResult = 4;
+        int result = proj.getId();
         assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
     }
 
     /**
@@ -87,11 +83,10 @@ public class ProjetTest {
     @Test
     public void testSetId() {
         System.out.println("setId");
-        int id = 0;
-        Projet instance = new Projet();
-        instance.setId(id);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+        Projet proj=new Projet(4,"Projet Test", "https://www.test.com", "test@test.com", 5);
+        int id = 5;
+        proj.setId(id);
+        assertEquals(id, proj.getId());
     }
 
     /**
@@ -100,12 +95,10 @@ public class ProjetTest {
     @Test
     public void testGetNom() {
         System.out.println("getNom");
-        Projet instance = new Projet();
-        String expResult = "";
-        String result = instance.getNom();
+        Projet proj=new Projet(4,"Projet Test", "https://www.test.com", "test@test.com", 5);
+        String expResult = "Projet Test";
+        String result = proj.getNom();
         assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
     }
 
     /**
@@ -114,11 +107,10 @@ public class ProjetTest {
     @Test
     public void testSetNom() {
         System.out.println("setNom");
-        String nom = "";
-        Projet instance = new Projet();
-        instance.setNom(nom);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+        Projet proj=new Projet(4,"Projet Test", "https://www.test.com", "test@test.com", 5);
+        String nom = "Testons la méthode";
+        proj.setNom(nom);
+        assertEquals(nom, proj.getNom());
     }
 
     /**
@@ -127,12 +119,10 @@ public class ProjetTest {
     @Test
     public void testGetWebURL() {
         System.out.println("getWebURL");
-        Projet instance = new Projet();
-        String expResult = "";
-        String result = instance.getWebURL();
+        Projet proj=new Projet(4,"Projet Test", "https://www.test.com", "test@test.com", 5);
+        String expResult = "https://www.test.com";
+        String result = proj.getWebURL();
         assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
     }
 
     /**
@@ -141,11 +131,10 @@ public class ProjetTest {
     @Test
     public void testSetWebURL() {
         System.out.println("setWebURL");
-        String webURL = "";
-        Projet instance = new Projet();
-        instance.setWebURL(webURL);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+        String webURL = "https://new.test.com/";
+        Projet proj=new Projet(4,"Projet Test", "https://www.test.com", "test@test.com", 5);
+        proj.setWebURL(webURL);
+        assertEquals(webURL, proj.getWebURL());
     }
 
     /**
@@ -154,12 +143,10 @@ public class ProjetTest {
     @Test
     public void testGetSshURL() {
         System.out.println("getSshURL");
-        Projet instance = new Projet();
-        String expResult = "";
-        String result = instance.getSshURL();
+        Projet proj=new Projet(4,"Projet Test", "https://www.test.com", "test@test.com", 5);
+        String expResult = "test@test.com";
+        String result = proj.getSshURL();
         assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
     }
 
     /**
@@ -168,11 +155,10 @@ public class ProjetTest {
     @Test
     public void testSetSshURL() {
         System.out.println("setSshURL");
-        String sshURL = "";
-        Projet instance = new Projet();
-        instance.setSshURL(sshURL);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+        String sshURL = "test2@test.com";
+        Projet proj=new Projet(4,"Projet Test", "https://www.test.com", "test@test.com", 5);
+        proj.setSshURL(sshURL);
+        assertEquals(sshURL, proj.getSshURL());
     }
 
     /**
@@ -181,12 +167,10 @@ public class ProjetTest {
     @Test
     public void testGetNbCommits() {
         System.out.println("getNbCommits");
-        Projet instance = new Projet();
-        int expResult = 0;
-        int result = instance.getNbCommits();
+        Projet proj=new Projet(4,"Projet Test", "https://www.test.com", "test@test.com", 5);
+        int expResult = 5;
+        int result = proj.getNbCommits();
         assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
     }
 
     /**
@@ -195,11 +179,10 @@ public class ProjetTest {
     @Test
     public void testSetNbCommits() {
         System.out.println("setNbCommits");
-        int nbCommits = 0;
-        Projet instance = new Projet();
-        instance.setNbCommits(nbCommits);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+        int nbCommits = 8;
+        Projet proj=new Projet(4,"Projet Test", "https://www.test.com", "test@test.com", 5);
+        proj.setNbCommits(nbCommits);
+        assertEquals(nbCommits, proj.getNbCommits());
     }
 
     /**
@@ -208,12 +191,10 @@ public class ProjetTest {
     @Test
     public void testGetLstMembres() {
         System.out.println("getLstMembres");
-        Projet instance = new Projet();
-        HashMap<String, ArrayList<Membre>> expResult = null;
-        HashMap<String, ArrayList<Membre>> result = instance.getLstMembres();
+        Projet proj=new Projet(4,"Projet Test", "https://www.test.com", "test@test.com", 5);
+        HashMap<String, ArrayList<Membre>> expResult = new HashMap<>();
+        HashMap<String, ArrayList<Membre>> result = proj.getLstMembres();
         assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
     }
 
     /**
@@ -222,11 +203,10 @@ public class ProjetTest {
     @Test
     public void testSetLstMembres() {
         System.out.println("setLstMembres");
-        HashMap<String, ArrayList<Membre>> lstMembres = null;
-        Projet instance = new Projet();
-        instance.setLstMembres(lstMembres);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+        HashMap<String, ArrayList<Membre>> lstMembres = new HashMap<>();
+        Projet proj=new Projet(4,"Projet Test", "https://www.test.com", "test@test.com", 5);
+        proj.setLstMembres(lstMembres);
+        assertEquals(lstMembres, proj.getLstMembres());
     }
 
     /**
@@ -235,12 +215,10 @@ public class ProjetTest {
     @Test
     public void testGetNbMembres() {
         System.out.println("getNbMembres");
-        Projet instance = new Projet();
+        Projet proj=new Projet(4,"Projet Test", "https://www.test.com", "test@test.com", 5);
         int expResult = 0;
-        int result = instance.getNbMembres();
+        int result = proj.getNbMembres();
         assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
     }
     
 }
