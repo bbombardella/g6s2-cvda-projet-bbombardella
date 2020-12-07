@@ -69,21 +69,19 @@ public class ProjetTest {
         lstProjets.add(proj);
         bastien.getLstProjets().put("Maintainer", lstProjets);
         
-        String expXML = "<projet id=\"16646\" nbcommits=\"23\">\n" +
-            "\t<nom>g6s2-cvda-projet-bbombardella</nom>\n" +
-            "\t<webURL>https://forge.univ-lyon1.fr/p1935610/g6s2-cvda-projet-bbombardella.git</webURL>\n" +
-            "\t<sshURL>git@forge.univ-lyon1.fr:p1935610/g6s2-cvda-projet-bbombardella.git</sshURL>\n" +
-            "\t<membres>\n" +
-            "\t\t<membre id=\"2870\" role=\"Maintainer\">\n" +
-            "\t\t\t<nom>BOMBARDELLA BASTIEN p1935610</nom>\n" +
-            "\t\t\t<nb-projets>1</nb-projets>\n" +
-            "\t\t</membre>\n" +
-            "\t</membres>\n" +
+        String expXML = "<?xml version=\"1.0\" encoding=\"UTF-8\" standalone=\"no\"?>" +
+            "<projet id=\"16646\" nbcommits=\"23\">" +
+            "<nom>g6s2-cvda-projet-bbombardella</nom>" +
+            "<webURL>https://forge.univ-lyon1.fr/p1935610/g6s2-cvda-projet-bbombardella.git</webURL>" +
+            "<sshURL>git@forge.univ-lyon1.fr:p1935610/g6s2-cvda-projet-bbombardella.git</sshURL>" +
+            "<membres>" +
+            "<membre id=\"2870\" role=\"Maintainer\">" +
+            "<nom>BOMBARDELLA BASTIEN p1935610</nom>" +
+            "<nb-projets>1</nb-projets>" +
+            "</membre>" +
+            "</membres>" +
             "</projet>";
         String resultXML = proj.toXML();
-        
-        System.out.println(expXML);
-        System.out.println(resultXML);
         
         String expHash = new DigestUtils(SHA_224).digestAsHex(expXML);
         String resultHash = new DigestUtils(SHA_224).digestAsHex(resultXML);

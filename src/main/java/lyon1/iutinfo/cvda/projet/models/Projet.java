@@ -5,10 +5,23 @@
  */
 package lyon1.iutinfo.cvda.projet.models;
 
+import java.io.StringWriter;
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.HashSet;
 import java.util.Map.Entry;
-import java.util.Set;
+import javax.xml.parsers.DocumentBuilder;
+import javax.xml.parsers.DocumentBuilderFactory;
+import javax.xml.parsers.ParserConfigurationException;
+import javax.xml.transform.Transformer;
+import javax.xml.transform.TransformerException;
+import javax.xml.transform.TransformerFactory;
+import javax.xml.transform.dom.DOMSource;
+import javax.xml.transform.stream.StreamResult;
+
+import org.w3c.dom.Attr;
+import org.w3c.dom.Document;
+import org.w3c.dom.Element;
 
 /**
  *
@@ -61,22 +74,63 @@ public class Projet {
     }
     
     public String toXML() {
-        String xml = "<projet id=\""+this.id+"\" nbcommits=\""+this.nbCommits+"\">"
-                + "\n\t<nom>"+this.nom+"</nom>"
-                + "\n\t<webURL>"+this.webURL+"</webURL>"
-                + "\n\t<sshURL>"+this.sshURL+"</sshURL>"
-                + "\n\t<membres>";
-        for(Entry<String, ArrayList<Membre>> entry : lstMembres.entrySet())  {
-            for(Membre m : entry.getValue()) {
-                xml += "\n\t\t<membre id=\""+m.getId()+"\" role=\""+entry.getKey()+"\">"
-                        + "\n\t\t\t<nom>"+m.getNom()+"</nom>"
-                        + "\n\t\t\t<nb-projets>"+m.getNbProjets()+"</nb-projets>"
-                        + "\n\t\t</membre>";
+        String testXML = "";
+        try {
+            DocumentBuilderFactory docFactory = DocumentBuilderFactory.newInstance();
+            DocumentBuilder docBuilder = docFactory.newDocumentBuilder();
+            
+            Document doc = docBuilder.newDocument();
+            Element rootElement = doc.createElement("projet");
+            doc.appendChild(rootElement);
+            rootElement.setAttribute("id", String.valueOf(this.id));
+            rootElement.setAttribute("nbcommits", String.valueOf(this.nbCommits));            
+            
+            Element nomElement = doc.createElement("nom");
+            nomElement.appendChild(doc.createTextNode(this.nom));
+            rootElement.appendChild(nomElement);
+            
+            Element webURLElement = doc.createElement("webURL");
+            webURLElement.appendChild(doc.createTextNode(this.webURL));
+            rootElement.appendChild(webURLElement);
+            
+            Element sshURLElement = doc.createElement("sshURL");
+            sshURLElement.appendChild(doc.createTextNode(this.sshURL));
+            rootElement.appendChild(sshURLElement);
+            
+            Element membresElement = doc.createElement("membres");
+            rootElement.appendChild(membresElement);
+            
+            for(Entry<String, ArrayList<Membre>> list : lstMembres.entrySet()) {
+                for(Membre m : list.getValue()) {
+                    Element membreElement = doc.createElement("membre");
+                    membreElement.setAttribute("id", String.valueOf(m.getId()));
+                    membreElement.setAttribute("role", list.getKey());
+                    
+                    Element nomElement2 = doc.createElement("nom");
+                    nomElement2.appendChild(doc.createTextNode(m.getNom()));
+                    membreElement.appendChild(nomElement2);
+                    
+                    Element nbProjetsElement = doc.createElement("nb-projets");
+                    nbProjetsElement.appendChild(doc.createTextNode(String.valueOf(m.getNbProjets())));
+                    membreElement.appendChild(nbProjetsElement);
+                    
+                    membresElement.appendChild(membreElement);
+                }
             }
+            
+            TransformerFactory transformerFactory = TransformerFactory.newInstance();
+            Transformer transformer = transformerFactory.newTransformer();
+            DOMSource source = new DOMSource(doc);
+            StringWriter stringWriter = new StringWriter();
+            StreamResult result =  new StreamResult(stringWriter);
+            transformer.transform(source, result);
+            testXML = stringWriter.toString();
+            return testXML;
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
+        } finally {
+            return testXML;
         }
-        xml+= "\n\t</membres>"
-                +"\n</projet>";
-        return xml;
     }
 
     public int getId() {
