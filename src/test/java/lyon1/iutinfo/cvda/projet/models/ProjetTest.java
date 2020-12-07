@@ -13,6 +13,8 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.*;
+import org.apache.commons.codec.digest.DigestUtils;
+import static org.apache.commons.codec.digest.MessageDigestAlgorithms.SHA_224;
 
 /**
  *
@@ -57,12 +59,30 @@ public class ProjetTest {
     @Test
     public void testToXML() {
         System.out.println("toXML");
-        Projet instance = new Projet();
-        String expResult = "";
-        String result = instance.toXML();
-        assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+        
+        Membre bastien = new Membre(2870,"BOMBARDELLA BASTIEN p1935610","bastien.bombardella@etu.univ-lyon1.fr","bastienbc.fr");
+        Projet proj = new Projet(16646,"g6s2-cvda-projet-bbombardella","https://forge.univ-lyon1.fr/p1935610/g6s2-cvda-projet-bbombardella.git","git@forge.univ-lyon1.fr:p1935610/g6s2-cvda-projet-bbombardella.git",23);
+        ArrayList<Membre> lstMaintainers = new ArrayList();
+        lstMaintainers.add(bastien);
+        proj.getLstMembres().put("Maintainers", lstMaintainers);
+        
+        String expXML = "<projet id=\"16646\" nbcommits=\"23\">\n" +
+            "    <nom>g6s2-cvda-projet-bbombardella</nom>\n" +
+            "    <webURL>https://forge.univ-lyon1.fr/p1935610/g6s2-cvda-projet-bbombardella.git</webURL>\n" +
+            "    <sshURL>git@forge.univ-lyon1.fr:p1935610/g6s2-cvda-projet-bbombardella.git</sshURL>\n" +
+            "    <membres>\n" +
+            "        <membre id=\"2870\" role=\"Maintainer\">\n" +
+            "            <nom>BOMBARDELLA BASTIEN p1935610</nom>\n" +
+            "            <nb-projets>1</nb-projets>\n" +
+            "        </membre>\n" +
+            "    </membres>\n" +
+            "</projet>";
+        String resultXML = proj.toXML();
+        
+        String expHash = new DigestUtils(SHA_224).digestAsHex(expXML);
+        //String resultHash = new DigestUtils(SHA_224).digestAsHex(resultXML);
+        
+        assertEquals(expHash, resultXML);
     }
 
     /**

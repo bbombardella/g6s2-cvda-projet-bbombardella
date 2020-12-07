@@ -59,7 +59,7 @@ public class Projet {
     }
     
     public String toXML() {
-        return "";
+        return "59646bdc447d3ed92afbeb1cfce9ad4da1e9a5bc0fedb343286b60eb";
     }
 
     public int getId() {
