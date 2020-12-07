@@ -64,25 +64,31 @@ public class ProjetTest {
         Projet proj = new Projet(16646,"g6s2-cvda-projet-bbombardella","https://forge.univ-lyon1.fr/p1935610/g6s2-cvda-projet-bbombardella.git","git@forge.univ-lyon1.fr:p1935610/g6s2-cvda-projet-bbombardella.git",23);
         ArrayList<Membre> lstMaintainers = new ArrayList();
         lstMaintainers.add(bastien);
-        proj.getLstMembres().put("Maintainers", lstMaintainers);
+        proj.getLstMembres().put("Maintainer", lstMaintainers);
+        ArrayList<Projet> lstProjets = new ArrayList();
+        lstProjets.add(proj);
+        bastien.getLstProjets().put("Maintainer", lstProjets);
         
         String expXML = "<projet id=\"16646\" nbcommits=\"23\">\n" +
-            "    <nom>g6s2-cvda-projet-bbombardella</nom>\n" +
-            "    <webURL>https://forge.univ-lyon1.fr/p1935610/g6s2-cvda-projet-bbombardella.git</webURL>\n" +
-            "    <sshURL>git@forge.univ-lyon1.fr:p1935610/g6s2-cvda-projet-bbombardella.git</sshURL>\n" +
-            "    <membres>\n" +
-            "        <membre id=\"2870\" role=\"Maintainer\">\n" +
-            "            <nom>BOMBARDELLA BASTIEN p1935610</nom>\n" +
-            "            <nb-projets>1</nb-projets>\n" +
-            "        </membre>\n" +
-            "    </membres>\n" +
+            "\t<nom>g6s2-cvda-projet-bbombardella</nom>\n" +
+            "\t<webURL>https://forge.univ-lyon1.fr/p1935610/g6s2-cvda-projet-bbombardella.git</webURL>\n" +
+            "\t<sshURL>git@forge.univ-lyon1.fr:p1935610/g6s2-cvda-projet-bbombardella.git</sshURL>\n" +
+            "\t<membres>\n" +
+            "\t\t<membre id=\"2870\" role=\"Maintainer\">\n" +
+            "\t\t\t<nom>BOMBARDELLA BASTIEN p1935610</nom>\n" +
+            "\t\t\t<nb-projets>1</nb-projets>\n" +
+            "\t\t</membre>\n" +
+            "\t</membres>\n" +
             "</projet>";
         String resultXML = proj.toXML();
         
-        String expHash = new DigestUtils(SHA_224).digestAsHex(expXML);
-        //String resultHash = new DigestUtils(SHA_224).digestAsHex(resultXML);
+        System.out.println(expXML);
+        System.out.println(resultXML);
         
-        assertEquals(expHash, resultXML);
+        String expHash = new DigestUtils(SHA_224).digestAsHex(expXML);
+        String resultHash = new DigestUtils(SHA_224).digestAsHex(resultXML);
+        
+        assertEquals(expHash, resultHash);
     }
 
     /**

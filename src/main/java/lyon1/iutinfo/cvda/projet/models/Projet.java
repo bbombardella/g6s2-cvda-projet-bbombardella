@@ -7,6 +7,8 @@ package lyon1.iutinfo.cvda.projet.models;
 
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.Map.Entry;
+import java.util.Set;
 
 /**
  *
@@ -59,7 +61,22 @@ public class Projet {
     }
     
     public String toXML() {
-        return "59646bdc447d3ed92afbeb1cfce9ad4da1e9a5bc0fedb343286b60eb";
+        String xml = "<projet id=\""+this.id+"\" nbcommits=\""+this.nbCommits+"\">"
+                + "\n\t<nom>"+this.nom+"</nom>"
+                + "\n\t<webURL>"+this.webURL+"</webURL>"
+                + "\n\t<sshURL>"+this.sshURL+"</sshURL>"
+                + "\n\t<membres>";
+        for(Entry<String, ArrayList<Membre>> entry : lstMembres.entrySet())  {
+            for(Membre m : entry.getValue()) {
+                xml += "\n\t\t<membre id=\""+m.getId()+"\" role=\""+entry.getKey()+"\">"
+                        + "\n\t\t\t<nom>"+m.getNom()+"</nom>"
+                        + "\n\t\t\t<nb-projets>"+m.getNbProjets()+"</nb-projets>"
+                        + "\n\t\t</membre>";
+            }
+        }
+        xml+= "\n\t</membres>"
+                +"\n</projet>";
+        return xml;
     }
 
     public int getId() {
