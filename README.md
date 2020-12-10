@@ -19,3 +19,9 @@
 aucun projet existant)->(end)
 <a>[Je n'ai pas reussi a me connecter]->(Message d'erreur concernant la connexion)->(end)
 ```
+
+- Hash de la chaîne XML :
+
+```
+27d2d43182051a48140d90ac8db28b3503a3fc651b011e6460850826
+```
