@@ -3,6 +3,15 @@
     <modelVersion>4.0.0</modelVersion>
     <groupId>lyon1.iutinfo.cvda</groupId>
     <artifactId>g6s2-cvda-projet-bbombardella</artifactId>
+<<<<<<< OURS
+    <version>1.0-SNAPSHOT</version>
+    <packaging>jar</packaging>
+    <properties>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <maven.compiler.source>14</maven.compiler.source>
+        <maven.compiler.target>14</maven.compiler.target>
+    </properties>
+=======
     <version>0.1-ALPHA</version>
     <packaging>jar</packaging>
     <properties>
@@ -28,4 +37,5 @@
             <version>1.15</version>
         </dependency>
     </dependencies>
+>>>>>>> THEIRS
 </project>
