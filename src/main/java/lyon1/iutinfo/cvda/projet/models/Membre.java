@@ -7,6 +7,7 @@ package lyon1.iutinfo.cvda.projet.models;
 
 import java.util.HashMap;
 import java.util.ArrayList;
+import java.util.Map;
 
 /**
  *
@@ -99,8 +100,14 @@ public class Membre {
         return nbProjets;
     }
     
-    public void toXML(){
-        
+    public String toXML(){
+        String xml = "<membre id='"+this.getId()+"'>";
+        xml+= "\n   <nom>"+this.getNom()+"</nom>";
+        xml+= "\n   <email>"+this.getEmail()+"</email>";
+        xml+= "\n   <website>"+this.getWebsite()+"</website>";
+        xml+= "\n   <nbprojets>"+this.getNbProjets()+"</nbprojets>";
+        xml+="\n</membre>";
+        return xml;
     }
     
 }

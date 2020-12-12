@@ -201,7 +201,7 @@ public class MembreTest {
         String expResult = "<membre id='12'>\n   <nom>QUIROULE Pierre</nom>\n   <email>Pierre.Quiroule@test.fr</email>";
         expResult += "\n   <website>Pierrequiroule.com</website>\n   <nbprojets>1</nbprojets>";
         expResult += "\n</membre>";
-        String result = p1.toXML();
+        String result = m1.toXML();
 
         String expHash = new DigestUtils(SHA_224).digestAsHex(expResult);
         String resultHash = new DigestUtils(SHA_224).digestAsHex(result);
