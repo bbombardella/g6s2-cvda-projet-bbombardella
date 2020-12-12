@@ -7,6 +7,8 @@ package lyon1.iutinfo.cvda.projet.models;
 
 import java.util.ArrayList;
 import java.util.HashMap;
+import org.apache.commons.codec.digest.DigestUtils;
+import static org.apache.commons.codec.digest.MessageDigestAlgorithms.SHA_224;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.AfterAll;
 import org.junit.jupiter.api.BeforeEach;
@@ -185,7 +187,27 @@ public class MembreTest {
      */
     @Test
     public void testToXML() {
+        
+        Membre m1 = new Membre(12, "QUIROULE Pierre", "Pierre.Quiroule@test.fr", "Pierrequiroule.com");
+        Projet p1 = new Projet(128, "Test", "Test.com", "Test.com.ssh", 3);
+        ArrayList<Membre> lstMaintainers = new ArrayList();
+        lstMaintainers.add(m1);
+        p1.getLstMembres().put("Maintainer", lstMaintainers);
+        ArrayList<Projet> lstProjets = new ArrayList();
+        lstProjets.add(p1);
+        m1.getLstProjets().put("Maintainer", lstProjets);
+        
         System.out.println("toXML");
+        String expResult = "<membre id='12'>\n   <nom>QUIROULE Pierre</nom>\n   <email>Pierre.Quiroule@test.fr</email>";
+        expResult += "\n   <website>Pierrequiroule.com</website>\n   <nbprojets>1</nbprojets>";
+        expResult += "\n</membre>";
+        String result = p1.toXML();
+
+        String expHash = new DigestUtils(SHA_224).digestAsHex(expResult);
+        String resultHash = new DigestUtils(SHA_224).digestAsHex(result);
+        
+        assertEquals(expHash, resultHash);
+        System.out.println(resultHash);
     }
     
 }
