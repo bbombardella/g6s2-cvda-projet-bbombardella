@@ -25,3 +25,9 @@ aucun projet existant)->(end)
 ```
 27d2d43182051a48140d90ac8db28b3503a3fc651b011e6460850826
 ```
+
+- Hash de la chaîne XML pour les membres :
+
+```
+e8a6b68e7229d315d5aefb26da6361efffb5d1c44e4d14b45623633a
+```
