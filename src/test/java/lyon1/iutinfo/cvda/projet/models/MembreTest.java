@@ -49,8 +49,6 @@ public class MembreTest {
         String expResult = "";
         String result = instance.toString();
         assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
     }
 
     /**
@@ -59,12 +57,10 @@ public class MembreTest {
     @Test
     public void testGetId() {
         System.out.println("getId");
-        Membre instance = new Membre();
-        int expResult = 0;
+        Membre instance = new Membre(12, "QUIROULE Pierre", "Pierre.Quiroule@test.fr", "Pierrequiroule.com");
+        int expResult = 12;
         int result = instance.getId();
         assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
     }
 
     /**
@@ -76,8 +72,6 @@ public class MembreTest {
         int id = 0;
         Membre instance = new Membre();
         instance.setId(id);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
     }
 
     /**
@@ -86,12 +80,10 @@ public class MembreTest {
     @Test
     public void testGetNom() {
         System.out.println("getNom");
-        Membre instance = new Membre();
-        String expResult = "";
+        Membre instance = new Membre(12, "QUIROULE Pierre", "Pierre.Quiroule@test.fr", "Pierrequiroule.com");
+        String expResult = "QUIROULE Pierre";
         String result = instance.getNom();
         assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
     }
 
     /**
@@ -103,8 +95,6 @@ public class MembreTest {
         String nom = "";
         Membre instance = new Membre();
         instance.setNom(nom);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
     }
 
     /**
@@ -113,12 +103,10 @@ public class MembreTest {
     @Test
     public void testGetEmail() {
         System.out.println("getEmail");
-        Membre instance = new Membre();
-        String expResult = "";
+        Membre instance = new Membre(12, "QUIROULE Pierre", "Pierre.Quiroule@test.fr", "Pierrequiroule.com");
+        String expResult = "Pierre.Quiroule@test.fr";
         String result = instance.getEmail();
         assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
     }
 
     /**
@@ -130,8 +118,6 @@ public class MembreTest {
         String email = "";
         Membre instance = new Membre();
         instance.setEmail(email);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
     }
 
     /**
@@ -140,12 +126,10 @@ public class MembreTest {
     @Test
     public void testGetWebsite() {
         System.out.println("getWebsite");
-        Membre instance = new Membre();
-        String expResult = "";
+        Membre instance = new Membre(12, "QUIROULE Pierre", "Pierre.Quiroule@test.fr", "Pierrequiroule.com");
+        String expResult = "Pierrequiroule.com";
         String result = instance.getWebsite();
         assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
     }
 
     /**
@@ -157,8 +141,6 @@ public class MembreTest {
         String website = "";
         Membre instance = new Membre();
         instance.setWebsite(website);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
     }
 
     /**
@@ -167,12 +149,10 @@ public class MembreTest {
     @Test
     public void testGetLstProjets() {
         System.out.println("getLstProjets");
-        Membre instance = new Membre();
-        HashMap<String, ArrayList<Projet>> expResult = null;
+        Membre instance = new Membre(12, "QUIROULE Pierre", "Pierre.Quiroule@test.fr", "Pierrequiroule.com");
+        HashMap<String, ArrayList<Projet>> expResult = new HashMap<>();
         HashMap<String, ArrayList<Projet>> result = instance.getLstProjets();
         assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
     }
 
     /**
@@ -181,11 +161,9 @@ public class MembreTest {
     @Test
     public void testSetLstProjets() {
         System.out.println("setLstProjets");
-        HashMap<String, ArrayList<Projet>> lstProjets = null;
-        Membre instance = new Membre();
+        HashMap<String, ArrayList<Projet>> lstProjets = new HashMap<>();
+        Membre instance = new Membre(12, "QUIROULE Pierre", "Pierre.Quiroule@test.fr", "Pierrequiroule.com");
         instance.setLstProjets(lstProjets);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
     }
 
     /**
@@ -194,12 +172,18 @@ public class MembreTest {
     @Test
     public void testGetNbProjets() {
         System.out.println("getNbProjets");
-        Membre instance = new Membre();
+        Membre instance = new Membre(12, "QUIROULE Pierre", "Pierre.Quiroule@test.fr", "Pierrequiroule.com");
         int expResult = 0;
         int result = instance.getNbProjets();
         assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+    }
+    
+    /**
+     * Test of toXML method, of class Membre.
+     */
+    @Test
+    public void testToXML() {
+        System.out.println("toXML");
     }
     
 }

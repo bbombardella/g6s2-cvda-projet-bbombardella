@@ -99,4 +99,8 @@ public class Membre {
         return nbProjets;
     }
     
+    public void toXML(){
+        
+    }
+    
 }
