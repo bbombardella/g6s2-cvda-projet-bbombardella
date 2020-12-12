@@ -45,8 +45,10 @@ public class MembreTest {
     @Test
     public void testToString() {
         System.out.println("toString");
-        Membre instance = new Membre();
-        String expResult = "";
+        Membre instance = new Membre(12, "QUIROULE Pierre", "Pierre.Quiroule@test.fr", "Pierrequiroule.com");
+        String expResult = "#12: QUIROULE Pierre\nEmail: \"Pierre.Quiroule@test.fr\"";
+        expResult+= "\nWebsite : \"Pierrequiroule.com\"\nProjets (0)\n";
+        
         String result = instance.toString();
         assertEquals(expResult, result);
     }
