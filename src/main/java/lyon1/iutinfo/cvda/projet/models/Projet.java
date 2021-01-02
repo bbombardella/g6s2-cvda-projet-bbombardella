@@ -18,6 +18,11 @@ import javax.xml.transform.TransformerException;
 import javax.xml.transform.TransformerFactory;
 import javax.xml.transform.dom.DOMSource;
 import javax.xml.transform.stream.StreamResult;
+import lyon1.iutinfo.cvda.projet.exceptions.AnyMaintainerAvailable;
+import lyon1.iutinfo.cvda.projet.exceptions.NegativeNumberOfCommits;
+import lyon1.iutinfo.cvda.projet.exceptions.NegativeProjectID;
+import lyon1.iutinfo.cvda.projet.exceptions.WrongSshURL;
+import lyon1.iutinfo.cvda.projet.exceptions.WrongWebURL;
 
 import org.w3c.dom.Attr;
 import org.w3c.dom.Document;
@@ -137,8 +142,12 @@ public class Projet {
         return id;
     }
 
-    public void setId(int id) {
-        this.id = id;
+    public void setId(int id) throws NegativeProjectID {
+        if(id<=0) {
+            throw new NegativeProjectID();
+        } else {
+            this.id = id;
+        }
     }
 
     public String getNom() {
@@ -153,32 +162,48 @@ public class Projet {
         return webURL;
     }
 
-    public void setWebURL(String webURL) {
-        this.webURL = webURL;
+    public void setWebURL(String webURL) throws WrongWebURL {
+        if(webURL.matches("^https.*\\.git$")) {
+            this.webURL = webURL;
+        } else {
+            throw new WrongWebURL();
+        }
     }
 
     public String getSshURL() {
         return sshURL;
     }
 
-    public void setSshURL(String sshURL) {
-        this.sshURL = sshURL;
+    public void setSshURL(String sshURL) throws WrongSshURL {
+        if(sshURL.matches("^git\\@[A-Za-z0-9-\\.]*\\:[A-Za-z0-9]*\\/[A-Za-z0-9_\\.]*\\.git$")) {
+            this.sshURL = sshURL;
+        } else {
+            throw new WrongSshURL();
+        }        
     }
 
     public int getNbCommits() {
         return nbCommits;
     }
 
-    public void setNbCommits(int nbCommits) {
-        this.nbCommits = nbCommits;
+    public void setNbCommits(int nbCommits) throws NegativeNumberOfCommits {
+        if(nbCommits<0) {
+            throw new NegativeNumberOfCommits();
+        } else {
+            this.nbCommits = nbCommits;
+        }
     }
 
     public HashMap<String, ArrayList<Membre>> getLstMembres() {
         return lstMembres;
     }
 
-    public void setLstMembres(HashMap<String, ArrayList<Membre>> lstMembres) {
-        this.lstMembres = lstMembres;
+    public void setLstMembres(HashMap<String, ArrayList<Membre>> lstMembres) throws AnyMaintainerAvailable {
+        if(lstMembres.containsKey("Maintainer") && lstMembres.get("Maintainer").size()>0) {
+            this.lstMembres = lstMembres;
+        } else {
+            throw new AnyMaintainerAvailable();
+        }
     }
     
     public int getNbMembres() {

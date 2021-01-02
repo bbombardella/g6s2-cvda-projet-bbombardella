@@ -10,6 +10,7 @@ import java.util.HashMap;
 import lyon1.iutinfo.cvda.projet.exceptions.AnyMaintainerAvailable;
 import lyon1.iutinfo.cvda.projet.exceptions.NegativeNumberOfCommits;
 import lyon1.iutinfo.cvda.projet.exceptions.NegativeProjectID;
+import lyon1.iutinfo.cvda.projet.exceptions.WrongSshURL;
 import lyon1.iutinfo.cvda.projet.exceptions.WrongWebURL;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.AfterAll;
@@ -109,7 +110,7 @@ public class ProjetTest {
      * Test of setId method, of class Projet.
      */
     @Test
-    public void testSetId() {
+    public void testSetId() throws NegativeProjectID {
         System.out.println("setId");
         Projet proj=new Projet(4,"Projet Test", "https://www.test.com", "test@test.com", 5);
         int id = 5;
@@ -157,10 +158,10 @@ public class ProjetTest {
      * Test of setWebURL method, of class Projet.
      */
     @Test
-    public void testSetWebURL() {
+    public void testSetWebURL() throws WrongWebURL {
         System.out.println("setWebURL");
-        String webURL = "https://new.test.com/";
-        Projet proj=new Projet(4,"Projet Test", "https://www.test.com", "test@test.com", 5);
+        String webURL = "https://new.test.com/projet.git";
+        Projet proj=new Projet(4,"Projet Test", "https://www.test.com/projet.git", "test@test.com", 5);
         proj.setWebURL(webURL);
         assertEquals(webURL, proj.getWebURL());
     }
@@ -181,10 +182,10 @@ public class ProjetTest {
      * Test of setSshURL method, of class Projet.
      */
     @Test
-    public void testSetSshURL() {
+    public void testSetSshURL() throws WrongSshURL {
         System.out.println("setSshURL");
-        String sshURL = "test2@test.com";
-        Projet proj=new Projet(4,"Projet Test", "https://www.test.com", "test@test.com", 5);
+        String sshURL = "git@forge.univ-lyon1.fr:pgfdgdg/gfdguyt.git";
+        Projet proj=new Projet(4,"Projet Test", "https://www.test.com", "git@forge.univ-lyon1.fr:podsfc/qornd.git", 5);
         proj.setSshURL(sshURL);
         assertEquals(sshURL, proj.getSshURL());
     }
@@ -205,7 +206,7 @@ public class ProjetTest {
      * Test of setNbCommits method, of class Projet.
      */
     @Test
-    public void testSetNbCommits() {
+    public void testSetNbCommits() throws NegativeNumberOfCommits {
         System.out.println("setNbCommits");
         int nbCommits = 8;
         Projet proj=new Projet(4,"Projet Test", "https://www.test.com", "test@test.com", 5);
@@ -229,9 +230,13 @@ public class ProjetTest {
      * Test of setLstMembres method, of class Projet.
      */
     @Test
-    public void testSetLstMembres() {
+    public void testSetLstMembres() throws AnyMaintainerAvailable {
         System.out.println("setLstMembres");
         HashMap<String, ArrayList<Membre>> lstMembres = new HashMap<>();
+        Membre bastien = new Membre();
+        ArrayList<Membre> maintainer = new ArrayList();
+        maintainer.add(bastien);
+        lstMembres.put("Maintainer", maintainer);
         Projet proj=new Projet(4,"Projet Test", "https://www.test.com", "test@test.com", 5);
         proj.setLstMembres(lstMembres);
         assertEquals(lstMembres, proj.getLstMembres());
