@@ -7,6 +7,10 @@ package lyon1.iutinfo.cvda.projet.models;
 
 import java.util.ArrayList;
 import java.util.HashMap;
+import lyon1.iutinfo.cvda.projet.exceptions.AnyMaintainerAvailable;
+import lyon1.iutinfo.cvda.projet.exceptions.NegativeNumberOfCommits;
+import lyon1.iutinfo.cvda.projet.exceptions.NegativeProjectID;
+import lyon1.iutinfo.cvda.projet.exceptions.WrongWebURL;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.AfterAll;
 import org.junit.jupiter.api.BeforeEach;
@@ -243,6 +247,54 @@ public class ProjetTest {
         int expResult = 0;
         int result = proj.getNbMembres();
         assertEquals(expResult, result);
+    }
+    
+    public void testSetIdNegatif() {
+        System.out.println("testSetIdNegatif");
+        Projet proj=new Projet(4,"Projet Test", "https://www.test.com/project.git", "test@test.com:blabla", 5);
+        assertThrows(NegativeProjectID.class, () -> {
+            proj.setId(-2);
+        });
+    }
+    
+    public void testSetIdZero() {
+        System.out.println("testSetIdNegatif");
+        Projet proj=new Projet(4,"Projet Test", "https://www.test.com/project.git", "test@test.com:blabla", 5);
+        assertThrows(NegativeProjectID.class, () -> {
+            proj.setId(0);
+        });
+    }
+    
+    public void testSetWebURLWrong() {
+        System.out.println("testSetWebURLWrong");
+        Projet proj=new Projet(4,"Projet Test", "https://www.test.com/project.git", "test@test.com:blabla", 5);
+        assertThrows(WrongWebURL.class, () -> {
+            proj.setWebURL("");
+        });
+    }
+    
+    public void testSetSshURLWrong() {
+        System.out.println("testSetSshURLWrong");
+        Projet proj=new Projet(4,"Projet Test", "https://www.test.com/project.git", "test@test.com:blabla", 5);
+        assertThrows(WrongWebURL.class, () -> {
+            proj.setWebURL("");
+        });
+    }
+    
+    public void testSetNbCommitsNegative() {
+        System.out.println("testSetNbCommitsNegative");
+        Projet proj=new Projet(4,"Projet Test", "https://www.test.com/project.git", "test@test.com:blabla", 5);
+        assertThrows(NegativeNumberOfCommits.class, () -> {
+            proj.setNbCommits(-5);
+        });
+    }
+    
+    public void testSetLstMembresAnyMaintainer() {
+        System.out.println("testSetNbCommitsNegative");
+        Projet proj=new Projet(4,"Projet Test", "https://www.test.com/project.git", "test@test.com:blabla", 5);
+        assertThrows(AnyMaintainerAvailable.class, () -> {
+            proj.setLstMembres(new HashMap<String, ArrayList<Membre>>());
+        });
     }
     
 }
