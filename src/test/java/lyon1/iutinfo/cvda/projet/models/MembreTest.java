@@ -7,6 +7,9 @@ package lyon1.iutinfo.cvda.projet.models;
 
 import java.util.ArrayList;
 import java.util.HashMap;
+import lyon1.iutinfo.cvda.projet.exceptions.NegativeMemberID;
+import lyon1.iutinfo.cvda.projet.exceptions.WrongEmailAddress;
+import lyon1.iutinfo.cvda.projet.exceptions.WrongWebsiteURL;
 import org.apache.commons.codec.digest.DigestUtils;
 import static org.apache.commons.codec.digest.MessageDigestAlgorithms.SHA_224;
 import org.junit.jupiter.api.AfterEach;
@@ -208,6 +211,38 @@ public class MembreTest {
         
         assertEquals(expHash, resultHash);
         System.out.println(resultHash);
+    }
+    
+    @Test
+    public void testSetIdNegative() {
+        Membre m1 = new Membre(12, "QUIROULE Pierre", "Pierre.Quiroule@test.fr", "Pierrequiroule.com");
+        assertThrows(NegativeMemberID.class, () -> {
+            m1.setId(-1);
+        });
+    }
+    
+    @Test
+    public void testSetIdNull() {
+        Membre m1 = new Membre(12, "QUIROULE Pierre", "Pierre.Quiroule@test.fr", "Pierrequiroule.com");
+        assertThrows(NegativeMemberID.class, () -> {
+            m1.setId(0);
+        });
+    }
+    
+    @Test
+    public void testSetEmailWrong() {
+        Membre m1 = new Membre(12, "QUIROULE Pierre", "Pierre.Quiroule@test.fr", "Pierrequiroule.com");
+        assertThrows(WrongEmailAddress.class, () -> {
+            m1.setEmail("");
+        });
+    }
+    
+    @Test
+    public void testSetWebsiteWrong() {
+        Membre m1 = new Membre(12, "QUIROULE Pierre", "Pierre.Quiroule@test.fr", "Pierrequiroule.com");
+        assertThrows(WrongWebsiteURL.class, () -> {
+            m1.setWebsite("");
+        });
     }
     
 }
