@@ -20,7 +20,8 @@ public class CVDAProjetMain {
      */
     public static void main(String[] args) {
         
-        //Création de 2 membres et de 2 projets vides
+        try {
+                    //Création de 2 membres et de 2 projets vides
         Membre mb1 = new Membre();
         Membre mb2 = new Membre();
         Projet prj1 = new Projet();
@@ -91,6 +92,10 @@ public class CVDAProjetMain {
         
         mb2.setLstProjets(new HashMap<String, ArrayList<Projet>>());
         mb2.getLstProjets().put("Projet 2", projetMb2);
+        
+        } catch(Exception e) {
+            System.out.println(e.getMessage());
+        }
     }
     
 }
