@@ -74,9 +74,9 @@ public class MembreTest {
      * Test of setId method, of class Membre.
      */
     @Test
-    public void testSetId() {
+    public void testSetId() throws NegativeMemberID {
         System.out.println("setId");
-        int id = 0;
+        int id = 1;
         Membre instance = new Membre();
         instance.setId(id);
     }
@@ -120,9 +120,9 @@ public class MembreTest {
      * Test of setEmail method, of class Membre.
      */
     @Test
-    public void testSetEmail() {
+    public void testSetEmail() throws WrongEmailAddress {
         System.out.println("setEmail");
-        String email = "";
+        String email = "test@test.co.uk";
         Membre instance = new Membre();
         instance.setEmail(email);
     }
@@ -143,9 +143,9 @@ public class MembreTest {
      * Test of setWebsite method, of class Membre.
      */
     @Test
-    public void testSetWebsite() {
+    public void testSetWebsite() throws WrongWebsiteURL {
         System.out.println("setWebsite");
-        String website = "";
+        String website = "http://test.com/";
         Membre instance = new Membre();
         instance.setWebsite(website);
     }

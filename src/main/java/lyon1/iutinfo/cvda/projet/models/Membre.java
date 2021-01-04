@@ -8,6 +8,9 @@ package lyon1.iutinfo.cvda.projet.models;
 import java.util.HashMap;
 import java.util.ArrayList;
 import java.util.Map;
+import lyon1.iutinfo.cvda.projet.exceptions.NegativeMemberID;
+import lyon1.iutinfo.cvda.projet.exceptions.WrongEmailAddress;
+import lyon1.iutinfo.cvda.projet.exceptions.WrongWebsiteURL;
 
 /**
  *
@@ -56,8 +59,12 @@ public class Membre {
         return id;
     }
 
-    public void setId(int id) {
-        this.id = id;
+    public void setId(int id) throws NegativeMemberID {
+        if(id<=0) {
+            throw new NegativeMemberID();
+        } else {
+            this.id = id;
+        }
     }
 
     public String getNom() {
@@ -72,16 +79,24 @@ public class Membre {
         return email;
     }
 
-    public void setEmail(String email) {
-        this.email = email;
+    public void setEmail(String email) throws WrongEmailAddress {
+        if(email.matches("(?:[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*|\"(?:[\\x01-\\x08\\x0b\\x0c\\x0e-\\x1f\\x21\\x23-\\x5b\\x5d-\\x7f]|\\\\[\\x01-\\x09\\x0b\\x0c\\x0e-\\x7f])*\")@(?:(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?|\\[(?:(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\\.){3}(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?|[a-z0-9-]*[a-z0-9]:(?:[\\x01-\\x08\\x0b\\x0c\\x0e-\\x1f\\x21-\\x5a\\x53-\\x7f]|\\\\[\\x01-\\x09\\x0b\\x0c\\x0e-\\x7f])+)\\])")) {
+            this.email = email;
+        } else {
+            throw new WrongEmailAddress();
+        }
     }
 
     public String getWebsite() {
         return website;
     }
 
-    public void setWebsite(String website) {
-        this.website = website;
+    public void setWebsite(String website) throws WrongWebsiteURL {
+        if(website.matches("^(https?)://[-a-zA-Z0-9+&@#/%?=~_|!:,.;]*[-a-zA-Z0-9+&@#/%=~_|]")) {
+            this.website = website;
+        } else {
+            throw new WrongWebsiteURL();
+        }
     }
 
     public HashMap<String, ArrayList<Projet>> getLstProjets() {
