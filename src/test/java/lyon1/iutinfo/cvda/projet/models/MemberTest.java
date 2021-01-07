@@ -24,11 +24,11 @@ import static org.junit.jupiter.api.Assertions.*;
  * @author Marin
  */
 public
-	  class MembreTest
+	  class MemberTest
 	{
 
 	public
-		  MembreTest ()
+		  MemberTest ()
 		{
 		}
 
@@ -57,14 +57,14 @@ public
 		}
 
 	/**
-	 * Test of toString method, of class Membre.
+	 * Test of toString method, of class Member.
 	 */
 	@Test
 	public
 		  void testToString ()
 		{
 		System.out.println("toString");
-		Membre instance = new Membre(12, "QUIROULE Pierre", "Pierre.Quiroule@test.fr", "Pierrequiroule.com");
+		Member instance = new Member(12, "QUIROULE Pierre", "Pierre.Quiroule@test.fr", "Pierrequiroule.com");
 		String expResult = "#12: QUIROULE Pierre\nEmail: \"Pierre.Quiroule@test.fr\"";
 		expResult += "\nWebsite : \"Pierrequiroule.com\"\nProjets (0)\n";
 
@@ -73,21 +73,21 @@ public
 		}
 
 	/**
-	 * Test of getId method, of class Membre.
+	 * Test of getId method, of class Member.
 	 */
 	@Test
 	public
 		  void testGetId ()
 		{
 		System.out.println("getId");
-		Membre instance = new Membre(12, "QUIROULE Pierre", "Pierre.Quiroule@test.fr", "Pierrequiroule.com");
+		Member instance = new Member(12, "QUIROULE Pierre", "Pierre.Quiroule@test.fr", "Pierrequiroule.com");
 		int expResult = 12;
 		int result = instance.getId();
 		assertEquals(expResult, result);
 		}
 
 	/**
-	 * Test of setId method, of class Membre.
+	 * Test of setId method, of class Member.
 	 */
 	@Test
 	public
@@ -95,53 +95,53 @@ public
 		{
 		System.out.println("setId");
 		int id = 1;
-		Membre instance = new Membre();
+		Member instance = new Member();
 		instance.setId(id);
 		}
 
 	/**
-	 * Test of getNom method, of class Membre.
+	 * Test of getName method, of class Member.
 	 */
 	@Test
 	public
-		  void testGetNom ()
+		  void testGetName ()
 		{
-		System.out.println("getNom");
-		Membre instance = new Membre(12, "QUIROULE Pierre", "Pierre.Quiroule@test.fr", "Pierrequiroule.com");
+		System.out.println("getName");
+		Member instance = new Member(12, "QUIROULE Pierre", "Pierre.Quiroule@test.fr", "Pierrequiroule.com");
 		String expResult = "QUIROULE Pierre";
-		String result = instance.getNom();
+		String result = instance.getName();
 		assertEquals(expResult, result);
 		}
 
 	/**
-	 * Test of setNom method, of class Membre.
+	 * Test of setName method, of class Member.
 	 */
 	@Test
 	public
-		  void testSetNom ()
+		  void testSetName ()
 		{
-		System.out.println("setNom");
-		String nom = "";
-		Membre instance = new Membre();
-		instance.setNom(nom);
+		System.out.println("setName");
+		String name = "";
+		Member instance = new Member();
+		instance.setName(name);
 		}
 
 	/**
-	 * Test of getEmail method, of class Membre.
+	 * Test of getEmail method, of class Member.
 	 */
 	@Test
 	public
 		  void testGetEmail ()
 		{
 		System.out.println("getEmail");
-		Membre instance = new Membre(12, "QUIROULE Pierre", "Pierre.Quiroule@test.fr", "Pierrequiroule.com");
+		Member instance = new Member(12, "QUIROULE Pierre", "Pierre.Quiroule@test.fr", "Pierrequiroule.com");
 		String expResult = "Pierre.Quiroule@test.fr";
 		String result = instance.getEmail();
 		assertEquals(expResult, result);
 		}
 
 	/**
-	 * Test of setEmail method, of class Membre.
+	 * Test of setEmail method, of class Member.
 	 */
 	@Test
 	public
@@ -149,26 +149,26 @@ public
 		{
 		System.out.println("setEmail");
 		String email = "test@test.co.uk";
-		Membre instance = new Membre();
+		Member instance = new Member();
 		instance.setEmail(email);
 		}
 
 	/**
-	 * Test of getWebsite method, of class Membre.
+	 * Test of getWebsite method, of class Member.
 	 */
 	@Test
 	public
 		  void testGetWebsite ()
 		{
 		System.out.println("getWebsite");
-		Membre instance = new Membre(12, "QUIROULE Pierre", "Pierre.Quiroule@test.fr", "Pierrequiroule.com");
+		Member instance = new Member(12, "QUIROULE Pierre", "Pierre.Quiroule@test.fr", "Pierrequiroule.com");
 		String expResult = "Pierrequiroule.com";
 		String result = instance.getWebsite();
 		assertEquals(expResult, result);
 		}
 
 	/**
-	 * Test of setWebsite method, of class Membre.
+	 * Test of setWebsite method, of class Member.
 	 */
 	@Test
 	public
@@ -176,67 +176,67 @@ public
 		{
 		System.out.println("setWebsite");
 		String website = "http://test.com/";
-		Membre instance = new Membre();
+		Member instance = new Member();
 		instance.setWebsite(website);
 		}
 
 	/**
-	 * Test of getLstProjets method, of class Membre.
+	 * Test of getLstProjects method, of class Member.
 	 */
 	@Test
 	public
-		  void testGetLstProjets ()
+		  void testGetLstProjects ()
 		{
-		System.out.println("getLstProjets");
-		Membre instance = new Membre(12, "QUIROULE Pierre", "Pierre.Quiroule@test.fr", "Pierrequiroule.com");
-		HashMap<String, ArrayList<Projet>> expResult = new HashMap<>();
-		HashMap<String, ArrayList<Projet>> result = instance.getLstProjets();
+		System.out.println("getLstProjects");
+		Member instance = new Member(12, "QUIROULE Pierre", "Pierre.Quiroule@test.fr", "Pierrequiroule.com");
+		HashMap<String, ArrayList<Project>> expResult = new HashMap<>();
+		HashMap<String, ArrayList<Project>> result = instance.getLstProjects();
 		assertEquals(expResult, result);
 		}
 
 	/**
-	 * Test of setLstProjets method, of class Membre.
+	 * Test of setLstProjects method, of class Member.
 	 */
 	@Test
 	public
-		  void testSetLstProjets ()
+		  void testSetLstProjects ()
 		{
-		System.out.println("setLstProjets");
-		HashMap<String, ArrayList<Projet>> lstProjets = new HashMap<>();
-		Membre instance = new Membre(12, "QUIROULE Pierre", "Pierre.Quiroule@test.fr", "Pierrequiroule.com");
-		instance.setLstProjets(lstProjets);
+		System.out.println("setLstProjects");
+		HashMap<String, ArrayList<Project>> lstProjects = new HashMap<>();
+		Member instance = new Member(12, "QUIROULE Pierre", "Pierre.Quiroule@test.fr", "Pierrequiroule.com");
+		instance.setLstProjects(lstProjects);
 		}
 
 	/**
-	 * Test of getNbProjets method, of class Membre.
+	 * Test of getNbProjets method, of class Member.
 	 */
 	@Test
 	public
 		  void testGetNbProjets ()
 		{
 		System.out.println("getNbProjets");
-		Membre instance = new Membre(12, "QUIROULE Pierre", "Pierre.Quiroule@test.fr", "Pierrequiroule.com");
+		Member instance = new Member(12, "QUIROULE Pierre", "Pierre.Quiroule@test.fr", "Pierrequiroule.com");
 		int expResult = 0;
 		int result = instance.getNbProjets();
 		assertEquals(expResult, result);
 		}
 
 	/**
-	 * Test of toXML method, of class Membre.
+	 * Test of toXML method, of class Member.
 	 */
 	@Test
 	public
 		  void testToXML ()
 		{
 
-		Membre m1 = new Membre(12, "QUIROULE Pierre", "Pierre.Quiroule@test.fr", "Pierrequiroule.com");
-		Projet p1 = new Projet(128, "Test", "Test.com", "Test.com.ssh", 3);
-		ArrayList<Membre> lstMaintainers = new ArrayList();
+		Member m1 = new Member(12, "QUIROULE Pierre", "Pierre.Quiroule@test.fr", "Pierrequiroule.com");
+		Project p1 = new Project(128, "Test", "Test.com", "Test.com.ssh", 3);
+		ArrayList<Member> lstMaintainers = new ArrayList();
 		lstMaintainers.add(m1);
-		p1.getLstMembres().put("Maintainer", lstMaintainers);
-		ArrayList<Projet> lstProjets = new ArrayList();
-		lstProjets.add(p1);
-		m1.getLstProjets().put("Maintainer", lstProjets);
+		p1.getLstMembers().put("Maintainer", lstMaintainers);
+		ArrayList<Project> lstProjects = new ArrayList();
+		lstProjects.add(p1);
+		m1.getLstProjects().put("Maintainer", lstProjects);
 
 		System.out.println("toXML");
 		String expResult = "<membre id='12'>\n   <nom>QUIROULE Pierre</nom>\n   <email>Pierre.Quiroule@test.fr</email>";
@@ -255,7 +255,7 @@ public
 	public
 		  void testSetIdNegative ()
 		{
-		Membre m1 = new Membre(12, "QUIROULE Pierre", "Pierre.Quiroule@test.fr", "Pierrequiroule.com");
+		Member m1 = new Member(12, "QUIROULE Pierre", "Pierre.Quiroule@test.fr", "Pierrequiroule.com");
 		assertThrows(NegativeMemberID.class, () ->
 			{
 			m1.setId(-1);
@@ -266,7 +266,7 @@ public
 	public
 		  void testSetIdNull ()
 		{
-		Membre m1 = new Membre(12, "QUIROULE Pierre", "Pierre.Quiroule@test.fr", "Pierrequiroule.com");
+		Member m1 = new Member(12, "QUIROULE Pierre", "Pierre.Quiroule@test.fr", "Pierrequiroule.com");
 		assertThrows(NegativeMemberID.class, () ->
 			{
 			m1.setId(0);
@@ -277,7 +277,7 @@ public
 	public
 		  void testSetEmailWrong ()
 		{
-		Membre m1 = new Membre(12, "QUIROULE Pierre", "Pierre.Quiroule@test.fr", "Pierrequiroule.com");
+		Member m1 = new Member(12, "QUIROULE Pierre", "Pierre.Quiroule@test.fr", "Pierrequiroule.com");
 		assertThrows(WrongEmailAddress.class, () ->
 			{
 			m1.setEmail("");
@@ -288,7 +288,7 @@ public
 	public
 		  void testSetWebsiteWrong ()
 		{
-		Membre m1 = new Membre(12, "QUIROULE Pierre", "Pierre.Quiroule@test.fr", "Pierrequiroule.com");
+		Member m1 = new Member(12, "QUIROULE Pierre", "Pierre.Quiroule@test.fr", "Pierrequiroule.com");
 		assertThrows(WrongWebsiteURL.class, () ->
 			{
 			m1.setWebsite("");

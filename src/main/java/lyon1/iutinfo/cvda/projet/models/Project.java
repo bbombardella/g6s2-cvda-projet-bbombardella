@@ -8,13 +8,10 @@ package lyon1.iutinfo.cvda.projet.models;
 import java.io.StringWriter;
 import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.HashSet;
 import java.util.Map.Entry;
 import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
-import javax.xml.parsers.ParserConfigurationException;
 import javax.xml.transform.Transformer;
-import javax.xml.transform.TransformerException;
 import javax.xml.transform.TransformerFactory;
 import javax.xml.transform.dom.DOMSource;
 import javax.xml.transform.stream.StreamResult;
@@ -24,7 +21,6 @@ import lyon1.iutinfo.cvda.projet.exceptions.NegativeProjectID;
 import lyon1.iutinfo.cvda.projet.exceptions.WrongSshURL;
 import lyon1.iutinfo.cvda.projet.exceptions.WrongWebURL;
 
-import org.w3c.dom.Attr;
 import org.w3c.dom.Document;
 import org.w3c.dom.Element;
 
@@ -33,13 +29,13 @@ import org.w3c.dom.Element;
  * @author Bastien BOMBARDELLA
  */
 public
-	  class Projet
+	  class Project
 	{
 
 	protected
 		  int id;
 	protected
-		  String nom;
+		  String name;
 	protected
 		  String webURL;
 	protected
@@ -47,28 +43,28 @@ public
 	protected
 		  int nbCommits;
 	protected
-		  HashMap<String, ArrayList<Membre>> lstMembres;
+		  HashMap<String, ArrayList<Member>> lstMembers;
 
 	public
-		  Projet ()
+		  Project ()
 		{
 		id = 0;
-		nom = "";
+		name = "";
 		webURL = "";
 		sshURL = "";
 		nbCommits = 0;
-		lstMembres = null;
+		lstMembers = null;
 		}
 
 	public
-		  Projet (int i, String n, String wURL, String sURL, int nCommits)
+		  Project (int i, String n, String wURL, String sURL, int nCommits)
 		{
 		id = i;
-		nom = n;
+		name = n;
 		webURL = wURL;
 		sshURL = sURL;
 		nbCommits = nCommits;
-		lstMembres = new HashMap<>();
+		lstMembers = new HashMap<>();
 		}
 
 	public
@@ -76,16 +72,16 @@ public
 		{
 		int nbMembre = 0;
 		String membreInfo = "";
-		for (ArrayList<Membre> list : lstMembres.values())
+		for (ArrayList<Member> list : lstMembers.values())
 			{
 			nbMembre += list.size();
-			for (Membre m : list)
+			for (Member m : list)
 				{
-				membreInfo += "-\t#" + m.getId() + ": " + m.getNom() + " (" + m.getNbProjets() + " projets)\n";
+				membreInfo += "-\t#" + m.getId() + ": " + m.getName() + " (" + m.getNbProjets() + " projets)\n";
 				}
 			}
 		String info = "Projet id #" + id
-			  + "\nNom : \"" + nom + "\""
+			  + "\nNom : \"" + name + "\""
 			  + "\nsshURL : \"" + sshURL + "\""
 			  + "\nwebURL : \"" + webURL + "\""
 			  + "\nCommits : " + nbCommits
@@ -110,7 +106,7 @@ public
 			rootElement.setAttribute("nbcommits", String.valueOf(this.nbCommits));
 
 			Element nomElement = doc.createElement("nom");
-			nomElement.appendChild(doc.createTextNode(this.nom));
+			nomElement.appendChild(doc.createTextNode(this.name));
 			rootElement.appendChild(nomElement);
 
 			Element webURLElement = doc.createElement("webURL");
@@ -124,16 +120,16 @@ public
 			Element membresElement = doc.createElement("membres");
 			rootElement.appendChild(membresElement);
 
-			for (Entry<String, ArrayList<Membre>> list : lstMembres.entrySet())
+			for (Entry<String, ArrayList<Member>> list : lstMembers.entrySet())
 				{
-				for (Membre m : list.getValue())
+				for (Member m : list.getValue())
 					{
 					Element membreElement = doc.createElement("membre");
 					membreElement.setAttribute("id", String.valueOf(m.getId()));
 					membreElement.setAttribute("role", list.getKey());
 
 					Element nomElement2 = doc.createElement("nom");
-					nomElement2.appendChild(doc.createTextNode(m.getNom()));
+					nomElement2.appendChild(doc.createTextNode(m.getName()));
 					membreElement.appendChild(nomElement2);
 
 					Element nbProjetsElement = doc.createElement("nb-projets");
@@ -183,15 +179,15 @@ public
 		}
 
 	public
-		  String getNom ()
+		  String getName ()
 		{
-		return nom;
+		return name;
 		}
 
 	public
-		  void setNom (String nom)
+		  void setName (String name)
 		{
-		this.nom = nom;
+		this.name = name;
 		}
 
 	public
@@ -252,17 +248,17 @@ public
 		}
 
 	public
-		  HashMap<String, ArrayList<Membre>> getLstMembres ()
+		  HashMap<String, ArrayList<Member>> getLstMembers ()
 		{
-		return lstMembres;
+		return lstMembers;
 		}
 
 	public
-		  void setLstMembres (HashMap<String, ArrayList<Membre>> lstMembres) throws AnyMaintainerAvailable
+		  void setLstMembers (HashMap<String, ArrayList<Member>> lstMembers) throws AnyMaintainerAvailable
 		{
-		if (lstMembres.containsKey("Maintainer") && lstMembres.get("Maintainer").size() > 0)
+		if (lstMembers.containsKey("Maintainer") && lstMembers.get("Maintainer").size() > 0)
 			{
-			this.lstMembres = lstMembres;
+			this.lstMembers = lstMembers;
 			}
 		else
 			{
@@ -274,7 +270,7 @@ public
 		  int getNbMembres ()
 		{
 		int nbMembres = 0;
-		for (ArrayList<Membre> listMembre : lstMembres.values())
+		for (ArrayList<Member> listMembre : lstMembers.values())
 			{
 			nbMembres += listMembre.size();
 			}

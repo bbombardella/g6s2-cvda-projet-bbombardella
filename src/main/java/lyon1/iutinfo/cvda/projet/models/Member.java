@@ -7,7 +7,6 @@ package lyon1.iutinfo.cvda.projet.models;
 
 import java.util.HashMap;
 import java.util.ArrayList;
-import java.util.Map;
 import lyon1.iutinfo.cvda.projet.exceptions.NegativeMemberID;
 import lyon1.iutinfo.cvda.projet.exceptions.WrongEmailAddress;
 import lyon1.iutinfo.cvda.projet.exceptions.WrongWebsiteURL;
@@ -17,52 +16,52 @@ import lyon1.iutinfo.cvda.projet.exceptions.WrongWebsiteURL;
  * @author Bastien BOMBARDELLA
  */
 public
-	  class Membre
+	  class Member
 	{
 
 	protected
 		  int id;
 	protected
-		  String nom;
+		  String name;
 	protected
 		  String email;
 	protected
 		  String website;
 	protected
-		  HashMap<String, ArrayList<Projet>> lstProjets;
+		  HashMap<String, ArrayList<Project>> lstProjects;
 
 	public
-		  Membre ()
+		  Member ()
 		{
 		id = 0;
-		nom = "";
+		name = "";
 		email = "";
 		website = "";
-		lstProjets = null;
+		lstProjects = null;
 		}
 
 	public
-		  Membre (int i, String n, String e, String w)
+		  Member (int i, String n, String e, String w)
 		{
 		id = i;
-		nom = n;
+		name = n;
 		email = e;
 		website = w;
-		lstProjets = new HashMap<>();
+		lstProjects = new HashMap<>();
 		}
 
 	public
 		  String toString ()
 		{
 		String projets = "";
-		for (ArrayList<Projet> listProjet : lstProjets.values())
+		for (ArrayList<Project> listProject : lstProjects.values())
 			{
-			for (Projet p : listProjet)
+			for (Project p : listProject)
 				{
-				projets += "-\t#" + p.getId() + ": " + p.getNom() + " (" + p.getNbMembres() + ")\n";
+				projets += "-\t#" + p.getId() + ": " + p.getName() + " (" + p.getNbMembres() + ")\n";
 				}
 			}
-		String info = "#" + id + ": " + nom
+		String info = "#" + id + ": " + name
 			  + "\nEmail: \"" + email + "\""
 			  + "\nWebsite : \"" + website + "\""
 			  + "\nProjets (" + this.getNbProjets() + ")"
@@ -90,15 +89,15 @@ public
 		}
 
 	public
-		  String getNom ()
+		  String getName ()
 		{
-		return nom;
+		return name;
 		}
 
 	public
-		  void setNom (String nom)
+		  void setName (String name)
 		{
-		this.nom = nom;
+		this.name = name;
 		}
 
 	public
@@ -140,22 +139,22 @@ public
 		}
 
 	public
-		  HashMap<String, ArrayList<Projet>> getLstProjets ()
+		  HashMap<String, ArrayList<Project>> getLstProjects ()
 		{
-		return lstProjets;
+		return lstProjects;
 		}
 
 	public
-		  void setLstProjets (HashMap<String, ArrayList<Projet>> lstProjets)
+		  void setLstProjects (HashMap<String, ArrayList<Project>> lstProjects)
 		{
-		this.lstProjets = lstProjets;
+		this.lstProjects = lstProjects;
 		}
 
 	public
 		  int getNbProjets ()
 		{
 		int nbProjets = 0;
-		for (ArrayList<Projet> projetList : lstProjets.values())
+		for (ArrayList<Project> projetList : lstProjects.values())
 			{
 			nbProjets += projetList.size();
 			}
@@ -166,7 +165,7 @@ public
 		  String toXML ()
 		{
 		String xml = "<membre id='" + this.getId() + "'>";
-		xml += "\n   <nom>" + this.getNom() + "</nom>";
+		xml += "\n   <nom>" + this.getName() + "</nom>";
 		xml += "\n   <email>" + this.getEmail() + "</email>";
 		xml += "\n   <website>" + this.getWebsite() + "</website>";
 		xml += "\n   <nbprojets>" + this.getNbProjets() + "</nbprojets>";
