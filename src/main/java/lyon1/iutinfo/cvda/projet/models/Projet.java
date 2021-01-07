@@ -32,16 +32,24 @@ import org.w3c.dom.Element;
  *
  * @author Bastien BOMBARDELLA
  */
-public class Projet {
+public
+	  class Projet {
 
-	protected int id;
-	protected String nom;
-	protected String webURL;
-	protected String sshURL;
-	protected int nbCommits;
-	protected HashMap<String, ArrayList<Membre>> lstMembres;
+	protected
+		  int id;
+	protected
+		  String nom;
+	protected
+		  String webURL;
+	protected
+		  String sshURL;
+	protected
+		  int nbCommits;
+	protected
+		  HashMap<String, ArrayList<Membre>> lstMembres;
 
-	public Projet() {
+	public
+		  Projet() {
 		id = 0;
 		nom = "";
 		webURL = "";
@@ -50,7 +58,8 @@ public class Projet {
 		lstMembres = null;
 	}
 
-	public Projet(int i, String n, String wURL, String sURL, int nCommits) {
+	public
+		  Projet(int i, String n, String wURL, String sURL, int nCommits) {
 		id = i;
 		nom = n;
 		webURL = wURL;
@@ -59,7 +68,8 @@ public class Projet {
 		lstMembres = new HashMap<>();
 	}
 
-	public String toString() {
+	public
+		  String toString() {
 		int nbMembre = 0;
 		String membreInfo = "";
 		for (ArrayList<Membre> list : lstMembres.values()) {
@@ -78,7 +88,8 @@ public class Projet {
 		return (info);
 	}
 
-	public String toXML() {
+	public
+		  String toXML() {
 		String testXML = "";
 		try {
 			DocumentBuilderFactory docFactory = DocumentBuilderFactory.newInstance();
@@ -131,82 +142,102 @@ public class Projet {
 			transformer.transform(source, result);
 			testXML = stringWriter.toString();
 			return testXML;
-		} catch (Exception e) {
+		}
+		catch (Exception e) {
 			System.out.println(e.getMessage());
-		} finally {
+		}
+		finally {
 			return testXML;
 		}
 	}
 
-	public int getId() {
+	public
+		  int getId() {
 		return id;
 	}
 
-	public void setId(int id) throws NegativeProjectID {
+	public
+		  void setId(int id) throws NegativeProjectID {
 		if (id <= 0) {
 			throw new NegativeProjectID();
-		} else {
+		}
+		else {
 			this.id = id;
 		}
 	}
 
-	public String getNom() {
+	public
+		  String getNom() {
 		return nom;
 	}
 
-	public void setNom(String nom) {
+	public
+		  void setNom(String nom) {
 		this.nom = nom;
 	}
 
-	public String getWebURL() {
+	public
+		  String getWebURL() {
 		return webURL;
 	}
 
-	public void setWebURL(String webURL) throws WrongWebURL {
+	public
+		  void setWebURL(String webURL) throws WrongWebURL {
 		if (webURL.matches("^https.*\\.git$")) {
 			this.webURL = webURL;
-		} else {
+		}
+		else {
 			throw new WrongWebURL();
 		}
 	}
 
-	public String getSshURL() {
+	public
+		  String getSshURL() {
 		return sshURL;
 	}
 
-	public void setSshURL(String sshURL) throws WrongSshURL {
+	public
+		  void setSshURL(String sshURL) throws WrongSshURL {
 		if (sshURL.matches("^git\\@[A-Za-z0-9-\\.]*\\:[A-Za-z0-9]*\\/[A-Za-z0-9_\\.]*\\.git$")) {
 			this.sshURL = sshURL;
-		} else {
+		}
+		else {
 			throw new WrongSshURL();
 		}
 	}
 
-	public int getNbCommits() {
+	public
+		  int getNbCommits() {
 		return nbCommits;
 	}
 
-	public void setNbCommits(int nbCommits) throws NegativeNumberOfCommits {
+	public
+		  void setNbCommits(int nbCommits) throws NegativeNumberOfCommits {
 		if (nbCommits < 0) {
 			throw new NegativeNumberOfCommits();
-		} else {
+		}
+		else {
 			this.nbCommits = nbCommits;
 		}
 	}
 
-	public HashMap<String, ArrayList<Membre>> getLstMembres() {
+	public
+		  HashMap<String, ArrayList<Membre>> getLstMembres() {
 		return lstMembres;
 	}
 
-	public void setLstMembres(HashMap<String, ArrayList<Membre>> lstMembres) throws AnyMaintainerAvailable {
+	public
+		  void setLstMembres(HashMap<String, ArrayList<Membre>> lstMembres) throws AnyMaintainerAvailable {
 		if (lstMembres.containsKey("Maintainer") && lstMembres.get("Maintainer").size() > 0) {
 			this.lstMembres = lstMembres;
-		} else {
+		}
+		else {
 			throw new AnyMaintainerAvailable();
 		}
 	}
 
-	public int getNbMembres() {
+	public
+		  int getNbMembres() {
 		int nbMembres = 0;
 		for (ArrayList<Membre> listMembre : lstMembres.values()) {
 			nbMembres += listMembre.size();

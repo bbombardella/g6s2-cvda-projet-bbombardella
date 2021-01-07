@@ -13,12 +13,14 @@ import lyon1.iutinfo.cvda.projet.models.*;
  *
  * @author Bastien BOMBARDELLA
  */
-public class CVDAProjetMain {
+public
+	  class CVDAProjetMain {
 
 	/**
 	 * @param args the command line arguments
 	 */
-	public static void main(String[] args) {
+	public static
+		  void main(String[] args) {
 
 		try {
 			//Création de 2 membres et de 2 projets vides
@@ -93,7 +95,8 @@ public class CVDAProjetMain {
 			mb2.setLstProjets(new HashMap<String, ArrayList<Projet>>());
 			mb2.getLstProjets().put("Projet 2", projetMb2);
 
-		} catch (Exception e) {
+		}
+		catch (Exception e) {
 			System.out.println(e.getMessage());
 		}
 	}

@@ -9,9 +9,11 @@ package lyon1.iutinfo.cvda.projet.exceptions;
  *
  * @author Bastien BOMBARDELLA
  */
-public class WrongWebURL extends Exception {
+public
+	  class WrongWebURL extends Exception {
 
-	public WrongWebURL() {
+	public
+		  WrongWebURL() {
 		super("L'URL de l'adresse web doit commencer par 'https' et doit se finir par '.git'.");
 	}
 }

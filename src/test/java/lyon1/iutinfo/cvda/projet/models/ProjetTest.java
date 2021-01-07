@@ -25,32 +25,39 @@ import static org.apache.commons.codec.digest.MessageDigestAlgorithms.SHA_224;
  *
  * @author Bastien BOMBARDELLA
  */
-public class ProjetTest {
+public
+	  class ProjetTest {
 
-	public ProjetTest() {
+	public
+		  ProjetTest() {
 	}
 
 	@BeforeAll
-	public static void setUpClass() {
+	public static
+		  void setUpClass() {
 	}
 
 	@AfterAll
-	public static void tearDownClass() {
+	public static
+		  void tearDownClass() {
 	}
 
 	@BeforeEach
-	public void setUp() {
+	public
+		  void setUp() {
 	}
 
 	@AfterEach
-	public void tearDown() {
+	public
+		  void tearDown() {
 	}
 
 	/**
 	 * Test of toString method, of class Projet.
 	 */
 	@Test
-	public void testToString() {
+	public
+		  void testToString() {
 		System.out.println("toString");
 		Projet proj = new Projet(4, "Projet Test", "https://www.test.com", "test@test.com", 5);
 		String expResult = "Projet id #4\nNom : \"Projet Test\"\nsshURL : \"test@test.com\"\nwebURL : \"https://www.test.com\"\nCommits : 5\nMembres (0)\n";
@@ -62,7 +69,8 @@ public class ProjetTest {
 	 * Test of toXML method, of class Projet.
 	 */
 	@Test
-	public void testToXML() {
+	public
+		  void testToXML() {
 		System.out.println("toXML");
 
 		Membre bastien = new Membre(2870, "BOMBARDELLA BASTIEN p1935610", "bastien.bombardella@etu.univ-lyon1.fr", "bastienbc.fr");
@@ -98,7 +106,8 @@ public class ProjetTest {
 	 * Test of getId method, of class Projet.
 	 */
 	@Test
-	public void testGetId() {
+	public
+		  void testGetId() {
 		System.out.println("getId");
 		Projet proj = new Projet(4, "Projet Test", "https://www.test.com", "test@test.com", 5);
 		int expResult = 4;
@@ -110,7 +119,8 @@ public class ProjetTest {
 	 * Test of setId method, of class Projet.
 	 */
 	@Test
-	public void testSetId() throws NegativeProjectID {
+	public
+		  void testSetId() throws NegativeProjectID {
 		System.out.println("setId");
 		Projet proj = new Projet(4, "Projet Test", "https://www.test.com", "test@test.com", 5);
 		int id = 5;
@@ -122,7 +132,8 @@ public class ProjetTest {
 	 * Test of getNom method, of class Projet.
 	 */
 	@Test
-	public void testGetNom() {
+	public
+		  void testGetNom() {
 		System.out.println("getNom");
 		Projet proj = new Projet(4, "Projet Test", "https://www.test.com", "test@test.com", 5);
 		String expResult = "Projet Test";
@@ -134,7 +145,8 @@ public class ProjetTest {
 	 * Test of setNom method, of class Projet.
 	 */
 	@Test
-	public void testSetNom() {
+	public
+		  void testSetNom() {
 		System.out.println("setNom");
 		Projet proj = new Projet(4, "Projet Test", "https://www.test.com", "test@test.com", 5);
 		String nom = "Testons la méthode";
@@ -146,7 +158,8 @@ public class ProjetTest {
 	 * Test of getWebURL method, of class Projet.
 	 */
 	@Test
-	public void testGetWebURL() {
+	public
+		  void testGetWebURL() {
 		System.out.println("getWebURL");
 		Projet proj = new Projet(4, "Projet Test", "https://www.test.com", "test@test.com", 5);
 		String expResult = "https://www.test.com";
@@ -158,7 +171,8 @@ public class ProjetTest {
 	 * Test of setWebURL method, of class Projet.
 	 */
 	@Test
-	public void testSetWebURL() throws WrongWebURL {
+	public
+		  void testSetWebURL() throws WrongWebURL {
 		System.out.println("setWebURL");
 		String webURL = "https://new.test.com/projet.git";
 		Projet proj = new Projet(4, "Projet Test", "https://www.test.com/projet.git", "test@test.com", 5);
@@ -170,7 +184,8 @@ public class ProjetTest {
 	 * Test of getSshURL method, of class Projet.
 	 */
 	@Test
-	public void testGetSshURL() {
+	public
+		  void testGetSshURL() {
 		System.out.println("getSshURL");
 		Projet proj = new Projet(4, "Projet Test", "https://www.test.com", "test@test.com", 5);
 		String expResult = "test@test.com";
@@ -182,7 +197,8 @@ public class ProjetTest {
 	 * Test of setSshURL method, of class Projet.
 	 */
 	@Test
-	public void testSetSshURL() throws WrongSshURL {
+	public
+		  void testSetSshURL() throws WrongSshURL {
 		System.out.println("setSshURL");
 		String sshURL = "git@forge.univ-lyon1.fr:pgfdgdg/gfdguyt.git";
 		Projet proj = new Projet(4, "Projet Test", "https://www.test.com", "git@forge.univ-lyon1.fr:podsfc/qornd.git", 5);
@@ -194,7 +210,8 @@ public class ProjetTest {
 	 * Test of getNbCommits method, of class Projet.
 	 */
 	@Test
-	public void testGetNbCommits() {
+	public
+		  void testGetNbCommits() {
 		System.out.println("getNbCommits");
 		Projet proj = new Projet(4, "Projet Test", "https://www.test.com", "test@test.com", 5);
 		int expResult = 5;
@@ -206,7 +223,8 @@ public class ProjetTest {
 	 * Test of setNbCommits method, of class Projet.
 	 */
 	@Test
-	public void testSetNbCommits() throws NegativeNumberOfCommits {
+	public
+		  void testSetNbCommits() throws NegativeNumberOfCommits {
 		System.out.println("setNbCommits");
 		int nbCommits = 8;
 		Projet proj = new Projet(4, "Projet Test", "https://www.test.com", "test@test.com", 5);
@@ -218,7 +236,8 @@ public class ProjetTest {
 	 * Test of getLstMembres method, of class Projet.
 	 */
 	@Test
-	public void testGetLstMembres() {
+	public
+		  void testGetLstMembres() {
 		System.out.println("getLstMembres");
 		Projet proj = new Projet(4, "Projet Test", "https://www.test.com", "test@test.com", 5);
 		HashMap<String, ArrayList<Membre>> expResult = new HashMap<>();
@@ -230,7 +249,8 @@ public class ProjetTest {
 	 * Test of setLstMembres method, of class Projet.
 	 */
 	@Test
-	public void testSetLstMembres() throws AnyMaintainerAvailable {
+	public
+		  void testSetLstMembres() throws AnyMaintainerAvailable {
 		System.out.println("setLstMembres");
 		HashMap<String, ArrayList<Membre>> lstMembres = new HashMap<>();
 		Membre bastien = new Membre();
@@ -246,7 +266,8 @@ public class ProjetTest {
 	 * Test of getNbMembres method, of class Projet.
 	 */
 	@Test
-	public void testGetNbMembres() {
+	public
+		  void testGetNbMembres() {
 		System.out.println("getNbMembres");
 		Projet proj = new Projet(4, "Projet Test", "https://www.test.com", "test@test.com", 5);
 		int expResult = 0;
@@ -254,7 +275,8 @@ public class ProjetTest {
 		assertEquals(expResult, result);
 	}
 
-	public void testSetIdNegatif() {
+	public
+		  void testSetIdNegatif() {
 		System.out.println("testSetIdNegatif");
 		Projet proj = new Projet(4, "Projet Test", "https://www.test.com/project.git", "test@test.com:blabla", 5);
 		assertThrows(NegativeProjectID.class, () -> {
@@ -262,7 +284,8 @@ public class ProjetTest {
 		});
 	}
 
-	public void testSetIdZero() {
+	public
+		  void testSetIdZero() {
 		System.out.println("testSetIdNegatif");
 		Projet proj = new Projet(4, "Projet Test", "https://www.test.com/project.git", "test@test.com:blabla", 5);
 		assertThrows(NegativeProjectID.class, () -> {
@@ -270,7 +293,8 @@ public class ProjetTest {
 		});
 	}
 
-	public void testSetWebURLWrong() {
+	public
+		  void testSetWebURLWrong() {
 		System.out.println("testSetWebURLWrong");
 		Projet proj = new Projet(4, "Projet Test", "https://www.test.com/project.git", "test@test.com:blabla", 5);
 		assertThrows(WrongWebURL.class, () -> {
@@ -278,7 +302,8 @@ public class ProjetTest {
 		});
 	}
 
-	public void testSetSshURLWrong() {
+	public
+		  void testSetSshURLWrong() {
 		System.out.println("testSetSshURLWrong");
 		Projet proj = new Projet(4, "Projet Test", "https://www.test.com/project.git", "test@test.com:blabla", 5);
 		assertThrows(WrongWebURL.class, () -> {
@@ -286,7 +311,8 @@ public class ProjetTest {
 		});
 	}
 
-	public void testSetNbCommitsNegative() {
+	public
+		  void testSetNbCommitsNegative() {
 		System.out.println("testSetNbCommitsNegative");
 		Projet proj = new Projet(4, "Projet Test", "https://www.test.com/project.git", "test@test.com:blabla", 5);
 		assertThrows(NegativeNumberOfCommits.class, () -> {
@@ -294,7 +320,8 @@ public class ProjetTest {
 		});
 	}
 
-	public void testSetLstMembresAnyMaintainer() {
+	public
+		  void testSetLstMembresAnyMaintainer() {
 		System.out.println("testSetNbCommitsNegative");
 		Projet proj = new Projet(4, "Projet Test", "https://www.test.com/project.git", "test@test.com:blabla", 5);
 		assertThrows(AnyMaintainerAvailable.class, () -> {

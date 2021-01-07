@@ -9,9 +9,11 @@ package lyon1.iutinfo.cvda.projet.exceptions;
  *
  * @author Bastien BOMBARDELLA
  */
-public class NegativeNumberOfCommits extends Exception {
+public
+	  class NegativeNumberOfCommits extends Exception {
 
-	public NegativeNumberOfCommits() {
+	public
+		  NegativeNumberOfCommits() {
 		super("Le nombre de commits ne peut pas être négatif.");
 	}
 }
