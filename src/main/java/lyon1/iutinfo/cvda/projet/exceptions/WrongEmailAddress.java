@@ -10,10 +10,12 @@ package lyon1.iutinfo.cvda.projet.exceptions;
  * @author Bastien BOMBARDELLA
  */
 public
-	  class WrongEmailAddress extends Exception {
+	  class WrongEmailAddress extends Exception
+	{
 
 	public
-		  WrongEmailAddress() {
+		  WrongEmailAddress()
+		{
 		super("L'adresse email n'a pas de format correct");
+		}
 	}
-}
