@@ -71,23 +71,29 @@ public
 		  String toString ()
 		{
 		int nb_member = 0;
-		String member_info = "";
-		for (ArrayList<Member> list : this.lstMembers.values())
-			{
-			nb_member += list.size();
-			for (Member m : list)
-				{
-				member_info += "-\t#" + m.getId() + ": " + m.getName() + " (" + m.getNbProjects() + " projets)\n";
-				}
-			}
+
 		String info = "Projet id #" + this.id
 			  + "\nNom : \"" + this.name + "\""
 			  + "\nsshURL : \"" + this.sshURL + "\""
 			  + "\nwebURL : \"" + this.webURL + "\""
 			  + "\nCommits : " + this.nbCommits
-			  + "\nMembres (" + nb_member + ")"
-			  + "\n" + member_info;
+			  + "\nMembres (" + this.getNbMembers() + ")"
+			  + "\n" + this.getProjectMembers();
 		return (info);
+		}
+
+	public
+		  String getProjectMembers ()
+		{
+		String members_info = "";
+		for (ArrayList<Member> list : this.lstMembers.values())
+			{
+			for (Member m : list)
+				{
+				members_info += "-\t#" + m.getId() + ": " + m.getName() + " (" + m.getNbProjects() + " projets)\n";
+				}
+			}
+		return members_info;
 		}
 
 	public

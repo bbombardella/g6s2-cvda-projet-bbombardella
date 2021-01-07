@@ -53,6 +53,17 @@ public
 	public
 		  String toString ()
 		{
+		String info = "#" + this.id + ": " + this.name
+			  + "\nEmail: \"" + this.email + "\""
+			  + "\nWebsite : \"" + this.website + "\""
+			  + "\nProjets (" + this.getNbProjects() + ")"
+			  + "\n" + this.getMemberProjects();
+		return info;
+		}
+
+	public
+		  String getMemberProjects ()
+		{
 		String projects = "";
 		for (ArrayList<Project> listProject : lstProjects.values())
 			{
@@ -61,12 +72,7 @@ public
 				projects += "-\t#" + p.getId() + ": " + p.getName() + " (" + p.getNbMembers() + ")\n";
 				}
 			}
-		String info = "#" + this.id + ": " + this.name
-			  + "\nEmail: \"" + this.email + "\""
-			  + "\nWebsite : \"" + this.website + "\""
-			  + "\nProjets (" + this.getNbProjects() + ")"
-			  + "\n" + projects;
-		return info;
+		return projects;
 		}
 
 	public
