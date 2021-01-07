@@ -27,76 +27,76 @@ public
 		try
 			{
 			//Création de 2 membres et de 2 projets vides
-			Member mb1 = new Member();
-			Member mb2 = new Member();
-			Project prj1 = new Project();
-			Project prj2 = new Project();
+			Member member_1 = new Member();
+			Member member_2 = new Member();
+			Project project_1 = new Project();
+			Project project_2 = new Project();
 
 			//Remplissage des propriétés simples du 1er membre
-			mb1.setId(1);
-			mb1.setName("QUIROULE Pierre");
-			mb1.setEmail("pierre.quiroule@test.com");
-			mb1.setWebsite("https://www.pierrequiroule.com/");
+			member_1.setId(1);
+			member_1.setName("QUIROULE Pierre");
+			member_1.setEmail("pierre.quiroule@test.com");
+			member_1.setWebsite("https://www.pierrequiroule.com/");
 
 			//Remplissage des propriétés simples du 2ème membre
-			mb2.setId(2);
-			mb2.setName("DUPONT Jean");
-			mb2.setEmail("jean.dupont@test.com");
-			mb2.setWebsite("https://www.dupontjean.com/");
+			member_2.setId(2);
+			member_2.setName("DUPONT Jean");
+			member_2.setEmail("jean.dupont@test.com");
+			member_2.setWebsite("https://www.dupontjean.com/");
 
 			//Remplissage des propriétés simples du 1er projet
-			prj1.setId(1);
-			prj1.setName("projet-test-1");
-			prj1.setNbCommits(6);
-			prj1.setWebURL("https://forge.univ-lyon1.fr/pierrequiroule/projet-test-1");
-			prj1.setSshURL("git@forge.univ-lyon1.fr:pierrequiroule/projet-test-1.git");
+			project_1.setId(1);
+			project_1.setName("projet-test-1");
+			project_1.setNbCommits(6);
+			project_1.setWebURL("https://forge.univ-lyon1.fr/pierrequiroule/projet-test-1");
+			project_1.setSshURL("git@forge.univ-lyon1.fr:pierrequiroule/projet-test-1.git");
 
 			//Remplissage des propriétés simples du 2ème projet
-			prj2.setId(2);
-			prj2.setName("projet-test-2");
-			prj2.setNbCommits(14);
-			prj2.setWebURL("https://forge.univ-lyon1.fr/jeandupont/projet-test-2");
-			prj2.setSshURL("git@forge.univ-lyon1.fr:jeandupont/projet-test-2.git");
+			project_2.setId(2);
+			project_2.setName("projet-test-2");
+			project_2.setNbCommits(14);
+			project_2.setWebURL("https://forge.univ-lyon1.fr/jeandupont/projet-test-2");
+			project_2.setSshURL("git@forge.univ-lyon1.fr:jeandupont/projet-test-2.git");
 
 			//Création des ArrayList et ajout des membres
-			ArrayList<Member> maintainer_projet1 = new ArrayList();
-			maintainer_projet1.add(mb1);
-			maintainer_projet1.add(mb2);
+			ArrayList<Member> maintainer_projet_1 = new ArrayList();
+			maintainer_projet_1.add(member_1);
+			maintainer_projet_1.add(member_2);
 
-			ArrayList<Member> maintainer_projet2 = new ArrayList();
-			maintainer_projet2.add(mb1);
+			ArrayList<Member> maintainer_projet_2 = new ArrayList();
+			maintainer_projet_2.add(member_1);
 
-			ArrayList<Member> reporter_projet2 = new ArrayList();
-			reporter_projet2.add(mb2);
+			ArrayList<Member> reporter_projet_2 = new ArrayList();
+			reporter_projet_2.add(member_2);
 
 			//Création de la Hashmap du premier projet
-			prj1.setLstMembers(new HashMap<String, ArrayList<Member>>());
+			project_1.setLstMembers(new HashMap<String, ArrayList<Member>>());
 
 			//Ajout de l'ArrayList à la HashMap
-			prj1.getLstMembers().put("Maintainer", maintainer_projet1);
+			project_1.getLstMembers().put("Maintainer", maintainer_projet_1);
 
 			//Création de la HashMap du second projet
-			prj2.setLstMembers(new HashMap<String, ArrayList<Member>>());
+			project_2.setLstMembers(new HashMap<String, ArrayList<Member>>());
 
 			//Ajout des deux ArrayList à la HashMap
-			prj2.getLstMembers().put("Maintainer", maintainer_projet2);
-			prj2.getLstMembers().put("Reporter", reporter_projet2);
+			project_2.getLstMembers().put("Maintainer", maintainer_projet_2);
+			project_2.getLstMembers().put("Reporter", reporter_projet_2);
 
 			//Création de la liste des projets de chacun des membres
 			ArrayList<Project> projetMb1 = new ArrayList<Project>();
 			ArrayList<Project> projetMb2 = new ArrayList<Project>();
 
 			//Ajout des projets
-			projetMb1.add(prj1);
-			projetMb1.add(prj2);
-			projetMb2.add(prj1);
-			projetMb2.add(prj2);
+			projetMb1.add(project_1);
+			projetMb1.add(project_2);
+			projetMb2.add(project_1);
+			projetMb2.add(project_2);
 
-			mb1.setLstProjects(new HashMap<String, ArrayList<Project>>());
-			mb1.getLstProjects().put("Projet 1", projetMb1);
+			member_1.setLstProjects(new HashMap<String, ArrayList<Project>>());
+			member_1.getLstProjects().put("Projet 1", projetMb1);
 
-			mb2.setLstProjects(new HashMap<String, ArrayList<Project>>());
-			mb2.getLstProjects().put("Projet 2", projetMb2);
+			member_2.setLstProjects(new HashMap<String, ArrayList<Project>>());
+			member_2.getLstProjects().put("Projet 2", projetMb2);
 
 			}
 		catch (Exception e)

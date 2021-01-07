@@ -48,52 +48,52 @@ public
 	public
 		  Project ()
 		{
-		id = 0;
-		name = "";
-		webURL = "";
-		sshURL = "";
-		nbCommits = 0;
-		lstMembers = null;
+		this.id = 0;
+		this.name = "";
+		this.webURL = "";
+		this.sshURL = "";
+		this.nbCommits = 0;
+		this.lstMembers = null;
 		}
 
 	public
 		  Project (int i, String n, String wURL, String sURL, int nCommits)
 		{
-		id = i;
-		name = n;
-		webURL = wURL;
-		sshURL = sURL;
-		nbCommits = nCommits;
-		lstMembers = new HashMap<>();
+		this.id = i;
+		this.name = n;
+		this.webURL = wURL;
+		this.sshURL = sURL;
+		this.nbCommits = nCommits;
+		this.lstMembers = new HashMap<>();
 		}
 
 	public
 		  String toString ()
 		{
-		int nbMembre = 0;
-		String membreInfo = "";
-		for (ArrayList<Member> list : lstMembers.values())
+		int nb_member = 0;
+		String member_info = "";
+		for (ArrayList<Member> list : this.lstMembers.values())
 			{
-			nbMembre += list.size();
+			nb_member += list.size();
 			for (Member m : list)
 				{
-				membreInfo += "-\t#" + m.getId() + ": " + m.getName() + " (" + m.getNbProjets() + " projets)\n";
+				member_info += "-\t#" + m.getId() + ": " + m.getName() + " (" + m.getNbProjects() + " projets)\n";
 				}
 			}
-		String info = "Projet id #" + id
-			  + "\nNom : \"" + name + "\""
-			  + "\nsshURL : \"" + sshURL + "\""
-			  + "\nwebURL : \"" + webURL + "\""
-			  + "\nCommits : " + nbCommits
-			  + "\nMembres (" + nbMembre + ")"
-			  + "\n" + membreInfo;
+		String info = "Projet id #" + this.id
+			  + "\nNom : \"" + this.name + "\""
+			  + "\nsshURL : \"" + this.sshURL + "\""
+			  + "\nwebURL : \"" + this.webURL + "\""
+			  + "\nCommits : " + this.nbCommits
+			  + "\nMembres (" + nb_member + ")"
+			  + "\n" + member_info;
 		return (info);
 		}
 
 	public
 		  String toXML ()
 		{
-		String testXML = "";
+		String test_xml = "";
 		try
 			{
 			DocumentBuilderFactory docFactory = DocumentBuilderFactory.newInstance();
@@ -120,7 +120,7 @@ public
 			Element membresElement = doc.createElement("membres");
 			rootElement.appendChild(membresElement);
 
-			for (Entry<String, ArrayList<Member>> list : lstMembers.entrySet())
+			for (Entry<String, ArrayList<Member>> list : this.lstMembers.entrySet())
 				{
 				for (Member m : list.getValue())
 					{
@@ -133,7 +133,7 @@ public
 					membreElement.appendChild(nomElement2);
 
 					Element nbProjetsElement = doc.createElement("nb-projets");
-					nbProjetsElement.appendChild(doc.createTextNode(String.valueOf(m.getNbProjets())));
+					nbProjetsElement.appendChild(doc.createTextNode(String.valueOf(m.getNbProjects())));
 					membreElement.appendChild(nbProjetsElement);
 
 					membresElement.appendChild(membreElement);
@@ -146,8 +146,8 @@ public
 			StringWriter stringWriter = new StringWriter();
 			StreamResult result = new StreamResult(stringWriter);
 			transformer.transform(source, result);
-			testXML = stringWriter.toString();
-			return testXML;
+			test_xml = stringWriter.toString();
+			return test_xml;
 			}
 		catch (Exception e)
 			{
@@ -155,14 +155,14 @@ public
 			}
 		finally
 			{
-			return testXML;
+			return test_xml;
 			}
 		}
 
 	public
 		  int getId ()
 		{
-		return id;
+		return this.id;
 		}
 
 	public
@@ -176,24 +176,26 @@ public
 			{
 			this.id = id;
 			}
+		return;
 		}
 
 	public
 		  String getName ()
 		{
-		return name;
+		return this.name;
 		}
 
 	public
 		  void setName (String name)
 		{
 		this.name = name;
+		return;
 		}
 
 	public
 		  String getWebURL ()
 		{
-		return webURL;
+		return this.webURL;
 		}
 
 	public
@@ -207,12 +209,13 @@ public
 			{
 			throw new WrongWebURL();
 			}
+		return;
 		}
 
 	public
 		  String getSshURL ()
 		{
-		return sshURL;
+		return this.sshURL;
 		}
 
 	public
@@ -226,12 +229,13 @@ public
 			{
 			throw new WrongSshURL();
 			}
+		return;
 		}
 
 	public
 		  int getNbCommits ()
 		{
-		return nbCommits;
+		return this.nbCommits;
 		}
 
 	public
@@ -245,12 +249,13 @@ public
 			{
 			this.nbCommits = nbCommits;
 			}
+		return;
 		}
 
 	public
 		  HashMap<String, ArrayList<Member>> getLstMembers ()
 		{
-		return lstMembers;
+		return this.lstMembers;
 		}
 
 	public
@@ -264,17 +269,18 @@ public
 			{
 			throw new AnyMaintainerAvailable();
 			}
+		return;
 		}
 
 	public
-		  int getNbMembres ()
+		  int getNbMembers ()
 		{
-		int nbMembres = 0;
+		int nb_members = 0;
 		for (ArrayList<Member> listMembre : lstMembers.values())
 			{
-			nbMembres += listMembre.size();
+			nb_members += listMembre.size();
 			}
-		return nbMembres;
+		return nb_members;
 		}
 
 	}

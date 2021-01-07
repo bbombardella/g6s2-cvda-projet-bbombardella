@@ -67,9 +67,9 @@ public
 		{
 		System.out.println("toString");
 		Project proj = new Project(4, "Projet Test", "https://www.test.com", "test@test.com", 5);
-		String expResult = "Projet id #4\nNom : \"Projet Test\"\nsshURL : \"test@test.com\"\nwebURL : \"https://www.test.com\"\nCommits : 5\nMembres (0)\n";
+		String exp_result = "Projet id #4\nNom : \"Projet Test\"\nsshURL : \"test@test.com\"\nwebURL : \"https://www.test.com\"\nCommits : 5\nMembres (0)\n";
 		String result = proj.toString();
-		assertEquals(expResult, result);
+		assertEquals(exp_result, result);
 		}
 
 	/**
@@ -83,14 +83,14 @@ public
 
 		Member bastien = new Member(2870, "BOMBARDELLA BASTIEN p1935610", "bastien.bombardella@etu.univ-lyon1.fr", "bastienbc.fr");
 		Project proj = new Project(16646, "g6s2-cvda-projet-bbombardella", "https://forge.univ-lyon1.fr/p1935610/g6s2-cvda-projet-bbombardella.git", "git@forge.univ-lyon1.fr:p1935610/g6s2-cvda-projet-bbombardella.git", 23);
-		ArrayList<Member> lstMaintainers = new ArrayList();
-		lstMaintainers.add(bastien);
-		proj.getLstMembers().put("Maintainer", lstMaintainers);
-		ArrayList<Project> lstProjects = new ArrayList();
-		lstProjects.add(proj);
-		bastien.getLstProjects().put("Maintainer", lstProjects);
+		ArrayList<Member> lst_maintainers = new ArrayList();
+		lst_maintainers.add(bastien);
+		proj.getLstMembers().put("Maintainer", lst_maintainers);
+		ArrayList<Project> lst_projects = new ArrayList();
+		lst_projects.add(proj);
+		bastien.getLstProjects().put("Maintainer", lst_projects);
 
-		String expXML = "<?xml version=\"1.0\" encoding=\"UTF-8\" standalone=\"no\"?>"
+		String exp_xml = "<?xml version=\"1.0\" encoding=\"UTF-8\" standalone=\"no\"?>"
 			  + "<projet id=\"16646\" nbcommits=\"23\">"
 			  + "<nom>g6s2-cvda-projet-bbombardella</nom>"
 			  + "<webURL>https://forge.univ-lyon1.fr/p1935610/g6s2-cvda-projet-bbombardella.git</webURL>"
@@ -102,12 +102,12 @@ public
 			  + "</membre>"
 			  + "</membres>"
 			  + "</projet>";
-		String resultXML = proj.toXML();
+		String result_xml = proj.toXML();
 
-		String expHash = new DigestUtils(SHA_224).digestAsHex(expXML);
-		String resultHash = new DigestUtils(SHA_224).digestAsHex(resultXML);
+		String exp_hash = new DigestUtils(SHA_224).digestAsHex(exp_xml);
+		String result_hash = new DigestUtils(SHA_224).digestAsHex(result_xml);
 
-		assertEquals(expHash, resultHash);
+		assertEquals(exp_hash, result_hash);
 		}
 
 	/**
@@ -119,9 +119,9 @@ public
 		{
 		System.out.println("getId");
 		Project proj = new Project(4, "Projet Test", "https://www.test.com", "test@test.com", 5);
-		int expResult = 4;
+		int exp_result = 4;
 		int result = proj.getId();
-		assertEquals(expResult, result);
+		assertEquals(exp_result, result);
 		}
 
 	/**
@@ -147,9 +147,9 @@ public
 		{
 		System.out.println("getName");
 		Project proj = new Project(4, "Projet Test", "https://www.test.com", "test@test.com", 5);
-		String expResult = "Projet Test";
+		String exp_result = "Projet Test";
 		String result = proj.getName();
-		assertEquals(expResult, result);
+		assertEquals(exp_result, result);
 		}
 
 	/**
@@ -175,9 +175,9 @@ public
 		{
 		System.out.println("getWebURL");
 		Project proj = new Project(4, "Projet Test", "https://www.test.com", "test@test.com", 5);
-		String expResult = "https://www.test.com";
+		String exp_result = "https://www.test.com";
 		String result = proj.getWebURL();
-		assertEquals(expResult, result);
+		assertEquals(exp_result, result);
 		}
 
 	/**
@@ -188,10 +188,10 @@ public
 		  void testSetWebURL () throws WrongWebURL
 		{
 		System.out.println("setWebURL");
-		String webURL = "https://new.test.com/projet.git";
+		String web_url = "https://new.test.com/projet.git";
 		Project proj = new Project(4, "Projet Test", "https://www.test.com/projet.git", "test@test.com", 5);
-		proj.setWebURL(webURL);
-		assertEquals(webURL, proj.getWebURL());
+		proj.setWebURL(web_url);
+		assertEquals(web_url, proj.getWebURL());
 		}
 
 	/**
@@ -203,9 +203,9 @@ public
 		{
 		System.out.println("getSshURL");
 		Project proj = new Project(4, "Projet Test", "https://www.test.com", "test@test.com", 5);
-		String expResult = "test@test.com";
+		String exp_result = "test@test.com";
 		String result = proj.getSshURL();
-		assertEquals(expResult, result);
+		assertEquals(exp_result, result);
 		}
 
 	/**
@@ -216,10 +216,10 @@ public
 		  void testSetSshURL () throws WrongSshURL
 		{
 		System.out.println("setSshURL");
-		String sshURL = "git@forge.univ-lyon1.fr:pgfdgdg/gfdguyt.git";
+		String ssh_url = "git@forge.univ-lyon1.fr:pgfdgdg/gfdguyt.git";
 		Project proj = new Project(4, "Projet Test", "https://www.test.com", "git@forge.univ-lyon1.fr:podsfc/qornd.git", 5);
-		proj.setSshURL(sshURL);
-		assertEquals(sshURL, proj.getSshURL());
+		proj.setSshURL(ssh_url);
+		assertEquals(ssh_url, proj.getSshURL());
 		}
 
 	/**
@@ -231,9 +231,9 @@ public
 		{
 		System.out.println("getNbCommits");
 		Project proj = new Project(4, "Projet Test", "https://www.test.com", "test@test.com", 5);
-		int expResult = 5;
+		int exp_result = 5;
 		int result = proj.getNbCommits();
-		assertEquals(expResult, result);
+		assertEquals(exp_result, result);
 		}
 
 	/**
@@ -244,10 +244,10 @@ public
 		  void testSetNbCommits () throws NegativeNumberOfCommits
 		{
 		System.out.println("setNbCommits");
-		int nbCommits = 8;
+		int nb_commits = 8;
 		Project proj = new Project(4, "Projet Test", "https://www.test.com", "test@test.com", 5);
-		proj.setNbCommits(nbCommits);
-		assertEquals(nbCommits, proj.getNbCommits());
+		proj.setNbCommits(nb_commits);
+		assertEquals(nb_commits, proj.getNbCommits());
 		}
 
 	/**
@@ -259,9 +259,9 @@ public
 		{
 		System.out.println("getLstMembers");
 		Project proj = new Project(4, "Projet Test", "https://www.test.com", "test@test.com", 5);
-		HashMap<String, ArrayList<Member>> expResult = new HashMap<>();
+		HashMap<String, ArrayList<Member>> exp_result = new HashMap<>();
 		HashMap<String, ArrayList<Member>> result = proj.getLstMembers();
-		assertEquals(expResult, result);
+		assertEquals(exp_result, result);
 		}
 
 	/**
@@ -272,28 +272,28 @@ public
 		  void testSetLstMembers () throws AnyMaintainerAvailable
 		{
 		System.out.println("setLstMembers");
-		HashMap<String, ArrayList<Member>> lstMembres = new HashMap<>();
+		HashMap<String, ArrayList<Member>> lst_members = new HashMap<>();
 		Member bastien = new Member();
 		ArrayList<Member> maintainer = new ArrayList();
 		maintainer.add(bastien);
-		lstMembres.put("Maintainer", maintainer);
+		lst_members.put("Maintainer", maintainer);
 		Project proj = new Project(4, "Projet Test", "https://www.test.com", "test@test.com", 5);
-		proj.setLstMembers(lstMembres);
-		assertEquals(lstMembres, proj.getLstMembers());
+		proj.setLstMembers(lst_members);
+		assertEquals(lst_members, proj.getLstMembers());
 		}
 
 	/**
-	 * Test of getNbMembres method, of class Project.
+	 * Test of getNbMembers method, of class Project.
 	 */
 	@Test
 	public
-		  void testGetNbMembres ()
+		  void testGetNbMembers ()
 		{
-		System.out.println("getNbMembres");
+		System.out.println("getNbMembers");
 		Project proj = new Project(4, "Projet Test", "https://www.test.com", "test@test.com", 5);
-		int expResult = 0;
-		int result = proj.getNbMembres();
-		assertEquals(expResult, result);
+		int exp_result = 0;
+		int result = proj.getNbMembers();
+		assertEquals(exp_result, result);
 		}
 
 	public

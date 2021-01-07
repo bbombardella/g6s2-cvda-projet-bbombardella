@@ -65,11 +65,11 @@ public
 		{
 		System.out.println("toString");
 		Member instance = new Member(12, "QUIROULE Pierre", "Pierre.Quiroule@test.fr", "Pierrequiroule.com");
-		String expResult = "#12: QUIROULE Pierre\nEmail: \"Pierre.Quiroule@test.fr\"";
-		expResult += "\nWebsite : \"Pierrequiroule.com\"\nProjets (0)\n";
+		String exp_result = "#12: QUIROULE Pierre\nEmail: \"Pierre.Quiroule@test.fr\"";
+		exp_result += "\nWebsite : \"Pierrequiroule.com\"\nProjets (0)\n";
 
 		String result = instance.toString();
-		assertEquals(expResult, result);
+		assertEquals(exp_result, result);
 		}
 
 	/**
@@ -81,9 +81,9 @@ public
 		{
 		System.out.println("getId");
 		Member instance = new Member(12, "QUIROULE Pierre", "Pierre.Quiroule@test.fr", "Pierrequiroule.com");
-		int expResult = 12;
+		int exp_result = 12;
 		int result = instance.getId();
-		assertEquals(expResult, result);
+		assertEquals(exp_result, result);
 		}
 
 	/**
@@ -108,9 +108,9 @@ public
 		{
 		System.out.println("getName");
 		Member instance = new Member(12, "QUIROULE Pierre", "Pierre.Quiroule@test.fr", "Pierrequiroule.com");
-		String expResult = "QUIROULE Pierre";
+		String exp_result = "QUIROULE Pierre";
 		String result = instance.getName();
-		assertEquals(expResult, result);
+		assertEquals(exp_result, result);
 		}
 
 	/**
@@ -135,9 +135,9 @@ public
 		{
 		System.out.println("getEmail");
 		Member instance = new Member(12, "QUIROULE Pierre", "Pierre.Quiroule@test.fr", "Pierrequiroule.com");
-		String expResult = "Pierre.Quiroule@test.fr";
+		String exp_result = "Pierre.Quiroule@test.fr";
 		String result = instance.getEmail();
-		assertEquals(expResult, result);
+		assertEquals(exp_result, result);
 		}
 
 	/**
@@ -162,9 +162,9 @@ public
 		{
 		System.out.println("getWebsite");
 		Member instance = new Member(12, "QUIROULE Pierre", "Pierre.Quiroule@test.fr", "Pierrequiroule.com");
-		String expResult = "Pierrequiroule.com";
+		String exp_result = "Pierrequiroule.com";
 		String result = instance.getWebsite();
-		assertEquals(expResult, result);
+		assertEquals(exp_result, result);
 		}
 
 	/**
@@ -189,9 +189,9 @@ public
 		{
 		System.out.println("getLstProjects");
 		Member instance = new Member(12, "QUIROULE Pierre", "Pierre.Quiroule@test.fr", "Pierrequiroule.com");
-		HashMap<String, ArrayList<Project>> expResult = new HashMap<>();
+		HashMap<String, ArrayList<Project>> exp_result = new HashMap<>();
 		HashMap<String, ArrayList<Project>> result = instance.getLstProjects();
-		assertEquals(expResult, result);
+		assertEquals(exp_result, result);
 		}
 
 	/**
@@ -202,23 +202,23 @@ public
 		  void testSetLstProjects ()
 		{
 		System.out.println("setLstProjects");
-		HashMap<String, ArrayList<Project>> lstProjects = new HashMap<>();
+		HashMap<String, ArrayList<Project>> lst_projects = new HashMap<>();
 		Member instance = new Member(12, "QUIROULE Pierre", "Pierre.Quiroule@test.fr", "Pierrequiroule.com");
-		instance.setLstProjects(lstProjects);
+		instance.setLstProjects(lst_projects);
 		}
 
 	/**
-	 * Test of getNbProjets method, of class Member.
+	 * Test of getNbProjects method, of class Member.
 	 */
 	@Test
 	public
-		  void testGetNbProjets ()
+		  void testGetNbProjects ()
 		{
-		System.out.println("getNbProjets");
+		System.out.println("getNbProjects");
 		Member instance = new Member(12, "QUIROULE Pierre", "Pierre.Quiroule@test.fr", "Pierrequiroule.com");
-		int expResult = 0;
-		int result = instance.getNbProjets();
-		assertEquals(expResult, result);
+		int exp_result = 0;
+		int result = instance.getNbProjects();
+		assertEquals(exp_result, result);
 		}
 
 	/**
@@ -229,36 +229,36 @@ public
 		  void testToXML ()
 		{
 
-		Member m1 = new Member(12, "QUIROULE Pierre", "Pierre.Quiroule@test.fr", "Pierrequiroule.com");
-		Project p1 = new Project(128, "Test", "Test.com", "Test.com.ssh", 3);
-		ArrayList<Member> lstMaintainers = new ArrayList();
-		lstMaintainers.add(m1);
-		p1.getLstMembers().put("Maintainer", lstMaintainers);
-		ArrayList<Project> lstProjects = new ArrayList();
-		lstProjects.add(p1);
-		m1.getLstProjects().put("Maintainer", lstProjects);
+		Member member_1 = new Member(12, "QUIROULE Pierre", "Pierre.Quiroule@test.fr", "Pierrequiroule.com");
+		Project project_1 = new Project(128, "Test", "Test.com", "Test.com.ssh", 3);
+		ArrayList<Member> lst_maintainers = new ArrayList();
+		lst_maintainers.add(member_1);
+		project_1.getLstMembers().put("Maintainer", lst_maintainers);
+		ArrayList<Project> lst_projects = new ArrayList();
+		lst_projects.add(project_1);
+		member_1.getLstProjects().put("Maintainer", lst_projects);
 
 		System.out.println("toXML");
-		String expResult = "<membre id='12'>\n   <nom>QUIROULE Pierre</nom>\n   <email>Pierre.Quiroule@test.fr</email>";
-		expResult += "\n   <website>Pierrequiroule.com</website>\n   <nbprojets>1</nbprojets>";
-		expResult += "\n</membre>";
-		String result = m1.toXML();
+		String exp_result = "<membre id='12'>\n   <nom>QUIROULE Pierre</nom>\n   <email>Pierre.Quiroule@test.fr</email>";
+		exp_result += "\n   <website>Pierrequiroule.com</website>\n   <nbprojets>1</nbprojets>";
+		exp_result += "\n</membre>";
+		String result = member_1.toXML();
 
-		String expHash = new DigestUtils(SHA_224).digestAsHex(expResult);
-		String resultHash = new DigestUtils(SHA_224).digestAsHex(result);
+		String exp_hash = new DigestUtils(SHA_224).digestAsHex(exp_result);
+		String result_hash = new DigestUtils(SHA_224).digestAsHex(result);
 
-		assertEquals(expHash, resultHash);
-		System.out.println(resultHash);
+		assertEquals(exp_hash, result_hash);
+		System.out.println(result_hash);
 		}
 
 	@Test
 	public
 		  void testSetIdNegative ()
 		{
-		Member m1 = new Member(12, "QUIROULE Pierre", "Pierre.Quiroule@test.fr", "Pierrequiroule.com");
+		Member member_1 = new Member(12, "QUIROULE Pierre", "Pierre.Quiroule@test.fr", "Pierrequiroule.com");
 		assertThrows(NegativeMemberID.class, () ->
 			{
-			m1.setId(-1);
+			member_1.setId(-1);
 			});
 		}
 
@@ -266,10 +266,10 @@ public
 	public
 		  void testSetIdNull ()
 		{
-		Member m1 = new Member(12, "QUIROULE Pierre", "Pierre.Quiroule@test.fr", "Pierrequiroule.com");
+		Member member_1 = new Member(12, "QUIROULE Pierre", "Pierre.Quiroule@test.fr", "Pierrequiroule.com");
 		assertThrows(NegativeMemberID.class, () ->
 			{
-			m1.setId(0);
+			member_1.setId(0);
 			});
 		}
 
@@ -277,10 +277,10 @@ public
 	public
 		  void testSetEmailWrong ()
 		{
-		Member m1 = new Member(12, "QUIROULE Pierre", "Pierre.Quiroule@test.fr", "Pierrequiroule.com");
+		Member member_1 = new Member(12, "QUIROULE Pierre", "Pierre.Quiroule@test.fr", "Pierrequiroule.com");
 		assertThrows(WrongEmailAddress.class, () ->
 			{
-			m1.setEmail("");
+			member_1.setEmail("");
 			});
 		}
 
@@ -288,10 +288,10 @@ public
 	public
 		  void testSetWebsiteWrong ()
 		{
-		Member m1 = new Member(12, "QUIROULE Pierre", "Pierre.Quiroule@test.fr", "Pierrequiroule.com");
+		Member member_1 = new Member(12, "QUIROULE Pierre", "Pierre.Quiroule@test.fr", "Pierrequiroule.com");
 		assertThrows(WrongWebsiteURL.class, () ->
 			{
-			m1.setWebsite("");
+			member_1.setWebsite("");
 			});
 		}
 

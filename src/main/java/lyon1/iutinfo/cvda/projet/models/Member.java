@@ -33,46 +33,46 @@ public
 	public
 		  Member ()
 		{
-		id = 0;
-		name = "";
-		email = "";
-		website = "";
-		lstProjects = null;
+		this.id = 0;
+		this.name = "";
+		this.email = "";
+		this.website = "";
+		this.lstProjects = null;
 		}
 
 	public
 		  Member (int i, String n, String e, String w)
 		{
-		id = i;
-		name = n;
-		email = e;
-		website = w;
-		lstProjects = new HashMap<>();
+		this.id = i;
+		this.name = n;
+		this.email = e;
+		this.website = w;
+		this.lstProjects = new HashMap<>();
 		}
 
 	public
 		  String toString ()
 		{
-		String projets = "";
+		String projects = "";
 		for (ArrayList<Project> listProject : lstProjects.values())
 			{
 			for (Project p : listProject)
 				{
-				projets += "-\t#" + p.getId() + ": " + p.getName() + " (" + p.getNbMembres() + ")\n";
+				projects += "-\t#" + p.getId() + ": " + p.getName() + " (" + p.getNbMembers() + ")\n";
 				}
 			}
-		String info = "#" + id + ": " + name
-			  + "\nEmail: \"" + email + "\""
-			  + "\nWebsite : \"" + website + "\""
-			  + "\nProjets (" + this.getNbProjets() + ")"
-			  + "\n" + projets;
+		String info = "#" + this.id + ": " + this.name
+			  + "\nEmail: \"" + this.email + "\""
+			  + "\nWebsite : \"" + this.website + "\""
+			  + "\nProjets (" + this.getNbProjects() + ")"
+			  + "\n" + projects;
 		return info;
 		}
 
 	public
 		  int getId ()
 		{
-		return id;
+		return this.id;
 		}
 
 	public
@@ -86,12 +86,13 @@ public
 			{
 			this.id = id;
 			}
+		return;
 		}
 
 	public
 		  String getName ()
 		{
-		return name;
+		return this.name;
 		}
 
 	public
@@ -103,7 +104,7 @@ public
 	public
 		  String getEmail ()
 		{
-		return email;
+		return this.email;
 		}
 
 	public
@@ -117,12 +118,13 @@ public
 			{
 			throw new WrongEmailAddress();
 			}
+		return;
 		}
 
 	public
 		  String getWebsite ()
 		{
-		return website;
+		return this.website;
 		}
 
 	public
@@ -136,12 +138,13 @@ public
 			{
 			throw new WrongWebsiteURL();
 			}
+		return;
 		}
 
 	public
 		  HashMap<String, ArrayList<Project>> getLstProjects ()
 		{
-		return lstProjects;
+		return this.lstProjects;
 		}
 
 	public
@@ -151,14 +154,14 @@ public
 		}
 
 	public
-		  int getNbProjets ()
+		  int getNbProjects ()
 		{
-		int nbProjets = 0;
-		for (ArrayList<Project> projetList : lstProjects.values())
+		int nb_projects = 0;
+		for (ArrayList<Project> list_project : this.lstProjects.values())
 			{
-			nbProjets += projetList.size();
+			nb_projects += list_project.size();
 			}
-		return nbProjets;
+		return nb_projects;
 		}
 
 	public
@@ -168,7 +171,7 @@ public
 		xml += "\n   <nom>" + this.getName() + "</nom>";
 		xml += "\n   <email>" + this.getEmail() + "</email>";
 		xml += "\n   <website>" + this.getWebsite() + "</website>";
-		xml += "\n   <nbprojets>" + this.getNbProjets() + "</nbprojets>";
+		xml += "\n   <nbprojets>" + this.getNbProjects() + "</nbprojets>";
 		xml += "\n</membre>";
 		return xml;
 		}
