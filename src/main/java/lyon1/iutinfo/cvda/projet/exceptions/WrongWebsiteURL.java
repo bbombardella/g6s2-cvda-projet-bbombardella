@@ -14,7 +14,7 @@ public
 	{
 
 	public
-		  WrongWebsiteURL()
+		  WrongWebsiteURL ()
 		{
 		super("L'adresse du site web n'a pas de format correct");
 		}

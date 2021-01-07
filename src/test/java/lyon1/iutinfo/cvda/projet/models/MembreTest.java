@@ -28,31 +28,31 @@ public
 	{
 
 	public
-		  MembreTest()
+		  MembreTest ()
 		{
 		}
 
 	@BeforeAll
 	public static
-		  void setUpClass()
+		  void setUpClass ()
 		{
 		}
 
 	@AfterAll
 	public static
-		  void tearDownClass()
+		  void tearDownClass ()
 		{
 		}
 
 	@BeforeEach
 	public
-		  void setUp()
+		  void setUp ()
 		{
 		}
 
 	@AfterEach
 	public
-		  void tearDown()
+		  void tearDown ()
 		{
 		}
 
@@ -61,7 +61,7 @@ public
 	 */
 	@Test
 	public
-		  void testToString()
+		  void testToString ()
 		{
 		System.out.println("toString");
 		Membre instance = new Membre(12, "QUIROULE Pierre", "Pierre.Quiroule@test.fr", "Pierrequiroule.com");
@@ -77,7 +77,7 @@ public
 	 */
 	@Test
 	public
-		  void testGetId()
+		  void testGetId ()
 		{
 		System.out.println("getId");
 		Membre instance = new Membre(12, "QUIROULE Pierre", "Pierre.Quiroule@test.fr", "Pierrequiroule.com");
@@ -91,7 +91,7 @@ public
 	 */
 	@Test
 	public
-		  void testSetId() throws NegativeMemberID
+		  void testSetId () throws NegativeMemberID
 		{
 		System.out.println("setId");
 		int id = 1;
@@ -104,7 +104,7 @@ public
 	 */
 	@Test
 	public
-		  void testGetNom()
+		  void testGetNom ()
 		{
 		System.out.println("getNom");
 		Membre instance = new Membre(12, "QUIROULE Pierre", "Pierre.Quiroule@test.fr", "Pierrequiroule.com");
@@ -118,7 +118,7 @@ public
 	 */
 	@Test
 	public
-		  void testSetNom()
+		  void testSetNom ()
 		{
 		System.out.println("setNom");
 		String nom = "";
@@ -131,7 +131,7 @@ public
 	 */
 	@Test
 	public
-		  void testGetEmail()
+		  void testGetEmail ()
 		{
 		System.out.println("getEmail");
 		Membre instance = new Membre(12, "QUIROULE Pierre", "Pierre.Quiroule@test.fr", "Pierrequiroule.com");
@@ -145,7 +145,7 @@ public
 	 */
 	@Test
 	public
-		  void testSetEmail() throws WrongEmailAddress
+		  void testSetEmail () throws WrongEmailAddress
 		{
 		System.out.println("setEmail");
 		String email = "test@test.co.uk";
@@ -158,7 +158,7 @@ public
 	 */
 	@Test
 	public
-		  void testGetWebsite()
+		  void testGetWebsite ()
 		{
 		System.out.println("getWebsite");
 		Membre instance = new Membre(12, "QUIROULE Pierre", "Pierre.Quiroule@test.fr", "Pierrequiroule.com");
@@ -172,7 +172,7 @@ public
 	 */
 	@Test
 	public
-		  void testSetWebsite() throws WrongWebsiteURL
+		  void testSetWebsite () throws WrongWebsiteURL
 		{
 		System.out.println("setWebsite");
 		String website = "http://test.com/";
@@ -185,7 +185,7 @@ public
 	 */
 	@Test
 	public
-		  void testGetLstProjets()
+		  void testGetLstProjets ()
 		{
 		System.out.println("getLstProjets");
 		Membre instance = new Membre(12, "QUIROULE Pierre", "Pierre.Quiroule@test.fr", "Pierrequiroule.com");
@@ -199,7 +199,7 @@ public
 	 */
 	@Test
 	public
-		  void testSetLstProjets()
+		  void testSetLstProjets ()
 		{
 		System.out.println("setLstProjets");
 		HashMap<String, ArrayList<Projet>> lstProjets = new HashMap<>();
@@ -212,7 +212,7 @@ public
 	 */
 	@Test
 	public
-		  void testGetNbProjets()
+		  void testGetNbProjets ()
 		{
 		System.out.println("getNbProjets");
 		Membre instance = new Membre(12, "QUIROULE Pierre", "Pierre.Quiroule@test.fr", "Pierrequiroule.com");
@@ -226,7 +226,7 @@ public
 	 */
 	@Test
 	public
-		  void testToXML()
+		  void testToXML ()
 		{
 
 		Membre m1 = new Membre(12, "QUIROULE Pierre", "Pierre.Quiroule@test.fr", "Pierrequiroule.com");
@@ -253,7 +253,7 @@ public
 
 	@Test
 	public
-		  void testSetIdNegative()
+		  void testSetIdNegative ()
 		{
 		Membre m1 = new Membre(12, "QUIROULE Pierre", "Pierre.Quiroule@test.fr", "Pierrequiroule.com");
 		assertThrows(NegativeMemberID.class, () ->
@@ -264,7 +264,7 @@ public
 
 	@Test
 	public
-		  void testSetIdNull()
+		  void testSetIdNull ()
 		{
 		Membre m1 = new Membre(12, "QUIROULE Pierre", "Pierre.Quiroule@test.fr", "Pierrequiroule.com");
 		assertThrows(NegativeMemberID.class, () ->
@@ -275,7 +275,7 @@ public
 
 	@Test
 	public
-		  void testSetEmailWrong()
+		  void testSetEmailWrong ()
 		{
 		Membre m1 = new Membre(12, "QUIROULE Pierre", "Pierre.Quiroule@test.fr", "Pierrequiroule.com");
 		assertThrows(WrongEmailAddress.class, () ->
@@ -286,7 +286,7 @@ public
 
 	@Test
 	public
-		  void testSetWebsiteWrong()
+		  void testSetWebsiteWrong ()
 		{
 		Membre m1 = new Membre(12, "QUIROULE Pierre", "Pierre.Quiroule@test.fr", "Pierrequiroule.com");
 		assertThrows(WrongWebsiteURL.class, () ->

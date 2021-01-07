@@ -14,7 +14,7 @@ public
 	{
 
 	public
-		  WrongSshURL()
+		  WrongSshURL ()
 		{
 		super("L'adresse SSH n'a pas un format correct.");
 		}

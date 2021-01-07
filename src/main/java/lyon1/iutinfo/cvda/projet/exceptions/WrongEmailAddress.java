@@ -14,7 +14,7 @@ public
 	{
 
 	public
-		  WrongEmailAddress()
+		  WrongEmailAddress ()
 		{
 		super("L'adresse email n'a pas de format correct");
 		}

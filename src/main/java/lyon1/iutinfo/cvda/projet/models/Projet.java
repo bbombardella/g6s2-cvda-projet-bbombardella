@@ -50,7 +50,7 @@ public
 		  HashMap<String, ArrayList<Membre>> lstMembres;
 
 	public
-		  Projet()
+		  Projet ()
 		{
 		id = 0;
 		nom = "";
@@ -61,7 +61,7 @@ public
 		}
 
 	public
-		  Projet(int i, String n, String wURL, String sURL, int nCommits)
+		  Projet (int i, String n, String wURL, String sURL, int nCommits)
 		{
 		id = i;
 		nom = n;
@@ -72,7 +72,7 @@ public
 		}
 
 	public
-		  String toString()
+		  String toString ()
 		{
 		int nbMembre = 0;
 		String membreInfo = "";
@@ -95,7 +95,7 @@ public
 		}
 
 	public
-		  String toXML()
+		  String toXML ()
 		{
 		String testXML = "";
 		try
@@ -164,13 +164,13 @@ public
 		}
 
 	public
-		  int getId()
+		  int getId ()
 		{
 		return id;
 		}
 
 	public
-		  void setId(int id) throws NegativeProjectID
+		  void setId (int id) throws NegativeProjectID
 		{
 		if (id <= 0)
 			{
@@ -183,25 +183,25 @@ public
 		}
 
 	public
-		  String getNom()
+		  String getNom ()
 		{
 		return nom;
 		}
 
 	public
-		  void setNom(String nom)
+		  void setNom (String nom)
 		{
 		this.nom = nom;
 		}
 
 	public
-		  String getWebURL()
+		  String getWebURL ()
 		{
 		return webURL;
 		}
 
 	public
-		  void setWebURL(String webURL) throws WrongWebURL
+		  void setWebURL (String webURL) throws WrongWebURL
 		{
 		if (webURL.matches("^https.*\\.git$"))
 			{
@@ -214,13 +214,13 @@ public
 		}
 
 	public
-		  String getSshURL()
+		  String getSshURL ()
 		{
 		return sshURL;
 		}
 
 	public
-		  void setSshURL(String sshURL) throws WrongSshURL
+		  void setSshURL (String sshURL) throws WrongSshURL
 		{
 		if (sshURL.matches("^git\\@[A-Za-z0-9-\\.]*\\:[A-Za-z0-9]*\\/[A-Za-z0-9_\\.]*\\.git$"))
 			{
@@ -233,13 +233,13 @@ public
 		}
 
 	public
-		  int getNbCommits()
+		  int getNbCommits ()
 		{
 		return nbCommits;
 		}
 
 	public
-		  void setNbCommits(int nbCommits) throws NegativeNumberOfCommits
+		  void setNbCommits (int nbCommits) throws NegativeNumberOfCommits
 		{
 		if (nbCommits < 0)
 			{
@@ -252,13 +252,13 @@ public
 		}
 
 	public
-		  HashMap<String, ArrayList<Membre>> getLstMembres()
+		  HashMap<String, ArrayList<Membre>> getLstMembres ()
 		{
 		return lstMembres;
 		}
 
 	public
-		  void setLstMembres(HashMap<String, ArrayList<Membre>> lstMembres) throws AnyMaintainerAvailable
+		  void setLstMembres (HashMap<String, ArrayList<Membre>> lstMembres) throws AnyMaintainerAvailable
 		{
 		if (lstMembres.containsKey("Maintainer") && lstMembres.get("Maintainer").size() > 0)
 			{
@@ -271,7 +271,7 @@ public
 		}
 
 	public
-		  int getNbMembres()
+		  int getNbMembres ()
 		{
 		int nbMembres = 0;
 		for (ArrayList<Membre> listMembre : lstMembres.values())

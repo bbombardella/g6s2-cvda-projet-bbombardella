@@ -14,7 +14,7 @@ public
 	{
 
 	public
-		  NegativeNumberOfCommits()
+		  NegativeNumberOfCommits ()
 		{
 		super("Le nombre de commits ne peut pas être négatif.");
 		}

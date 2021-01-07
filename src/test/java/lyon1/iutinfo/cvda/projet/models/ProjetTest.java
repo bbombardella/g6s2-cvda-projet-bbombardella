@@ -30,31 +30,31 @@ public
 	{
 
 	public
-		  ProjetTest()
+		  ProjetTest ()
 		{
 		}
 
 	@BeforeAll
 	public static
-		  void setUpClass()
+		  void setUpClass ()
 		{
 		}
 
 	@AfterAll
 	public static
-		  void tearDownClass()
+		  void tearDownClass ()
 		{
 		}
 
 	@BeforeEach
 	public
-		  void setUp()
+		  void setUp ()
 		{
 		}
 
 	@AfterEach
 	public
-		  void tearDown()
+		  void tearDown ()
 		{
 		}
 
@@ -63,7 +63,7 @@ public
 	 */
 	@Test
 	public
-		  void testToString()
+		  void testToString ()
 		{
 		System.out.println("toString");
 		Projet proj = new Projet(4, "Projet Test", "https://www.test.com", "test@test.com", 5);
@@ -77,7 +77,7 @@ public
 	 */
 	@Test
 	public
-		  void testToXML()
+		  void testToXML ()
 		{
 		System.out.println("toXML");
 
@@ -115,7 +115,7 @@ public
 	 */
 	@Test
 	public
-		  void testGetId()
+		  void testGetId ()
 		{
 		System.out.println("getId");
 		Projet proj = new Projet(4, "Projet Test", "https://www.test.com", "test@test.com", 5);
@@ -129,7 +129,7 @@ public
 	 */
 	@Test
 	public
-		  void testSetId() throws NegativeProjectID
+		  void testSetId () throws NegativeProjectID
 		{
 		System.out.println("setId");
 		Projet proj = new Projet(4, "Projet Test", "https://www.test.com", "test@test.com", 5);
@@ -143,7 +143,7 @@ public
 	 */
 	@Test
 	public
-		  void testGetNom()
+		  void testGetNom ()
 		{
 		System.out.println("getNom");
 		Projet proj = new Projet(4, "Projet Test", "https://www.test.com", "test@test.com", 5);
@@ -157,7 +157,7 @@ public
 	 */
 	@Test
 	public
-		  void testSetNom()
+		  void testSetNom ()
 		{
 		System.out.println("setNom");
 		Projet proj = new Projet(4, "Projet Test", "https://www.test.com", "test@test.com", 5);
@@ -171,7 +171,7 @@ public
 	 */
 	@Test
 	public
-		  void testGetWebURL()
+		  void testGetWebURL ()
 		{
 		System.out.println("getWebURL");
 		Projet proj = new Projet(4, "Projet Test", "https://www.test.com", "test@test.com", 5);
@@ -185,7 +185,7 @@ public
 	 */
 	@Test
 	public
-		  void testSetWebURL() throws WrongWebURL
+		  void testSetWebURL () throws WrongWebURL
 		{
 		System.out.println("setWebURL");
 		String webURL = "https://new.test.com/projet.git";
@@ -199,7 +199,7 @@ public
 	 */
 	@Test
 	public
-		  void testGetSshURL()
+		  void testGetSshURL ()
 		{
 		System.out.println("getSshURL");
 		Projet proj = new Projet(4, "Projet Test", "https://www.test.com", "test@test.com", 5);
@@ -213,7 +213,7 @@ public
 	 */
 	@Test
 	public
-		  void testSetSshURL() throws WrongSshURL
+		  void testSetSshURL () throws WrongSshURL
 		{
 		System.out.println("setSshURL");
 		String sshURL = "git@forge.univ-lyon1.fr:pgfdgdg/gfdguyt.git";
@@ -227,7 +227,7 @@ public
 	 */
 	@Test
 	public
-		  void testGetNbCommits()
+		  void testGetNbCommits ()
 		{
 		System.out.println("getNbCommits");
 		Projet proj = new Projet(4, "Projet Test", "https://www.test.com", "test@test.com", 5);
@@ -241,7 +241,7 @@ public
 	 */
 	@Test
 	public
-		  void testSetNbCommits() throws NegativeNumberOfCommits
+		  void testSetNbCommits () throws NegativeNumberOfCommits
 		{
 		System.out.println("setNbCommits");
 		int nbCommits = 8;
@@ -255,7 +255,7 @@ public
 	 */
 	@Test
 	public
-		  void testGetLstMembres()
+		  void testGetLstMembres ()
 		{
 		System.out.println("getLstMembres");
 		Projet proj = new Projet(4, "Projet Test", "https://www.test.com", "test@test.com", 5);
@@ -269,7 +269,7 @@ public
 	 */
 	@Test
 	public
-		  void testSetLstMembres() throws AnyMaintainerAvailable
+		  void testSetLstMembres () throws AnyMaintainerAvailable
 		{
 		System.out.println("setLstMembres");
 		HashMap<String, ArrayList<Membre>> lstMembres = new HashMap<>();
@@ -287,7 +287,7 @@ public
 	 */
 	@Test
 	public
-		  void testGetNbMembres()
+		  void testGetNbMembres ()
 		{
 		System.out.println("getNbMembres");
 		Projet proj = new Projet(4, "Projet Test", "https://www.test.com", "test@test.com", 5);
@@ -297,7 +297,7 @@ public
 		}
 
 	public
-		  void testSetIdNegatif()
+		  void testSetIdNegatif ()
 		{
 		System.out.println("testSetIdNegatif");
 		Projet proj = new Projet(4, "Projet Test", "https://www.test.com/project.git", "test@test.com:blabla", 5);
@@ -308,7 +308,7 @@ public
 		}
 
 	public
-		  void testSetIdZero()
+		  void testSetIdZero ()
 		{
 		System.out.println("testSetIdNegatif");
 		Projet proj = new Projet(4, "Projet Test", "https://www.test.com/project.git", "test@test.com:blabla", 5);
@@ -319,7 +319,7 @@ public
 		}
 
 	public
-		  void testSetWebURLWrong()
+		  void testSetWebURLWrong ()
 		{
 		System.out.println("testSetWebURLWrong");
 		Projet proj = new Projet(4, "Projet Test", "https://www.test.com/project.git", "test@test.com:blabla", 5);
@@ -330,7 +330,7 @@ public
 		}
 
 	public
-		  void testSetSshURLWrong()
+		  void testSetSshURLWrong ()
 		{
 		System.out.println("testSetSshURLWrong");
 		Projet proj = new Projet(4, "Projet Test", "https://www.test.com/project.git", "test@test.com:blabla", 5);
@@ -341,7 +341,7 @@ public
 		}
 
 	public
-		  void testSetNbCommitsNegative()
+		  void testSetNbCommitsNegative ()
 		{
 		System.out.println("testSetNbCommitsNegative");
 		Projet proj = new Projet(4, "Projet Test", "https://www.test.com/project.git", "test@test.com:blabla", 5);
@@ -352,7 +352,7 @@ public
 		}
 
 	public
-		  void testSetLstMembresAnyMaintainer()
+		  void testSetLstMembresAnyMaintainer ()
 		{
 		System.out.println("testSetNbCommitsNegative");
 		Projet proj = new Projet(4, "Projet Test", "https://www.test.com/project.git", "test@test.com:blabla", 5);

@@ -32,7 +32,7 @@ public
 		  HashMap<String, ArrayList<Projet>> lstProjets;
 
 	public
-		  Membre()
+		  Membre ()
 		{
 		id = 0;
 		nom = "";
@@ -42,7 +42,7 @@ public
 		}
 
 	public
-		  Membre(int i, String n, String e, String w)
+		  Membre (int i, String n, String e, String w)
 		{
 		id = i;
 		nom = n;
@@ -52,7 +52,7 @@ public
 		}
 
 	public
-		  String toString()
+		  String toString ()
 		{
 		String projets = "";
 		for (ArrayList<Projet> listProjet : lstProjets.values())
@@ -71,13 +71,13 @@ public
 		}
 
 	public
-		  int getId()
+		  int getId ()
 		{
 		return id;
 		}
 
 	public
-		  void setId(int id) throws NegativeMemberID
+		  void setId (int id) throws NegativeMemberID
 		{
 		if (id <= 0)
 			{
@@ -90,25 +90,25 @@ public
 		}
 
 	public
-		  String getNom()
+		  String getNom ()
 		{
 		return nom;
 		}
 
 	public
-		  void setNom(String nom)
+		  void setNom (String nom)
 		{
 		this.nom = nom;
 		}
 
 	public
-		  String getEmail()
+		  String getEmail ()
 		{
 		return email;
 		}
 
 	public
-		  void setEmail(String email) throws WrongEmailAddress
+		  void setEmail (String email) throws WrongEmailAddress
 		{
 		if (email.matches("(?:[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*|\"(?:[\\x01-\\x08\\x0b\\x0c\\x0e-\\x1f\\x21\\x23-\\x5b\\x5d-\\x7f]|\\\\[\\x01-\\x09\\x0b\\x0c\\x0e-\\x7f])*\")@(?:(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?|\\[(?:(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\\.){3}(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?|[a-z0-9-]*[a-z0-9]:(?:[\\x01-\\x08\\x0b\\x0c\\x0e-\\x1f\\x21-\\x5a\\x53-\\x7f]|\\\\[\\x01-\\x09\\x0b\\x0c\\x0e-\\x7f])+)\\])"))
 			{
@@ -121,13 +121,13 @@ public
 		}
 
 	public
-		  String getWebsite()
+		  String getWebsite ()
 		{
 		return website;
 		}
 
 	public
-		  void setWebsite(String website) throws WrongWebsiteURL
+		  void setWebsite (String website) throws WrongWebsiteURL
 		{
 		if (website.matches("^(https?)://[-a-zA-Z0-9+&@#/%?=~_|!:,.;]*[-a-zA-Z0-9+&@#/%=~_|]"))
 			{
@@ -140,19 +140,19 @@ public
 		}
 
 	public
-		  HashMap<String, ArrayList<Projet>> getLstProjets()
+		  HashMap<String, ArrayList<Projet>> getLstProjets ()
 		{
 		return lstProjets;
 		}
 
 	public
-		  void setLstProjets(HashMap<String, ArrayList<Projet>> lstProjets)
+		  void setLstProjets (HashMap<String, ArrayList<Projet>> lstProjets)
 		{
 		this.lstProjets = lstProjets;
 		}
 
 	public
-		  int getNbProjets()
+		  int getNbProjets ()
 		{
 		int nbProjets = 0;
 		for (ArrayList<Projet> projetList : lstProjets.values())
@@ -163,7 +163,7 @@ public
 		}
 
 	public
-		  String toXML()
+		  String toXML ()
 		{
 		String xml = "<membre id='" + this.getId() + "'>";
 		xml += "\n   <nom>" + this.getNom() + "</nom>";

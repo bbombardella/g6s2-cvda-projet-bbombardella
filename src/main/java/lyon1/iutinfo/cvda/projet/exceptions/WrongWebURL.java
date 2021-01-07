@@ -14,7 +14,7 @@ public
 	{
 
 	public
-		  WrongWebURL()
+		  WrongWebURL ()
 		{
 		super("L'URL de l'adresse web doit commencer par 'https' et doit se finir par '.git'.");
 		}

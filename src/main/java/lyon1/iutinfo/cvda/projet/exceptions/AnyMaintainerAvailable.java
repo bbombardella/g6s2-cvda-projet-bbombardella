@@ -14,7 +14,7 @@ public
 	{
 
 	public
-		  AnyMaintainerAvailable()
+		  AnyMaintainerAvailable ()
 		{
 		super("Le projet ne contient pas de maintainer dans la liste des membres.");
 		}

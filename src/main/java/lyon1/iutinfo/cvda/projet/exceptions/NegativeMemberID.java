@@ -14,7 +14,7 @@ public
 	{
 
 	public
-		  NegativeMemberID()
+		  NegativeMemberID ()
 		{
 		super("L'id du membre ne peut pas être négatif ou nul.");
 		}

@@ -14,7 +14,7 @@ public
 	{
 
 	public
-		  NegativeProjectID()
+		  NegativeProjectID ()
 		{
 		super("L'ID du projet ne doit pas être négatif ou nul.");
 		}
