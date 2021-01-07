@@ -36,24 +36,28 @@ public
 	public static
 		  void setUpClass ()
 		{
+		return;
 		}
 
 	@AfterAll
 	public static
 		  void tearDownClass ()
 		{
+		return;
 		}
 
 	@BeforeEach
 	public
 		  void setUp ()
 		{
+		return;
 		}
 
 	@AfterEach
 	public
 		  void tearDown ()
 		{
+		return;
 		}
 
 	/**
@@ -70,6 +74,7 @@ public
 
 		String result = instance.toString();
 		assertEquals(exp_result, result);
+		return;
 		}
 
 	/**
@@ -84,6 +89,7 @@ public
 		int exp_result = 12;
 		int result = instance.getId();
 		assertEquals(exp_result, result);
+		return;
 		}
 
 	/**
@@ -97,6 +103,7 @@ public
 		int id = 1;
 		Member instance = new Member();
 		instance.setId(id);
+		return;
 		}
 
 	/**
@@ -111,6 +118,7 @@ public
 		String exp_result = "QUIROULE Pierre";
 		String result = instance.getName();
 		assertEquals(exp_result, result);
+		return;
 		}
 
 	/**
@@ -124,6 +132,7 @@ public
 		String name = "";
 		Member instance = new Member();
 		instance.setName(name);
+		return;
 		}
 
 	/**
@@ -138,6 +147,7 @@ public
 		String exp_result = "Pierre.Quiroule@test.fr";
 		String result = instance.getEmail();
 		assertEquals(exp_result, result);
+		return;
 		}
 
 	/**
@@ -151,6 +161,7 @@ public
 		String email = "test@test.co.uk";
 		Member instance = new Member();
 		instance.setEmail(email);
+		return;
 		}
 
 	/**
@@ -165,6 +176,7 @@ public
 		String exp_result = "Pierrequiroule.com";
 		String result = instance.getWebsite();
 		assertEquals(exp_result, result);
+		return;
 		}
 
 	/**
@@ -178,6 +190,7 @@ public
 		String website = "http://test.com/";
 		Member instance = new Member();
 		instance.setWebsite(website);
+		return;
 		}
 
 	/**
@@ -192,6 +205,7 @@ public
 		HashMap<String, ArrayList<Project>> exp_result = new HashMap<>();
 		HashMap<String, ArrayList<Project>> result = instance.getLstProjects();
 		assertEquals(exp_result, result);
+		return;
 		}
 
 	/**
@@ -205,6 +219,7 @@ public
 		HashMap<String, ArrayList<Project>> lst_projects = new HashMap<>();
 		Member instance = new Member(12, "QUIROULE Pierre", "Pierre.Quiroule@test.fr", "Pierrequiroule.com");
 		instance.setLstProjects(lst_projects);
+		return;
 		}
 
 	/**
@@ -219,6 +234,7 @@ public
 		int exp_result = 0;
 		int result = instance.getNbProjects();
 		assertEquals(exp_result, result);
+		return;
 		}
 
 	/**
@@ -249,6 +265,7 @@ public
 
 		assertEquals(exp_hash, result_hash);
 		System.out.println(result_hash);
+		return;
 		}
 
 	@Test
@@ -260,6 +277,7 @@ public
 			{
 			member_1.setId(-1);
 			});
+		return;
 		}
 
 	@Test
@@ -271,6 +289,7 @@ public
 			{
 			member_1.setId(0);
 			});
+		return;
 		}
 
 	@Test
@@ -282,6 +301,7 @@ public
 			{
 			member_1.setEmail("");
 			});
+		return;
 		}
 
 	@Test
@@ -293,6 +313,7 @@ public
 			{
 			member_1.setWebsite("");
 			});
+		return;
 		}
 
 	}

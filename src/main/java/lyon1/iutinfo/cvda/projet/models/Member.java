@@ -99,6 +99,7 @@ public
 		  void setName (String name)
 		{
 		this.name = name;
+		return;
 		}
 
 	public
@@ -151,6 +152,7 @@ public
 		  void setLstProjects (HashMap<String, ArrayList<Project>> lstProjects)
 		{
 		this.lstProjects = lstProjects;
+		return;
 		}
 
 	public

@@ -96,57 +96,57 @@ public
 		String test_xml = "";
 		try
 			{
-			DocumentBuilderFactory docFactory = DocumentBuilderFactory.newInstance();
-			DocumentBuilder docBuilder = docFactory.newDocumentBuilder();
+			DocumentBuilderFactory doc_factory = DocumentBuilderFactory.newInstance();
+			DocumentBuilder doc_builder = doc_factory.newDocumentBuilder();
 
-			Document doc = docBuilder.newDocument();
-			Element rootElement = doc.createElement("projet");
-			doc.appendChild(rootElement);
-			rootElement.setAttribute("id", String.valueOf(this.id));
-			rootElement.setAttribute("nbcommits", String.valueOf(this.nbCommits));
+			Document doc = doc_builder.newDocument();
+			Element root_element = doc.createElement("projet");
+			doc.appendChild(root_element);
+			root_element.setAttribute("id", String.valueOf(this.id));
+			root_element.setAttribute("nbcommits", String.valueOf(this.nbCommits));
 
-			Element nomElement = doc.createElement("nom");
-			nomElement.appendChild(doc.createTextNode(this.name));
-			rootElement.appendChild(nomElement);
+			Element name_element = doc.createElement("nom");
+			name_element.appendChild(doc.createTextNode(this.name));
+			root_element.appendChild(name_element);
 
-			Element webURLElement = doc.createElement("webURL");
-			webURLElement.appendChild(doc.createTextNode(this.webURL));
-			rootElement.appendChild(webURLElement);
+			Element web_url_element = doc.createElement("webURL");
+			web_url_element.appendChild(doc.createTextNode(this.webURL));
+			root_element.appendChild(web_url_element);
 
-			Element sshURLElement = doc.createElement("sshURL");
-			sshURLElement.appendChild(doc.createTextNode(this.sshURL));
-			rootElement.appendChild(sshURLElement);
+			Element ssh_url_element = doc.createElement("sshURL");
+			ssh_url_element.appendChild(doc.createTextNode(this.sshURL));
+			root_element.appendChild(ssh_url_element);
 
-			Element membresElement = doc.createElement("membres");
-			rootElement.appendChild(membresElement);
+			Element members_element = doc.createElement("membres");
+			root_element.appendChild(members_element);
 
 			for (Entry<String, ArrayList<Member>> list : this.lstMembers.entrySet())
 				{
 				for (Member m : list.getValue())
 					{
-					Element membreElement = doc.createElement("membre");
-					membreElement.setAttribute("id", String.valueOf(m.getId()));
-					membreElement.setAttribute("role", list.getKey());
+					Element member_element = doc.createElement("membre");
+					member_element.setAttribute("id", String.valueOf(m.getId()));
+					member_element.setAttribute("role", list.getKey());
 
-					Element nomElement2 = doc.createElement("nom");
-					nomElement2.appendChild(doc.createTextNode(m.getName()));
-					membreElement.appendChild(nomElement2);
+					Element name_element_2 = doc.createElement("nom");
+					name_element_2.appendChild(doc.createTextNode(m.getName()));
+					member_element.appendChild(name_element_2);
 
-					Element nbProjetsElement = doc.createElement("nb-projets");
-					nbProjetsElement.appendChild(doc.createTextNode(String.valueOf(m.getNbProjects())));
-					membreElement.appendChild(nbProjetsElement);
+					Element nb_projects_element = doc.createElement("nb-projets");
+					nb_projects_element.appendChild(doc.createTextNode(String.valueOf(m.getNbProjects())));
+					member_element.appendChild(nb_projects_element);
 
-					membresElement.appendChild(membreElement);
+					members_element.appendChild(member_element);
 					}
 				}
 
-			TransformerFactory transformerFactory = TransformerFactory.newInstance();
-			Transformer transformer = transformerFactory.newTransformer();
+			TransformerFactory transformer_factory = TransformerFactory.newInstance();
+			Transformer transformer = transformer_factory.newTransformer();
 			DOMSource source = new DOMSource(doc);
-			StringWriter stringWriter = new StringWriter();
-			StreamResult result = new StreamResult(stringWriter);
+			StringWriter string_writer = new StringWriter();
+			StreamResult result = new StreamResult(string_writer);
 			transformer.transform(source, result);
-			test_xml = stringWriter.toString();
+			test_xml = string_writer.toString();
 			return test_xml;
 			}
 		catch (Exception e)
@@ -276,9 +276,9 @@ public
 		  int getNbMembers ()
 		{
 		int nb_members = 0;
-		for (ArrayList<Member> listMembre : lstMembers.values())
+		for (ArrayList<Member> list_member : lstMembers.values())
 			{
-			nb_members += listMembre.size();
+			nb_members += list_member.size();
 			}
 		return nb_members;
 		}

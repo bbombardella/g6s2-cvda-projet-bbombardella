@@ -38,24 +38,28 @@ public
 	public static
 		  void setUpClass ()
 		{
+		return;
 		}
 
 	@AfterAll
 	public static
 		  void tearDownClass ()
 		{
+		return;
 		}
 
 	@BeforeEach
 	public
 		  void setUp ()
 		{
+		return;
 		}
 
 	@AfterEach
 	public
 		  void tearDown ()
 		{
+		return;
 		}
 
 	/**
@@ -70,6 +74,7 @@ public
 		String exp_result = "Projet id #4\nNom : \"Projet Test\"\nsshURL : \"test@test.com\"\nwebURL : \"https://www.test.com\"\nCommits : 5\nMembres (0)\n";
 		String result = proj.toString();
 		assertEquals(exp_result, result);
+		return;
 		}
 
 	/**
@@ -108,6 +113,7 @@ public
 		String result_hash = new DigestUtils(SHA_224).digestAsHex(result_xml);
 
 		assertEquals(exp_hash, result_hash);
+		return;
 		}
 
 	/**
@@ -122,6 +128,7 @@ public
 		int exp_result = 4;
 		int result = proj.getId();
 		assertEquals(exp_result, result);
+		return;
 		}
 
 	/**
@@ -136,6 +143,7 @@ public
 		int id = 5;
 		proj.setId(id);
 		assertEquals(id, proj.getId());
+		return;
 		}
 
 	/**
@@ -150,6 +158,7 @@ public
 		String exp_result = "Projet Test";
 		String result = proj.getName();
 		assertEquals(exp_result, result);
+		return;
 		}
 
 	/**
@@ -164,6 +173,7 @@ public
 		String name = "Testons la méthode";
 		proj.setName(name);
 		assertEquals(name, proj.getName());
+		return;
 		}
 
 	/**
@@ -178,6 +188,7 @@ public
 		String exp_result = "https://www.test.com";
 		String result = proj.getWebURL();
 		assertEquals(exp_result, result);
+		return;
 		}
 
 	/**
@@ -192,6 +203,7 @@ public
 		Project proj = new Project(4, "Projet Test", "https://www.test.com/projet.git", "test@test.com", 5);
 		proj.setWebURL(web_url);
 		assertEquals(web_url, proj.getWebURL());
+		return;
 		}
 
 	/**
@@ -206,6 +218,7 @@ public
 		String exp_result = "test@test.com";
 		String result = proj.getSshURL();
 		assertEquals(exp_result, result);
+		return;
 		}
 
 	/**
@@ -220,6 +233,7 @@ public
 		Project proj = new Project(4, "Projet Test", "https://www.test.com", "git@forge.univ-lyon1.fr:podsfc/qornd.git", 5);
 		proj.setSshURL(ssh_url);
 		assertEquals(ssh_url, proj.getSshURL());
+		return;
 		}
 
 	/**
@@ -234,6 +248,7 @@ public
 		int exp_result = 5;
 		int result = proj.getNbCommits();
 		assertEquals(exp_result, result);
+		return;
 		}
 
 	/**
@@ -248,6 +263,7 @@ public
 		Project proj = new Project(4, "Projet Test", "https://www.test.com", "test@test.com", 5);
 		proj.setNbCommits(nb_commits);
 		assertEquals(nb_commits, proj.getNbCommits());
+		return;
 		}
 
 	/**
@@ -262,6 +278,7 @@ public
 		HashMap<String, ArrayList<Member>> exp_result = new HashMap<>();
 		HashMap<String, ArrayList<Member>> result = proj.getLstMembers();
 		assertEquals(exp_result, result);
+		return;
 		}
 
 	/**
@@ -280,6 +297,7 @@ public
 		Project proj = new Project(4, "Projet Test", "https://www.test.com", "test@test.com", 5);
 		proj.setLstMembers(lst_members);
 		assertEquals(lst_members, proj.getLstMembers());
+		return;
 		}
 
 	/**
@@ -294,6 +312,7 @@ public
 		int exp_result = 0;
 		int result = proj.getNbMembers();
 		assertEquals(exp_result, result);
+		return;
 		}
 
 	public
@@ -305,6 +324,7 @@ public
 			{
 			proj.setId(-2);
 			});
+		return;
 		}
 
 	public
@@ -316,6 +336,7 @@ public
 			{
 			proj.setId(0);
 			});
+		return;
 		}
 
 	public
@@ -327,6 +348,7 @@ public
 			{
 			proj.setWebURL("");
 			});
+		return;
 		}
 
 	public
@@ -338,6 +360,7 @@ public
 			{
 			proj.setWebURL("");
 			});
+		return;
 		}
 
 	public
@@ -349,6 +372,7 @@ public
 			{
 			proj.setNbCommits(-5);
 			});
+		return;
 		}
 
 	public
@@ -360,6 +384,7 @@ public
 			{
 			proj.setLstMembers(new HashMap<String, ArrayList<Member>>());
 			});
+		return;
 		}
 
 	}
