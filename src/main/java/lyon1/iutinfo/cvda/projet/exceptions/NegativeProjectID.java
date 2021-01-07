@@ -10,7 +10,8 @@ package lyon1.iutinfo.cvda.projet.exceptions;
  * @author Bastien BOMBARDELLA
  */
 public class NegativeProjectID extends Exception {
-    public NegativeProjectID() {
-        super("L'ID du projet ne doit pas être négatif ou nul.");
-    }
+
+	public NegativeProjectID() {
+		super("L'ID du projet ne doit pas être négatif ou nul.");
+	}
 }

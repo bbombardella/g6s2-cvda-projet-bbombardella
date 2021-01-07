@@ -10,7 +10,8 @@ package lyon1.iutinfo.cvda.projet.exceptions;
  * @author Bastien BOMBARDELLA
  */
 public class WrongSshURL extends Exception {
-    public WrongSshURL() {
-        super("L'adresse SSH n'a pas un format correct.");
-    }
+
+	public WrongSshURL() {
+		super("L'adresse SSH n'a pas un format correct.");
+	}
 }

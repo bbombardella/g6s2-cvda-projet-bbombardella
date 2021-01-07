@@ -10,7 +10,8 @@ package lyon1.iutinfo.cvda.projet.exceptions;
  * @author Bastien BOMBARDELLA
  */
 public class NegativeMemberID extends Exception {
-    public NegativeMemberID() {
-        super("L'id du membre ne peut pas être négatif ou nul.");
-    }
+
+	public NegativeMemberID() {
+		super("L'id du membre ne peut pas être négatif ou nul.");
+	}
 }

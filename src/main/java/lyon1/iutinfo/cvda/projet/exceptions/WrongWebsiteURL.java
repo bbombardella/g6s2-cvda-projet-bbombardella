@@ -10,7 +10,8 @@ package lyon1.iutinfo.cvda.projet.exceptions;
  * @author Bastien BOMBARDELLA
  */
 public class WrongWebsiteURL extends Exception {
-    public WrongWebsiteURL() {
-        super("L'adresse du site web n'a pas de format correct");
-    }
+
+	public WrongWebsiteURL() {
+		super("L'adresse du site web n'a pas de format correct");
+	}
 }
