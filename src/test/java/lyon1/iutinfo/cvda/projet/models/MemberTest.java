@@ -60,9 +60,7 @@ public
 		return;
 		}
 
-	/**
-	 * Test of toString method, of class Member.
-	 */
+	//Test of toString method, of class Member.
 	@Test
 	public
 		  void testToString ()
@@ -77,9 +75,7 @@ public
 		return;
 		}
 
-	/**
-	 * Test of getId method, of class Member.
-	 */
+	//Test of getId method, of class Member.
 	@Test
 	public
 		  void testGetId ()
@@ -92,9 +88,7 @@ public
 		return;
 		}
 
-	/**
-	 * Test of setId method, of class Member.
-	 */
+	//Test of setId method, of class Member.
 	@Test
 	public
 		  void testSetId () throws NegativeMemberID
@@ -106,9 +100,7 @@ public
 		return;
 		}
 
-	/**
-	 * Test of getName method, of class Member.
-	 */
+	//Test of getName method, of class Member.
 	@Test
 	public
 		  void testGetName ()
@@ -121,9 +113,7 @@ public
 		return;
 		}
 
-	/**
-	 * Test of setName method, of class Member.
-	 */
+	//Test of setName method, of class Member.
 	@Test
 	public
 		  void testSetName ()
@@ -135,9 +125,7 @@ public
 		return;
 		}
 
-	/**
-	 * Test of getEmail method, of class Member.
-	 */
+	//Test of getEmail method, of class Member.
 	@Test
 	public
 		  void testGetEmail ()
@@ -150,9 +138,7 @@ public
 		return;
 		}
 
-	/**
-	 * Test of setEmail method, of class Member.
-	 */
+	//Test of setEmail method, of class Member.
 	@Test
 	public
 		  void testSetEmail () throws WrongEmailAddress
@@ -164,9 +150,7 @@ public
 		return;
 		}
 
-	/**
-	 * Test of getWebsite method, of class Member.
-	 */
+	//Test of getWebsite method, of class Member.
 	@Test
 	public
 		  void testGetWebsite ()
@@ -179,9 +163,7 @@ public
 		return;
 		}
 
-	/**
-	 * Test of setWebsite method, of class Member.
-	 */
+	//Test of setWebsite method, of class Member.
 	@Test
 	public
 		  void testSetWebsite () throws WrongWebsiteURL
@@ -193,9 +175,7 @@ public
 		return;
 		}
 
-	/**
-	 * Test of getLstProjects method, of class Member.
-	 */
+	//Test of getLstProjects method, of class Member.
 	@Test
 	public
 		  void testGetLstProjects ()
@@ -208,9 +188,7 @@ public
 		return;
 		}
 
-	/**
-	 * Test of setLstProjects method, of class Member.
-	 */
+	//Test of setLstProjects method, of class Member.
 	@Test
 	public
 		  void testSetLstProjects ()
@@ -222,9 +200,7 @@ public
 		return;
 		}
 
-	/**
-	 * Test of getNbProjects method, of class Member.
-	 */
+	//Test of getNbProjects method, of class Member.
 	@Test
 	public
 		  void testGetNbProjects ()
@@ -237,9 +213,7 @@ public
 		return;
 		}
 
-	/**
-	 * Test of toXML method, of class Member.
-	 */
+	//Test of toXML method, of class Member.
 	@Test
 	public
 		  void testToXML ()
@@ -268,6 +242,7 @@ public
 		return;
 		}
 
+	//Test of setId method, of class Member, and see if a NegativeMemberIDException is thrown	  
 	@Test
 	public
 		  void testSetIdNegative ()
@@ -280,6 +255,7 @@ public
 		return;
 		}
 
+	//Test of setId method, of class Member, and see if a NegativeMemberIDException is thrown		  
 	@Test
 	public
 		  void testSetIdNull ()
@@ -292,6 +268,7 @@ public
 		return;
 		}
 
+	//Test of setEmail method, of class Member, and see if a WrongEmailAddressException is thrown		  
 	@Test
 	public
 		  void testSetEmailWrong ()
@@ -304,6 +281,7 @@ public
 		return;
 		}
 
+	//Test of setWebsite method, of class Member, and see if a WrongWebsiteURLException is thrown		  
 	@Test
 	public
 		  void testSetWebsiteWrong ()
