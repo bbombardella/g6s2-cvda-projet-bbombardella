@@ -84,35 +84,42 @@ public
 	public
 		  void testToXML ()
 		{
-		System.out.println("toXML");
+		try
+			{
+			System.out.println("toXML");
 
-		Member bastien = new Member(2870, "BOMBARDELLA BASTIEN p1935610", "bastien.bombardella@etu.univ-lyon1.fr", "bastienbc.fr");
-		Project proj = new Project(16646, "g6s2-cvda-projet-bbombardella", "https://forge.univ-lyon1.fr/p1935610/g6s2-cvda-projet-bbombardella.git", "git@forge.univ-lyon1.fr:p1935610/g6s2-cvda-projet-bbombardella.git", 23);
-		ArrayList<Member> lst_maintainers = new ArrayList();
-		lst_maintainers.add(bastien);
-		proj.getLstMembers().put("Maintainer", lst_maintainers);
-		ArrayList<Project> lst_projects = new ArrayList();
-		lst_projects.add(proj);
-		bastien.getLstProjects().put("Maintainer", lst_projects);
+			Member bastien = new Member(2870, "BOMBARDELLA BASTIEN p1935610", "bastien.bombardella@etu.univ-lyon1.fr", "bastienbc.fr");
+			Project proj = new Project(16646, "g6s2-cvda-projet-bbombardella", "https://forge.univ-lyon1.fr/p1935610/g6s2-cvda-projet-bbombardella.git", "git@forge.univ-lyon1.fr:p1935610/g6s2-cvda-projet-bbombardella.git", 23);
+			ArrayList<Member> lst_maintainers = new ArrayList();
+			lst_maintainers.add(bastien);
+			proj.getLstMembers().put("Maintainer", lst_maintainers);
+			ArrayList<Project> lst_projects = new ArrayList();
+			lst_projects.add(proj);
+			bastien.getLstProjects().put("Maintainer", lst_projects);
 
-		String exp_xml = "<?xml version=\"1.0\" encoding=\"UTF-8\" standalone=\"no\"?>"
-			  + "<projet id=\"16646\" nbcommits=\"23\">"
-			  + "<nom>g6s2-cvda-projet-bbombardella</nom>"
-			  + "<webURL>https://forge.univ-lyon1.fr/p1935610/g6s2-cvda-projet-bbombardella.git</webURL>"
-			  + "<sshURL>git@forge.univ-lyon1.fr:p1935610/g6s2-cvda-projet-bbombardella.git</sshURL>"
-			  + "<membres>"
-			  + "<membre id=\"2870\" role=\"Maintainer\">"
-			  + "<nom>BOMBARDELLA BASTIEN p1935610</nom>"
-			  + "<nb-projets>1</nb-projets>"
-			  + "</membre>"
-			  + "</membres>"
-			  + "</projet>";
-		String result_xml = proj.toXML();
+			String exp_xml = "<?xml version=\"1.0\" encoding=\"UTF-8\" standalone=\"no\"?>"
+				  + "<projet id=\"16646\" nbcommits=\"23\">"
+				  + "<nom>g6s2-cvda-projet-bbombardella</nom>"
+				  + "<webURL>https://forge.univ-lyon1.fr/p1935610/g6s2-cvda-projet-bbombardella.git</webURL>"
+				  + "<sshURL>git@forge.univ-lyon1.fr:p1935610/g6s2-cvda-projet-bbombardella.git</sshURL>"
+				  + "<membres>"
+				  + "<membre id=\"2870\" role=\"Maintainer\">"
+				  + "<nom>BOMBARDELLA BASTIEN p1935610</nom>"
+				  + "<nb-projets>1</nb-projets>"
+				  + "</membre>"
+				  + "</membres>"
+				  + "</projet>";
+			String result_xml = proj.toXML();
 
-		String exp_hash = new DigestUtils(SHA_224).digestAsHex(exp_xml);
-		String result_hash = new DigestUtils(SHA_224).digestAsHex(result_xml);
+			String exp_hash = new DigestUtils(SHA_224).digestAsHex(exp_xml);
+			String result_hash = new DigestUtils(SHA_224).digestAsHex(result_xml);
 
-		assertEquals(exp_hash, result_hash);
+			assertEquals(exp_hash, result_hash);
+			}
+		catch (Exception e)
+			{
+			fail(e.getMessage());
+			}
 		return;
 		}
 

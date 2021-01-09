@@ -11,7 +11,9 @@ import java.util.HashMap;
 import java.util.Map.Entry;
 import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
+import javax.xml.parsers.ParserConfigurationException;
 import javax.xml.transform.Transformer;
+import javax.xml.transform.TransformerException;
 import javax.xml.transform.TransformerFactory;
 import javax.xml.transform.dom.DOMSource;
 import javax.xml.transform.stream.StreamResult;
@@ -97,72 +99,99 @@ public
 		}
 
 	public
-		  String toXML ()
+		  String toXML () throws TransformerException, ParserConfigurationException
 		{
-		String test_xml = "";
-		try
+		Document xml_doc = this.XMLBuildNodes();
+		String xml_string = this.nodeToString(xml_doc);
+		return xml_string;
+		}
+
+	private
+		  Document XMLBuildNodes () throws ParserConfigurationException
+		{
+		DocumentBuilderFactory doc_factory = DocumentBuilderFactory.newInstance();
+		DocumentBuilder doc_builder = doc_factory.newDocumentBuilder();
+		Document doc = doc_builder.newDocument();
+		Element root_element = this.projectNodeXML(doc);
+		Element name_element = this.nameNodeXML(doc);
+		root_element.appendChild(name_element);
+		Element web_url_element = this.webURLNodeXML(doc);
+		root_element.appendChild(web_url_element);
+		Element ssh_url_element = this.sshURLNodeXML(doc);
+		root_element.appendChild(ssh_url_element);
+		Element members_element = doc.createElement("membres");
+		root_element.appendChild(members_element);
+		this.membersNodeXML(doc, members_element);
+		return doc;
+		}
+
+	private
+		  Element projectNodeXML (Document doc)
+		{
+		Element root_element = doc.createElement("projet");
+		doc.appendChild(root_element);
+		root_element.setAttribute("id", String.valueOf(this.id));
+		root_element.setAttribute("nbcommits", String.valueOf(this.nbCommits));
+		return root_element;
+		}
+
+	private
+		  Element nameNodeXML (Document doc)
+		{
+		Element name_element = doc.createElement("nom");
+		name_element.appendChild(doc.createTextNode(this.name));
+		return name_element;
+
+		}
+
+	private
+		  Element webURLNodeXML (Document doc)
+		{
+		Element web_url_element = doc.createElement("webURL");
+		web_url_element.appendChild(doc.createTextNode(this.webURL));
+		return web_url_element;
+		}
+
+	private
+		  Element sshURLNodeXML (Document doc)
+		{
+		Element ssh_url_element = doc.createElement("sshURL");
+		ssh_url_element.appendChild(doc.createTextNode(this.sshURL));
+		return ssh_url_element;
+		}
+
+	private
+		  void membersNodeXML (Document doc, Element members_element)
+		{
+		for (Entry<String, ArrayList<Member>> list : this.lstMembers.entrySet())
 			{
-			DocumentBuilderFactory doc_factory = DocumentBuilderFactory.newInstance();
-			DocumentBuilder doc_builder = doc_factory.newDocumentBuilder();
-
-			Document doc = doc_builder.newDocument();
-			Element root_element = doc.createElement("projet");
-			doc.appendChild(root_element);
-			root_element.setAttribute("id", String.valueOf(this.id));
-			root_element.setAttribute("nbcommits", String.valueOf(this.nbCommits));
-
-			Element name_element = doc.createElement("nom");
-			name_element.appendChild(doc.createTextNode(this.name));
-			root_element.appendChild(name_element);
-
-			Element web_url_element = doc.createElement("webURL");
-			web_url_element.appendChild(doc.createTextNode(this.webURL));
-			root_element.appendChild(web_url_element);
-
-			Element ssh_url_element = doc.createElement("sshURL");
-			ssh_url_element.appendChild(doc.createTextNode(this.sshURL));
-			root_element.appendChild(ssh_url_element);
-
-			Element members_element = doc.createElement("membres");
-			root_element.appendChild(members_element);
-
-			for (Entry<String, ArrayList<Member>> list : this.lstMembers.entrySet())
+			for (Member m : list.getValue())
 				{
-				for (Member m : list.getValue())
-					{
-					Element member_element = doc.createElement("membre");
-					member_element.setAttribute("id", String.valueOf(m.getId()));
-					member_element.setAttribute("role", list.getKey());
-
-					Element name_element_2 = doc.createElement("nom");
-					name_element_2.appendChild(doc.createTextNode(m.getName()));
-					member_element.appendChild(name_element_2);
-
-					Element nb_projects_element = doc.createElement("nb-projets");
-					nb_projects_element.appendChild(doc.createTextNode(String.valueOf(m.getNbProjects())));
-					member_element.appendChild(nb_projects_element);
-
-					members_element.appendChild(member_element);
-					}
+				Element member_element = doc.createElement("membre");
+				member_element.setAttribute("id", String.valueOf(m.getId()));
+				member_element.setAttribute("role", list.getKey());
+				Element name_element_2 = doc.createElement("nom");
+				name_element_2.appendChild(doc.createTextNode(m.getName()));
+				member_element.appendChild(name_element_2);
+				Element nb_projects_element = doc.createElement("nb-projets");
+				nb_projects_element.appendChild(doc.createTextNode(String.valueOf(m.getNbProjects())));
+				member_element.appendChild(nb_projects_element);
+				members_element.appendChild(member_element);
 				}
+			}
+		return;
+		}
 
-			TransformerFactory transformer_factory = TransformerFactory.newInstance();
-			Transformer transformer = transformer_factory.newTransformer();
-			DOMSource source = new DOMSource(doc);
-			StringWriter string_writer = new StringWriter();
-			StreamResult result = new StreamResult(string_writer);
-			transformer.transform(source, result);
-			test_xml = string_writer.toString();
-			return test_xml;
-			}
-		catch (Exception e)
-			{
-			System.out.println(e.getMessage());
-			}
-		finally
-			{
-			return test_xml;
-			}
+	private
+		  String nodeToString (Document doc) throws TransformerException
+		{
+		TransformerFactory transformer_factory = TransformerFactory.newInstance();
+		Transformer transformer = transformer_factory.newTransformer();
+		DOMSource source = new DOMSource(doc);
+		StringWriter string_writer = new StringWriter();
+		StreamResult result = new StreamResult(string_writer);
+		transformer.transform(source, result);
+		return string_writer.toString();
 		}
 
 	public
