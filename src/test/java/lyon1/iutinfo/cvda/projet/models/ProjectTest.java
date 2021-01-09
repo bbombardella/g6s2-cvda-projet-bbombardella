@@ -62,9 +62,7 @@ public
 		return;
 		}
 
-	/**
-	 * Test of toString method, of class Project.
-	 */
+	//Test of toString method, of class Project.
 	@Test
 	public
 		  void testToString ()
@@ -77,9 +75,7 @@ public
 		return;
 		}
 
-	/**
-	 * Test of toXML method, of class Project.
-	 */
+	//Test of toXML method, of class Project.
 	@Test
 	public
 		  void testToXML ()
@@ -123,9 +119,7 @@ public
 		return;
 		}
 
-	/**
-	 * Test of getId method, of class Project.
-	 */
+	//Test of getId method, of class Project.
 	@Test
 	public
 		  void testGetId ()
@@ -138,9 +132,7 @@ public
 		return;
 		}
 
-	/**
-	 * Test of setId method, of class Project.
-	 */
+	//Test of setId method, of class Project.
 	@Test
 	public
 		  void testSetId () throws NegativeProjectID
@@ -153,9 +145,7 @@ public
 		return;
 		}
 
-	/**
-	 * Test of getName method, of class Project.
-	 */
+	//Test of getName method, of class Project.
 	@Test
 	public
 		  void testGetName ()
@@ -168,9 +158,7 @@ public
 		return;
 		}
 
-	/**
-	 * Test of setName method, of class Project.
-	 */
+	//Test of setName method, of class Project.
 	@Test
 	public
 		  void testSetName ()
@@ -183,9 +171,7 @@ public
 		return;
 		}
 
-	/**
-	 * Test of getWebURL method, of class Project.
-	 */
+	//Test of getWebURL method, of class Project.
 	@Test
 	public
 		  void testGetWebURL ()
@@ -198,9 +184,7 @@ public
 		return;
 		}
 
-	/**
-	 * Test of setWebURL method, of class Project.
-	 */
+	//Test of setWebURL method, of class Project.
 	@Test
 	public
 		  void testSetWebURL () throws WrongWebURL
@@ -213,9 +197,7 @@ public
 		return;
 		}
 
-	/**
-	 * Test of getSshURL method, of class Project.
-	 */
+	//Test of getSshURL method, of class Project.
 	@Test
 	public
 		  void testGetSshURL ()
@@ -228,9 +210,7 @@ public
 		return;
 		}
 
-	/**
-	 * Test of setSshURL method, of class Project.
-	 */
+	//Test of setSshURL method, of class Project.
 	@Test
 	public
 		  void testSetSshURL () throws WrongSshURL
@@ -243,9 +223,7 @@ public
 		return;
 		}
 
-	/**
-	 * Test of getNbCommits method, of class Project.
-	 */
+	//Test of getNbCommits method, of class Project.
 	@Test
 	public
 		  void testGetNbCommits ()
@@ -258,9 +236,7 @@ public
 		return;
 		}
 
-	/**
-	 * Test of setNbCommits method, of class Project.
-	 */
+	//Test of setNbCommits method, of class Project.
 	@Test
 	public
 		  void testSetNbCommits () throws NegativeNumberOfCommits
@@ -273,9 +249,7 @@ public
 		return;
 		}
 
-	/**
-	 * Test of getLstMembers method, of class Project.
-	 */
+	//Test of getLstMembers method, of class Project.
 	@Test
 	public
 		  void testGetLstMembers ()
@@ -288,9 +262,7 @@ public
 		return;
 		}
 
-	/**
-	 * Test of setLstMembers method, of class Project.
-	 */
+	//Test of setLstMembers method, of class Project.
 	@Test
 	public
 		  void testSetLstMembers () throws AnyMaintainerAvailable
@@ -307,9 +279,7 @@ public
 		return;
 		}
 
-	/**
-	 * Test of getNbMembers method, of class Project.
-	 */
+	//Test of getNbMembers method, of class Project.
 	@Test
 	public
 		  void testGetNbMembers ()
@@ -322,6 +292,7 @@ public
 		return;
 		}
 
+	//Test of setId method, of class Project, and see if a NegativeProjectIDException is thrown
 	public
 		  void testSetIdNegatif ()
 		{
@@ -334,6 +305,7 @@ public
 		return;
 		}
 
+	//Test of setId method, of class Project, and see if a NegativeProjectIDException is thrown
 	public
 		  void testSetIdZero ()
 		{
@@ -345,7 +317,8 @@ public
 			});
 		return;
 		}
-
+		  
+	//Test of setWebURL method, of class Project, and see if a WrongWebURLException is thrown	  
 	public
 		  void testSetWebURLWrong ()
 		{
@@ -358,18 +331,20 @@ public
 		return;
 		}
 
+	//Test of setSshURL method, of class Project, and see if a WrongSshURLException is thrown	  	  
 	public
 		  void testSetSshURLWrong ()
 		{
 		System.out.println("testSetSshURLWrong");
 		Project proj = new Project(4, "Projet Test", "https://www.test.com/project.git", "test@test.com:blabla", 5);
-		assertThrows(WrongWebURL.class, () ->
+		assertThrows(WrongSshURL.class, () ->
 			{
-			proj.setWebURL("");
+			proj.setSshURL("");
 			});
 		return;
 		}
 
+	//Test of setNbCommits method, of class Project, and see if a NegativeNumberOfCommitsException is thrown	  	  
 	public
 		  void testSetNbCommitsNegative ()
 		{
@@ -382,6 +357,7 @@ public
 		return;
 		}
 
+	//Test of setLstMembers method, of class Project, and see if a AnyMaintainerAvailableException is thrown	  	  
 	public
 		  void testSetLstMembersAnyMaintainer ()
 		{
