@@ -35,3 +35,11 @@ aucun projet existant)->(end)
 ```
 e8a6b68e7229d315d5aefb26da6361efffb5d1c44e4d14b45623633a
 ```
+
+- La Javadoc est générée dans le dossier suivant (en se plaçant à la base du projet) :
+
+```
+target/site/apidocs
+```
+
+Ce dossier contient de multiples fichiers HTML. En ce qui concerne le fichier .gitignore, le répertoire /target étant déjà indiqué, il n'est pas nécessaire de rajouter le chemin du dossier de la Javadoc.
