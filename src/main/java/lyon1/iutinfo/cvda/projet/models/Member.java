@@ -19,17 +19,39 @@ public
 	  class Member
 	{
 
+	/**
+	 * the id
+	 */
 	protected
 		  int id;
+
+	/**
+	 * the name
+	 */
 	protected
 		  String name;
+
+	/**
+	 * the email address
+	 */
 	protected
 		  String email;
+
+	/**
+	 * the website URL
+	 */
 	protected
 		  String website;
+
+	/**
+	 * the map of role & projects' member
+	 */
 	protected
 		  HashMap<String, ArrayList<Project>> lstProjects;
 
+	/**
+	 * constructor having no params
+	 */
 	public
 		  Member ()
 		{
@@ -40,6 +62,13 @@ public
 		this.lstProjects = null;
 		}
 
+	/**
+	 * constructor using several params to define a member
+	 * @param i the id
+	 * @param n the name
+	 * @param e the email address
+	 * @param w the website URL
+	 */
 	public
 		  Member (int i, String n, String e, String w)
 		{
@@ -50,6 +79,10 @@ public
 		this.lstProjects = new HashMap<>();
 		}
 
+	/**
+	 * member's information
+	 * @return a string about member's information
+	 */
 	public
 		  String toString ()
 		{
@@ -61,6 +94,10 @@ public
 		return info;
 		}
 
+	/**
+	 * get the member's projects 
+	 * @return a string of member's projects
+	 */
 	public
 		  String getMemberProjects ()
 		{
@@ -75,12 +112,21 @@ public
 		return projects;
 		}
 
+	/**
+	 * get the id
+	 * @return an int of the id
+	 */
 	public
 		  int getId ()
 		{
 		return this.id;
 		}
-
+		  
+	/**
+	 * set the member's id
+	 * @param id the id to set
+	 * @throws NegativeMemberID if the id is less than or equals to 0
+	 */	  
 	public
 		  void setId (int id) throws NegativeMemberID
 		{
@@ -95,12 +141,20 @@ public
 		return;
 		}
 
+	/**
+	 * get the name
+	 * @return a string of the name
+	 */
 	public
 		  String getName ()
 		{
 		return this.name;
 		}
 
+	/**
+	 * set the member's name
+	 * @param name the name to set
+	 */
 	public
 		  void setName (String name)
 		{
@@ -108,12 +162,21 @@ public
 		return;
 		}
 
+	/**
+	 * get the member's email address
+	 * @return a string of an email adress
+	 */
 	public
 		  String getEmail ()
 		{
 		return this.email;
 		}
 
+	/**
+	 * set the member's email address
+	 * @param email the email address to set
+	 * @throws WrongEmailAddress if the address doesn't look like an email one
+	 */	  
 	public
 		  void setEmail (String email) throws WrongEmailAddress
 		{
@@ -128,12 +191,21 @@ public
 		return;
 		}
 
+	/**
+	 * get the website URL
+	 * @return a string of the website URL
+	 */
 	public
 		  String getWebsite ()
 		{
 		return this.website;
 		}
 
+	/**
+	 * set the website URL
+	 * @param website the address to set
+	 * @throws WrongWebsiteURL if the address doesn't look like an correct one
+	 */	  
 	public
 		  void setWebsite (String website) throws WrongWebsiteURL
 		{
@@ -148,12 +220,20 @@ public
 		return;
 		}
 
+	/**
+	 * get the member's roles & projects 
+	 * @return a map of roles & projects
+	 */
 	public
 		  HashMap<String, ArrayList<Project>> getLstProjects ()
 		{
 		return this.lstProjects;
 		}
 
+	/**
+	 * set the member's roles & projects
+	 * @param lstProjects the map to set
+	 */
 	public
 		  void setLstProjects (HashMap<String, ArrayList<Project>> lstProjects)
 		{
@@ -161,6 +241,10 @@ public
 		return;
 		}
 
+	/**
+	 * get the member's number of projects
+	 * @return an int of the projects' number
+	 */
 	public
 		  int getNbProjects ()
 		{
@@ -172,6 +256,10 @@ public
 		return nb_projects;
 		}
 
+	/**
+	 * get the member's information to an XML format
+	 * @return a string of the XML member's information
+	 */
 	public
 		  String toXML ()
 		{
