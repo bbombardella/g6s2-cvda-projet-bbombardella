@@ -64,6 +64,7 @@ public
 
 	/**
 	 * constructor using several params to define a member
+	 *
 	 * @param i the id
 	 * @param n the name
 	 * @param e the email address
@@ -81,6 +82,7 @@ public
 
 	/**
 	 * member's information
+	 *
 	 * @return a string about member's information
 	 */
 	public
@@ -95,7 +97,8 @@ public
 		}
 
 	/**
-	 * get the member's projects 
+	 * get the member's projects
+	 *
 	 * @return a string of member's projects
 	 */
 	public
@@ -114,6 +117,7 @@ public
 
 	/**
 	 * get the id
+	 *
 	 * @return an int of the id
 	 */
 	public
@@ -121,12 +125,13 @@ public
 		{
 		return this.id;
 		}
-		  
+
 	/**
 	 * set the member's id
+	 *
 	 * @param id the id to set
 	 * @throws NegativeMemberID if the id is less than or equals to 0
-	 */	  
+	 */
 	public
 		  void setId (int id) throws NegativeMemberID
 		{
@@ -143,6 +148,7 @@ public
 
 	/**
 	 * get the name
+	 *
 	 * @return a string of the name
 	 */
 	public
@@ -153,6 +159,7 @@ public
 
 	/**
 	 * set the member's name
+	 *
 	 * @param name the name to set
 	 */
 	public
@@ -164,6 +171,7 @@ public
 
 	/**
 	 * get the member's email address
+	 *
 	 * @return a string of an email adress
 	 */
 	public
@@ -174,9 +182,10 @@ public
 
 	/**
 	 * set the member's email address
+	 *
 	 * @param email the email address to set
 	 * @throws WrongEmailAddress if the address doesn't look like an email one
-	 */	  
+	 */
 	public
 		  void setEmail (String email) throws WrongEmailAddress
 		{
@@ -193,6 +202,7 @@ public
 
 	/**
 	 * get the website URL
+	 *
 	 * @return a string of the website URL
 	 */
 	public
@@ -203,9 +213,10 @@ public
 
 	/**
 	 * set the website URL
+	 *
 	 * @param website the address to set
 	 * @throws WrongWebsiteURL if the address doesn't look like an correct one
-	 */	  
+	 */
 	public
 		  void setWebsite (String website) throws WrongWebsiteURL
 		{
@@ -221,7 +232,8 @@ public
 		}
 
 	/**
-	 * get the member's roles & projects 
+	 * get the member's roles & projects
+	 *
 	 * @return a map of roles & projects
 	 */
 	public
@@ -232,6 +244,7 @@ public
 
 	/**
 	 * set the member's roles & projects
+	 *
 	 * @param lstProjects the map to set
 	 */
 	public
@@ -243,6 +256,7 @@ public
 
 	/**
 	 * get the member's number of projects
+	 *
 	 * @return an int of the projects' number
 	 */
 	public
@@ -258,6 +272,7 @@ public
 
 	/**
 	 * get the member's information to an XML format
+	 *
 	 * @return a string of the XML member's information
 	 */
 	public

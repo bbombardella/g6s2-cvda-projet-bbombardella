@@ -39,31 +39,31 @@ public
 	 */
 	protected
 		  int id;
-	
+
 	/**
 	 * the name
 	 */
 	protected
 		  String name;
-	
+
 	/**
 	 * the git web URL
 	 */
 	protected
 		  String webURL;
-	
+
 	/**
 	 * the git ssh URL
 	 */
 	protected
 		  String sshURL;
-	
+
 	/**
 	 * the number of commits
 	 */
 	protected
 		  int nbCommits;
-	
+
 	/**
 	 * the map of roles & members
 	 */
@@ -86,12 +86,13 @@ public
 
 	/**
 	 * constructor using several params to define a project
-	 * @param i the id
-	 * @param n the name
-	 * @param wURL the git https URL
-	 * @param sURL the git ssh URL
+	 *
+	 * @param i        the id
+	 * @param n        the name
+	 * @param wURL     the git https URL
+	 * @param sURL     the git ssh URL
 	 * @param nCommits the number of commits
-	 */	  
+	 */
 	public
 		  Project (int i, String n, String wURL, String sURL, int nCommits)
 		{
@@ -105,8 +106,9 @@ public
 
 	/**
 	 * get the project's information
+	 *
 	 * @return a string of the project's information
-	 */	  
+	 */
 	public
 		  String toString ()
 		{
@@ -124,6 +126,7 @@ public
 
 	/**
 	 * get the project's members' informations
+	 *
 	 * @return a string of project's members' informations
 	 */
 	public
@@ -142,10 +145,12 @@ public
 
 	/**
 	 * get the project's informations in an XML format
+	 *
 	 * @return	a string of XML project's informations
-	 * @throws TransformerException throw TransformerException
+	 *
+	 * @throws TransformerException         throw TransformerException
 	 * @throws ParserConfigurationException throw ParserConfigurationException
-	 */	  
+	 */
 	public
 		  String toXML () throws TransformerException, ParserConfigurationException
 		{
@@ -156,9 +161,11 @@ public
 
 	/**
 	 * build the root of the XML informations
+	 *
 	 * @return	the root of the XML informations
+	 *
 	 * @throws ParserConfigurationException throw ParserConfigurationException
-	 */  
+	 */
 	private
 		  Document XMLBuildNodes () throws ParserConfigurationException
 		{
@@ -180,9 +187,10 @@ public
 
 	/**
 	 * get the project XML node
+	 *
 	 * @param doc the XML informations
 	 * @return the modificated XML informations with the project node
-	 */	  
+	 */
 	private
 		  Element projectNodeXML (Document doc)
 		{
@@ -195,9 +203,10 @@ public
 
 	/**
 	 * get the name XML node
+	 *
 	 * @param doc the XML informations
 	 * @return the modificated XML informations with the name node
-	 */  
+	 */
 	private
 		  Element nameNodeXML (Document doc)
 		{
@@ -209,9 +218,10 @@ public
 
 	/**
 	 * get the git web URL XML node
+	 *
 	 * @param doc the XML informations
 	 * @return the modificated XML informations with the git web URL node
-	 */  
+	 */
 	private
 		  Element webURLNodeXML (Document doc)
 		{
@@ -222,6 +232,7 @@ public
 
 	/**
 	 * get the git SSH URL XML node
+	 *
 	 * @param doc the XML informations
 	 * @return the modificated XML informations with the git SSH URL node
 	 */
@@ -235,7 +246,8 @@ public
 
 	/**
 	 * get the project's members XML node
-	 * @param doc the XML informations
+	 *
+	 * @param doc             the XML informations
 	 * @param members_element the node of members to add those ones
 	 */
 	private
@@ -262,8 +274,10 @@ public
 
 	/**
 	 * convert the XML document to a String
+	 *
 	 * @param doc the XML document
 	 * @return the string of XML document
+	 *
 	 * @throws TransformerException throw TransformerException
 	 */
 	private
@@ -280,6 +294,7 @@ public
 
 	/**
 	 * get the project's id
+	 *
 	 * @return an int of the project's id
 	 */
 	public
@@ -290,6 +305,7 @@ public
 
 	/**
 	 * set the project's id
+	 *
 	 * @param id the id to set
 	 * @throws NegativeProjectID if the id is less than or equals to 0
 	 */
@@ -309,6 +325,7 @@ public
 
 	/**
 	 * get the project's name
+	 *
 	 * @return the string of the project's name
 	 */
 	public
@@ -319,6 +336,7 @@ public
 
 	/**
 	 * set the project's name
+	 *
 	 * @param name the name to set
 	 */
 	public
@@ -330,6 +348,7 @@ public
 
 	/**
 	 * get the project's git web URL
+	 *
 	 * @return a string of the git web URL
 	 */
 	public
@@ -340,6 +359,7 @@ public
 
 	/**
 	 * set the project's git web URL
+	 *
 	 * @param webURL the URL to set
 	 * @throws WrongWebURL if the URL to set doesn't look like an correct one
 	 */
@@ -359,6 +379,7 @@ public
 
 	/**
 	 * get the project's git SSH URL
+	 *
 	 * @return a string of the project's git SSH URL
 	 */
 	public
@@ -369,6 +390,7 @@ public
 
 	/**
 	 * set the project's git SSH URL
+	 *
 	 * @param sshURL the URL to set
 	 * @throws WrongSshURL if the URL to set doesn't look like an correct SSH format
 	 */
@@ -388,6 +410,7 @@ public
 
 	/**
 	 * get the project's number of commits
+	 *
 	 * @return an int of the project's number of commits
 	 */
 	public
@@ -398,6 +421,7 @@ public
 
 	/**
 	 * set the project's number of commits
+	 *
 	 * @param nbCommits the number to set
 	 * @throws NegativeNumberOfCommits if the number to set is negative
 	 */
@@ -417,6 +441,7 @@ public
 
 	/**
 	 * get the project's map roles & members
+	 *
 	 * @return an map of project's roles & members
 	 */
 	public
@@ -427,6 +452,7 @@ public
 
 	/**
 	 * set the project's map roles & members
+	 *
 	 * @param lstMembers the map to set
 	 * @throws AnyMaintainerAvailable if there's no maintainers inside the list
 	 */
@@ -446,6 +472,7 @@ public
 
 	/**
 	 * get the project's number of members
+	 *
 	 * @return an int of the project's number of members
 	 */
 	public
