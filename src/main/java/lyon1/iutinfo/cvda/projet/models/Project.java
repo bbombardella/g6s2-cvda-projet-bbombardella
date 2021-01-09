@@ -65,7 +65,7 @@ public
 		  int nbCommits;
 
 	/**
-	 * the map of roles & members
+	 * the map of roles and members
 	 */
 	protected
 		  HashMap<String, ArrayList<Member>> lstMembers;
@@ -440,9 +440,9 @@ public
 		}
 
 	/**
-	 * get the project's map roles & members
+	 * get the project's map roles and members
 	 *
-	 * @return an map of project's roles & members
+	 * @return an map of project's roles and members
 	 */
 	public
 		  HashMap<String, ArrayList<Member>> getLstMembers ()
@@ -451,7 +451,7 @@ public
 		}
 
 	/**
-	 * set the project's map roles & members
+	 * set the project's map roles and members
 	 *
 	 * @param lstMembers the map to set
 	 * @throws AnyMaintainerAvailable if there's no maintainers inside the list

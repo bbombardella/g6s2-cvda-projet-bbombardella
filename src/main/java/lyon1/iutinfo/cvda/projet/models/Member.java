@@ -44,7 +44,7 @@ public
 		  String website;
 
 	/**
-	 * the map of role & projects' member
+	 * the map of role and projects' member
 	 */
 	protected
 		  HashMap<String, ArrayList<Project>> lstProjects;
@@ -232,9 +232,9 @@ public
 		}
 
 	/**
-	 * get the member's roles & projects
+	 * get the member's roles and projects
 	 *
-	 * @return a map of roles & projects
+	 * @return a map of roles and projects
 	 */
 	public
 		  HashMap<String, ArrayList<Project>> getLstProjects ()
@@ -243,7 +243,7 @@ public
 		}
 
 	/**
-	 * set the member's roles & projects
+	 * set the member's roles and projects
 	 *
 	 * @param lstProjects the map to set
 	 */
