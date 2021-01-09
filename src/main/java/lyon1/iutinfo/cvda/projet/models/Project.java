@@ -34,19 +34,45 @@ public
 	  class Project
 	{
 
+	/**
+	 * the id
+	 */
 	protected
 		  int id;
+	
+	/**
+	 * the name
+	 */
 	protected
 		  String name;
+	
+	/**
+	 * the git web URL
+	 */
 	protected
 		  String webURL;
+	
+	/**
+	 * the git ssh URL
+	 */
 	protected
 		  String sshURL;
+	
+	/**
+	 * the number of commits
+	 */
 	protected
 		  int nbCommits;
+	
+	/**
+	 * the map of roles & members
+	 */
 	protected
 		  HashMap<String, ArrayList<Member>> lstMembers;
 
+	/**
+	 * constructor with no params
+	 */
 	public
 		  Project ()
 		{
@@ -58,6 +84,14 @@ public
 		this.lstMembers = null;
 		}
 
+	/**
+	 * constructor using several params to define a project
+	 * @param i the id
+	 * @param n the name
+	 * @param wURL the git https URL
+	 * @param sURL the git ssh URL
+	 * @param nCommits the number of commits
+	 */	  
 	public
 		  Project (int i, String n, String wURL, String sURL, int nCommits)
 		{
@@ -69,6 +103,10 @@ public
 		this.lstMembers = new HashMap<>();
 		}
 
+	/**
+	 * get the project's information
+	 * @return a string of the project's information
+	 */	  
 	public
 		  String toString ()
 		{
@@ -84,6 +122,10 @@ public
 		return (info);
 		}
 
+	/**
+	 * get the project's members' informations
+	 * @return a string of project's members' informations
+	 */
 	public
 		  String getProjectMembers ()
 		{
@@ -98,6 +140,12 @@ public
 		return members_info;
 		}
 
+	/**
+	 * get the project's informations in an XML format
+	 * @return	a string of XML project's informations
+	 * @throws TransformerException throw TransformerException
+	 * @throws ParserConfigurationException throw ParserConfigurationException
+	 */	  
 	public
 		  String toXML () throws TransformerException, ParserConfigurationException
 		{
@@ -106,6 +154,11 @@ public
 		return xml_string;
 		}
 
+	/**
+	 * build the root of the XML informations
+	 * @return	the root of the XML informations
+	 * @throws ParserConfigurationException throw ParserConfigurationException
+	 */  
 	private
 		  Document XMLBuildNodes () throws ParserConfigurationException
 		{
@@ -125,6 +178,11 @@ public
 		return doc;
 		}
 
+	/**
+	 * get the project XML node
+	 * @param doc the XML informations
+	 * @return the modificated XML informations with the project node
+	 */	  
 	private
 		  Element projectNodeXML (Document doc)
 		{
@@ -135,6 +193,11 @@ public
 		return root_element;
 		}
 
+	/**
+	 * get the name XML node
+	 * @param doc the XML informations
+	 * @return the modificated XML informations with the name node
+	 */  
 	private
 		  Element nameNodeXML (Document doc)
 		{
@@ -144,6 +207,11 @@ public
 
 		}
 
+	/**
+	 * get the git web URL XML node
+	 * @param doc the XML informations
+	 * @return the modificated XML informations with the git web URL node
+	 */  
 	private
 		  Element webURLNodeXML (Document doc)
 		{
@@ -152,6 +220,11 @@ public
 		return web_url_element;
 		}
 
+	/**
+	 * get the git SSH URL XML node
+	 * @param doc the XML informations
+	 * @return the modificated XML informations with the git SSH URL node
+	 */
 	private
 		  Element sshURLNodeXML (Document doc)
 		{
@@ -160,6 +233,11 @@ public
 		return ssh_url_element;
 		}
 
+	/**
+	 * get the project's members XML node
+	 * @param doc the XML informations
+	 * @param members_element the node of members to add those ones
+	 */
 	private
 		  void membersNodeXML (Document doc, Element members_element)
 		{
@@ -182,6 +260,12 @@ public
 		return;
 		}
 
+	/**
+	 * convert the XML document to a String
+	 * @param doc the XML document
+	 * @return the string of XML document
+	 * @throws TransformerException throw TransformerException
+	 */
 	private
 		  String nodeToString (Document doc) throws TransformerException
 		{
@@ -194,12 +278,21 @@ public
 		return string_writer.toString();
 		}
 
+	/**
+	 * get the project's id
+	 * @return an int of the project's id
+	 */
 	public
 		  int getId ()
 		{
 		return this.id;
 		}
 
+	/**
+	 * set the project's id
+	 * @param id the id to set
+	 * @throws NegativeProjectID if the id is less than or equals to 0
+	 */
 	public
 		  void setId (int id) throws NegativeProjectID
 		{
@@ -214,12 +307,20 @@ public
 		return;
 		}
 
+	/**
+	 * get the project's name
+	 * @return the string of the project's name
+	 */
 	public
 		  String getName ()
 		{
 		return this.name;
 		}
 
+	/**
+	 * set the project's name
+	 * @param name the name to set
+	 */
 	public
 		  void setName (String name)
 		{
@@ -227,12 +328,21 @@ public
 		return;
 		}
 
+	/**
+	 * get the project's git web URL
+	 * @return a string of the git web URL
+	 */
 	public
 		  String getWebURL ()
 		{
 		return this.webURL;
 		}
 
+	/**
+	 * set the project's git web URL
+	 * @param webURL the URL to set
+	 * @throws WrongWebURL if the URL to set doesn't look like an correct one
+	 */
 	public
 		  void setWebURL (String webURL) throws WrongWebURL
 		{
@@ -247,12 +357,21 @@ public
 		return;
 		}
 
+	/**
+	 * get the project's git SSH URL
+	 * @return a string of the project's git SSH URL
+	 */
 	public
 		  String getSshURL ()
 		{
 		return this.sshURL;
 		}
 
+	/**
+	 * set the project's git SSH URL
+	 * @param sshURL the URL to set
+	 * @throws WrongSshURL if the URL to set doesn't look like an correct SSH format
+	 */
 	public
 		  void setSshURL (String sshURL) throws WrongSshURL
 		{
@@ -267,12 +386,21 @@ public
 		return;
 		}
 
+	/**
+	 * get the project's number of commits
+	 * @return an int of the project's number of commits
+	 */
 	public
 		  int getNbCommits ()
 		{
 		return this.nbCommits;
 		}
 
+	/**
+	 * set the project's number of commits
+	 * @param nbCommits the number to set
+	 * @throws NegativeNumberOfCommits if the number to set is negative
+	 */
 	public
 		  void setNbCommits (int nbCommits) throws NegativeNumberOfCommits
 		{
@@ -287,12 +415,21 @@ public
 		return;
 		}
 
+	/**
+	 * get the project's map roles & members
+	 * @return an map of project's roles & members
+	 */
 	public
 		  HashMap<String, ArrayList<Member>> getLstMembers ()
 		{
 		return this.lstMembers;
 		}
 
+	/**
+	 * set the project's map roles & members
+	 * @param lstMembers the map to set
+	 * @throws AnyMaintainerAvailable if there's no maintainers inside the list
+	 */
 	public
 		  void setLstMembers (HashMap<String, ArrayList<Member>> lstMembers) throws AnyMaintainerAvailable
 		{
@@ -307,6 +444,10 @@ public
 		return;
 		}
 
+	/**
+	 * get the project's number of members
+	 * @return an int of the project's number of members
+	 */
 	public
 		  int getNbMembers ()
 		{
